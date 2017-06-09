@@ -1,5 +1,5 @@
 package fgo;
 
 public class Sample {
-int i =0;
+int i;
 }
