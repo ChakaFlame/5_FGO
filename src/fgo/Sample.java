@@ -4,5 +4,5 @@ public class Sample {
 
 	int a;
 
-int i = 100;
+int i = 14400;
 }
