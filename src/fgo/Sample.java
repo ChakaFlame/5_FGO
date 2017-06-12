@@ -1,8 +1,6 @@
-package fgo;
+	package fgo;
 
 public class Sample {
+	int i = 100;
 
-	int a;
-
-int i = 14400;
 }
