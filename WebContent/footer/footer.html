@@ -4,18 +4,57 @@
 <meta charset="UTF-8">
 
 <style>
- footer {
-           	background-color: #5A5050;;
-            width: 100%;
-            bottom: 0;
-            position: fixed;
-        }
+/**
+ * Demo Styles
+ */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #5A5050;
+  text-align: center;
+}
 </style>
+
 <title>Footer</title>
 </head>
-
 <body>
-<footer></footer>
+
+<div class="footer">
+	<table style="color:white;">
+		<tr>
+			<td style="width: 75%;"> </td>
+			<td align="center" style="width: 25%; "><img src="top.png" alt="topへ" style="width: 30px; height: 30px; "></td>
+		</tr>
+	</table>
+</div>
 
 </body>
 </html>
