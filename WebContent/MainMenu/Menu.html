@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <style>
 html, body {
-  height: 92%;
+  height: 100%;
   margin: 0;
 }
 .wrapper {
-  min-height: 100%;
+  min-height: 80%;
 
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */
@@ -18,7 +18,7 @@ html, body {
 }
 .footer,
 .push {
-  height: 10%;
+  height: 5%;
 }
 
 div.card {
@@ -44,8 +44,15 @@ header {
     font-family: "Verdana";
 	box-shadow: 0 5px 2px -2px gray;
  }
+
+section {
+	overflow: hidden;
+	margin-left:8%;
+	margin-right:5%;
+}
+
 footer {
-	margin-top:4%;
+	margin-top:6%;
 	background: #5A5050;
 	height:2%;
 	color:white;
@@ -60,7 +67,7 @@ footer {
 <h2 style="padding-left:2%" >FLM Tours</h2>
 </header>
 
-<section class="wrapper" style="overflow: hidden; margin-left:8%; margin-right:5%">
+<section class="wrapper" >
 	<div class="card" style="background-color: #547A82;">
 	  <div class="header">
 	  	<img alt="globe" src="hotel.png" style="padding-top:40px; width:90px">
