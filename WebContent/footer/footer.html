@@ -1,14 +1,52 @@
 <!DOCTYPE html>
-<html style="height: 121px; ">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<style>
+/**
+ * Demo Styles
+ */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #5A5050;
+  text-align: center;
+}
+</style>
+
+<title>Footer</title>
 </head>
 <body>
-<a href="#"></a>
-<div style="text-align:right;">
-<input type="BUTTON" value="メニューへ戻る">
-<a href="#" title="ページ最上部へ"><img src="up.png" width=100></a>
+
+<div class="footer">
+	<table style="color:white; font-family: 'Verdana'; width:100%;">
+		<tr>
+			<td align="right" style="font-size:20px;" >
+			TOPへ <img src="up.png" alt="topへ" style="width: 20px; height: 20px;">
+			</td>
+		</tr>
+	</table>
 </div>
+
 </body>
 </html>
