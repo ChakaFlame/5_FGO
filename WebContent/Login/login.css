@@ -1,14 +1,4 @@
 @CHARSET "UTF-8";
-.sample1 {
-	color:#ffffff;
-    background-color:#6495ed;
-    padding:10px;
-    text-align:center;
-}
-.sample2 {
-	color:#dc143c;
-	text-align:center;
-}
 .button {
     width:200px;
     font-size:15px;
@@ -24,11 +14,9 @@
     background-color:#6495ed;
     border-radius:5px;
 }
-.padding {
+.sample1 {
+	color:#ffffff;
+    background-color:#6495ed;
     padding:10px;
-    text-align:left;
-}
-.pulldown{
-	width:margin-right: auto;
-	padding:10px;
+    text-align:center;
 }
