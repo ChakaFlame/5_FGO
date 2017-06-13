@@ -32,6 +32,10 @@
 	width:margin-right: auto;
 	padding:10px;
 }
-.number{
+.number1{
 	text-align:right;
+}
+.number2{
+	text-align:right;
+	padding-left:10px;
 }
