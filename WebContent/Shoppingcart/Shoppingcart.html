@@ -15,6 +15,7 @@
 	<div align="center">
 		<table border="0">
 		<tr class="sample1">
+			<td></td>
 			<td class="padding">ホテルコード</td>
 			<td class="padding">ホテル名</td>
 			<td class="padding">宿泊日</td>
@@ -23,11 +24,12 @@
 			<td class="padding">小計</td>
 		</tr>
 		<tr>
+			<td><input type="checkbox"></td>
 			<td>FKO001</td>
 			<td>福岡プリンセスホテル</td>
 			<td>2020/08/15</td>
-			<td>15,000円</td>
-			<td  align="right">
+			<td class="number">15,000円</td>
+			<td  align="left">
 				<select name="部屋数">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -38,31 +40,14 @@
 					<option value="7">7</option>
 				</select>
 			</td>
-			<td>15,000円</td>
+			<td class="number">15,000円</td>
 		</tr>
 		<tr>
-			<td>FKO002</td>
-			<td>アサトンタワーホテル　博多</td>
-			<td>2020/08/16</td>
-			<td>15,000円</td>
-			<td  align="right">
-				<select name="部屋数">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-				</select>
-			</td>
-			<td>15,000円</td>
-		</tr>
-		<tr>
-			<td colspan="4" align="right">合計（２件）<td>
-			<td class="sample2">30,000円</td>
+			<td colspan="5" align="right">合計（１件）<td>
+			<td class="sample2">15,000円</td>
 		</tr>
 		</table>
+		<input type="button" name="delete" value="削除" class="del">
 	</div>
 	<br>
 	<br>
