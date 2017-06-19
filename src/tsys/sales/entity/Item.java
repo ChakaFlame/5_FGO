@@ -1,6 +1,6 @@
 package tsys.sales.entity;
 
-public class item {
+public class Item {
 	/** ホテルインスタンス */
 	private Hotel hotel;
 	/** 予約数 */
@@ -10,14 +10,15 @@ public class item {
 	/**
 	 *
 	 */
-	public item() {
+	public Item() {
 	}
 	/**
 	 * @param hotel
 	 * @param reservNo
 	 * @param price
+	 * @return
 	 */
-	public item(Hotel hotel, int reservNo, int price) {
+	public Item(Hotel hotel, int reservNo, int price) {
 		this.hotel = hotel;
 		this.reservNo = reservNo;
 		this.price = price;
