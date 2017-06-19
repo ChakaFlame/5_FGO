@@ -111,8 +111,6 @@ public class OrderDAO {
     	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
     	int insertCount;
-    	int insertDetailCount;
-    	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, Order.getOrderNo());
@@ -123,17 +121,27 @@ public class OrderDAO {
     		insertCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
+    	} finally {
+    		if (stmt != null) {
+    			stmt.close();
+    		}
     	}
+    	insertFlag = true;
+    	return insertFlag;
+    }
+     public boolean insertOrderDetail(OrderDetail order){
+    	boolean insertFlag = false;
     	//OrderDetailテーブルに該当の受注情報を追加
-    	sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
-    	stmt = null;
+    	String sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
+    	PreparedStatement stmt = null;
+    	int insertCount;
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderDetail.getOrderNo());
     		stmt.setString(2, OrderDetail.getItemCode());
     		stmt.setInt(3, OrderDetail.getPrice());
     		stmt.setInt(4, OrderDetail.getQuantity());
-    		insertDetailCount = stmt.executeUpdate();
+    		insertCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
     	} finally {
@@ -141,7 +149,6 @@ public class OrderDAO {
     			stmt.close();
     		}
     	}
-    	con.commit();
     	insertFlag = true;
     	return insertFlag;
     }
