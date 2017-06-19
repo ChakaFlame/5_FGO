@@ -38,7 +38,37 @@ public class OrderDAO {
      * 注文詳細
      */
     public ArrayList<OrderDetaill> findOrderDetail(int orderNo){
-    	return ;
+    	String sql = "SELECT * FROM OrderDetail WHERE OrderNo = ?";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	Member member = null;
+
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, orderNo);
+    		res = stmt.executeQuery();
+
+    		//検索結果がある場合、検索結果の数だけOrderDetailListに格納する。
+    		ArrayList<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
+    		if(res.next()) {
+    			orderDetailList.add( new OrderDetail(
+    					res.getString("orderNo"),
+    					res.getString("itemCode"),
+    					res.getString("name"),
+    					res.getString("price"),
+    					res.getString("quantity")));
+    		}
+    	} catch (SQLException e) {
+    		throw e;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	return orderDetailList;
     }
 
     /*
