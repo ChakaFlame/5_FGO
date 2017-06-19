@@ -1,8 +1,8 @@
 package tsys.sales.test;
-
+/*
 import java.sql.Connection;
 import java.sql.SQLException;
-/*
+
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.HotelDAO;
 import tsys.sales.entity.Hotel;
