@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import tsys.sales.entity.Member;
 import tsys.sales.entity.Order;
-import tsys.sales.entity.OrderDetaill;
+import tsys.sales.entity.OrderDetail;
 
 public class OrderDAO {
 
