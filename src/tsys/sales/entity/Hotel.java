@@ -1,4 +1,5 @@
 package tsys.sales.entity;
+
 import java.io.Serializable;
 import java.util.Date;
 
