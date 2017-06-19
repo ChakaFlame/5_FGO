@@ -28,17 +28,6 @@ public class OrderDAO {
     }
 
     /*
-     * 接続のクローズ
-     */
-    public void close() throws SQLException {
-
-        if (con != null) {
-            con.close();
-        }
-
-    }
-
-    /*
      * 注文一覧
      */
     public ArrayList<Order> findOrder(String memberCode){
@@ -77,6 +66,39 @@ public class OrderDAO {
      * メンバーの1件検索
      */
     public Member findAddress(int memberCode){
-    	return ;
+    	String sql = "SELECT * FROM member WHERE MemberCode = ?";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	Member member = null;
+
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, memberCode)
+    		res = stmt.executeQuery();
+
+    		//検索結果がある場合、戻り値に設定する。
+    		if(res.next()) {
+    			member = new Member(
+    					res.getString("memberCode"),
+    					res.getString("name"),
+    					res.getString("password"),
+    					res.getString("mail"),
+    					res.getString("zipCode"),
+    					res.getString("prefecture"),
+    					res.getString("address"),
+    					res.getString("tel"));
+    		}
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    		throw e;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	return Member;
     }
 }
