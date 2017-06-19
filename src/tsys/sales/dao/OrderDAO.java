@@ -6,6 +6,7 @@
 package tsys.sales.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -114,7 +115,7 @@ public class OrderDAO {
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, order.getOrderNo());
-    		stmt.setDate(2, order.getOrderDate());
+    		stmt.setDate(2,order.getOrderDate());
     		stmt.setInt(3, order.getOrderTotal());
     		stmt.setString(4, order.getMemberCode());
     		stmt.setString(5, order.getPayment());
