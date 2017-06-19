@@ -76,7 +76,7 @@ public class OrderDAO {
 
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setint(1, orderNo);
+    		stmt.setInt(1, orderNo);
     		res = stmt.executeQuery();
 
     		//検索結果がある場合、検索結果の数だけOrderDetailListに格納する。
@@ -109,7 +109,8 @@ public class OrderDAO {
     	//OrderMasterテーブルに該当の受注情報を追加
     	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
-    	ResultSet res = null;
+    	int insertCount;
+    	int insertDetailCount;
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
@@ -118,35 +119,23 @@ public class OrderDAO {
     		stmt.setInt(3, Order.Total);
     		stmt.setString(4, Order.MemberCode);
     		stmt.setString(5, Order.Payment);
-    		res = stmt.executeUpdate();
+    		insertCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
-    	} finally {
-    		if(res != null) {
-    			res.close();
-    		}
-    		if (stmt != null) {
-    			stmt.close();
-    		}
     	}
-    	//OrderMasterテーブルに該当の受注情報を追加
+    	//OrderDetailテーブルに該当の受注情報を追加
     	sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
     	stmt = null;
-    	res = null;
-
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderDetail.OrderNo);
     		stmt.setString(2, OrderDetail.ItemCode);
     		stmt.setInt(3, OrderDetail.Price);
     		stmt.setInt(4, OrderDetail.Quantity);
-    		res = stmt.executeUpdate();
+    		insertDetailCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
     	} finally {
-    		if(res != null) {
-    			res.close();
-    		}
     		if (stmt != null) {
     			stmt.close();
     		}
@@ -165,36 +154,26 @@ public class OrderDAO {
     	//OrderMasterテーブルから該当の受注情報を削除
     	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
-    	ResultSet res = null;
+    	int deleteCount;
+    	int deleteCountDetail;
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderNo);
-    		res = stmt.executeUpdate();
+    		deleteCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return deleteFlag;
-    	} finally {
-    		if(res != null) {
-    			res.close();
-    		}
-    		if (stmt != null) {
-    			stmt.close();
-    		}
     	}
     	//OrderDetailテーブルから該当の受注情報を削除
     	sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
     	stmt = null;
-    	res = null;
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderNo);
-    		res = stmt.executeUpdate();
+    		deleteCountDetail = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return deleteFlag;
     	} finally {
-    		if(res != null) {
-    			res.close();
-    		}
     		if (stmt != null) {
     			stmt.close();
     		}
