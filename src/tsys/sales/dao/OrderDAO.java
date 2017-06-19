@@ -5,16 +5,9 @@
  */
 package tsys.sales.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-
-import tsys.sales.entity.Member;
-import tsys.sales.entity.Order;
-import tsys.sales.entity.OrderDetaill;
+import tsys.sales.entity.*;
 
 public class OrderDAO {
 
@@ -37,7 +30,7 @@ public class OrderDAO {
     /*
      * 注文詳細
      */
-    public ArrayList<OrderDetaill> findOrderDetail(int orderNo){
+    public ArrayList<OrderDetail> findOrderDetail(int orderNo){
     	return ;
     }
 
@@ -47,7 +40,7 @@ public class OrderDAO {
     public boolean insertOrder(Order order){
     	boolean insertFlag = false;
 
-    	sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
+    	String sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
     	Member member = null;
