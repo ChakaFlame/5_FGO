@@ -59,21 +59,59 @@ public class OrderDAO {
      * Orderテーブルから削除
      */
     public boolean deleteOrderDetail(int OrderNo){
-    	return ;
+    	boolean deleteFlag = false;
+    	//OrderMasterテーブルから該当の受注情報を削除
+    	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	con.setAutoCommit(false);
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, OrderNo);
+    		res = stmt.executeUpdate();
+    	} catch (SQLException e) {
+    		return deleteFlag;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	//OrderDetailテーブルから該当の受注情報を削除
+    	sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, OrderNo);
+    		res = stmt.executeUpdate();
+    	} catch (SQLException e) {
+    		return deleteFlag;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	con.commit();
+    	deleteFlag = true;
+    	return deleteFlag;
     }
 
     /*
      * メンバーの1件検索
      */
     public Member findAddress(int memberCode){
-    	String sql = "SELECT * FROM member WHERE MemberCode = ?";
+    	String sql = "SELECT * FROM Member WHERE MemberCode = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
     	Member member = null;
 
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, memberCode)
+    		stmt.setString(1, memberCode);
     		res = stmt.executeQuery();
 
     		//検索結果がある場合、戻り値に設定する。
@@ -89,7 +127,6 @@ public class OrderDAO {
     					res.getString("tel"));
     		}
     	} catch (SQLException e) {
-    		e.printStackTrace();
     		throw e;
     	} finally {
     		if(res != null) {
