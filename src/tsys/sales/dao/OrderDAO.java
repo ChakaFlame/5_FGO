@@ -31,7 +31,37 @@ public class OrderDAO {
      * 注文一覧
      */
     public ArrayList<Order> findOrder(String memberCode){
-    	return ;
+    	String sql = "SELECT * FROM OrderMaster WHERE MemberCode = ?";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	Member member = null;
+
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, memberCode);
+    		res = stmt.executeQuery();
+
+    		//検索結果がある場合、検索結果の数だけOrderListに格納する。
+    		ArrayList<Order> orderList = new ArrayList<Order>();
+    		if(res.next()) {
+    			orderList.add( new Order(
+    					res.getString("orderNo"),
+    					res.getDate("orderDate"),
+    					res.getint("orderTotal"),
+    					res.getString("memberCode"),
+    					res.getString("payment")));
+    		}
+    	} catch (SQLException e) {
+    		throw e;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	return orderList;
     }
 
     /*
@@ -99,11 +129,10 @@ public class OrderDAO {
     			stmt.close();
     		}
     	}
-    	//OrderDetailテーブルに該当の受注情報を追加
+    	//OrderMasterテーブルに該当の受注情報を追加
     	sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
-    	PreparedStatement stmt = null;
-    	ResultSet res = null;
-    	Member member = null;
+    	stmt = null;
+    	res = null;
 
     	try {
     		stmt = con.prepareStatement(sql);
@@ -153,9 +182,8 @@ public class OrderDAO {
     	}
     	//OrderDetailテーブルから該当の受注情報を削除
     	sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
-    	PreparedStatement stmt = null;
-    	ResultSet res = null;
-    	Member member = null;
+    	stmt = null;
+    	res = null;
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setString(1, OrderNo);
