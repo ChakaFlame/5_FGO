@@ -1,3 +1,5 @@
+package tsys.sales.entity;
+
 import java.util.Date;
 
 public class Order {
