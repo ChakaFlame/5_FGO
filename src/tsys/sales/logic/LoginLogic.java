@@ -1,3 +1,5 @@
+package tsys.sales.logic;
+
 /**
  * All Rights Reserved, Copyright(c) Fujitsu Learning Media Limited
  *
@@ -7,9 +9,10 @@
 
 
 import java.sql.*;
-import jsys.sales.common.*;
-import jsys.sales.dao.*;
-import jsys.sales.entity.*;
+import tsys.sales.common.*;
+import tsys.sales.dao.*;
+import tsys.sales.entity.*;
+import tsys.sales.dao.ConnectionManager;
 
 public class LoginLogic {
 
@@ -31,8 +34,8 @@ public class LoginLogic {
 				throw new SalesBusinessException("条件に一致する商品がありません。");
 			}
 
-			req.setAttribute("memberCode", member.memberCode);
-			req.setAttribute("password", member.password);
+			req.setAttribute("memberCode", member.getMemberCode());
+			req.setAttribute("password", member.getPassword());
 
 			loginflag = true;
 
