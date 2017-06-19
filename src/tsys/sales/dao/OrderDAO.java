@@ -45,14 +45,33 @@ public class OrderDAO {
      * Orderテーブルに追加
      */
     public boolean insertOrder(Order order){
-    	return ;
-    }
+    	boolean insertFlag = false;
 
-    /*
-     * OrderDetailテーブルに追加
-     */
-    public boolean insertOrderDetail(OrderDetaill orderDetail){
-    	return ;
+    	sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	Member member = null;
+
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, OrderDetail.OrderNo);
+    		stmt.setString(2, OrderDetail.ItemCode);
+    		stmt.setString(3, OrderDetail.Price);
+    		stmt.setString(4, OrderDetail.Quantity);
+    		res = stmt.executeUpdate();
+    	} catch (SQLException e) {
+    		throw e;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	con.commit();
+    	insertFlag = true;
+    	return insertFlag;
     }
 
     /*
