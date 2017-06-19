@@ -46,7 +46,30 @@ public class OrderDAO {
      */
     public boolean insertOrder(Order order){
     	boolean insertFlag = false;
-
+    	//OrderMasterテーブルに該当の受注情報を追加
+    	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	con.setAutoCommit(false);
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setString(1, OrderDetail.OrderNo);
+    		stmt.setDate(2, OrderDetail.Date);
+    		stmt.setint(3, OrderDetail.Total);
+    		stmt.setString(4, OrderDetail.MemberCode);
+    		stmt.setString(5, OrderDetail.Payment);
+    		res = stmt.executeUpdate();
+    	} catch (SQLException e) {
+    		return insertFlag;
+    	} finally {
+    		if(res != null) {
+    			res.close();
+    		}
+    		if (stmt != null) {
+    			stmt.close();
+    		}
+    	}
+    	//OrderDetailテーブルに該当の受注情報を追加
     	sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
@@ -60,7 +83,7 @@ public class OrderDAO {
     		stmt.setString(4, OrderDetail.Quantity);
     		res = stmt.executeUpdate();
     	} catch (SQLException e) {
-    		throw e;
+    		return insertFlag;
     	} finally {
     		if(res != null) {
     			res.close();
@@ -100,6 +123,9 @@ public class OrderDAO {
     	}
     	//OrderDetailテーブルから該当の受注情報を削除
     	sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
+    	PreparedStatement stmt = null;
+    	ResultSet res = null;
+    	Member member = null;
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setString(1, OrderNo);
