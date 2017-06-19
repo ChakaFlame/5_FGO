@@ -7,7 +7,7 @@ import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.HotelDAO;
 import tsys.sales.entity.Hotel;
 
-public class TestHotelDAO_01 {
+public class TestHotelDAO01_01 {
 
 	public static void main(String[] args) {
 

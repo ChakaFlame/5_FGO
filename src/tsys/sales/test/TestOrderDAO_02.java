@@ -1,5 +1,5 @@
 package tsys.sales.test;
-
+/*
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import tsys.sales.dao.OrderDAO;
 import tsys.sales.entity.Order;
 import tsys.sales.entity.OrderDetail;
 
-public class TestOrderDAO01_02 {
+public class TestOrderDAO_02 {
 	public static void main(){
 		Connection con = null;
 

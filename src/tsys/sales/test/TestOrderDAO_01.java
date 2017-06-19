@@ -9,7 +9,7 @@ import tsys.sales.dao.OrderDAO;
 import tsys.sales.entity.Order;
 import tsys.sales.entity.OrderDetail;
 
-public class TestOrderDAO01_01 {
+public class TestOrderDAO_01 {
 	public static void main(){
 		Connection con = null;
 
