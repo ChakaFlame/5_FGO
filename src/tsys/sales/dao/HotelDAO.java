@@ -6,7 +6,6 @@
 package tsys.sales.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import tsys.sales.entity.Hotel;
-import tsys.sales.entity.Item;
 import tsys.sales.entity.OrderDetail;
 
 
@@ -75,7 +73,7 @@ public class HotelDAO {
     /*
      * ホテル条件一致検索
      */
-    public ArrayList<Hotel> searchHotel(int cityCode, Date date){
+    public ArrayList<Hotel> searchHotel(int cityCode, Date date) throws SQLException{
 		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMAster.HotelCode WHERE Date = ? AND CityCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
@@ -103,13 +101,6 @@ public class HotelDAO {
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
-		} finally{
-			if(res != null) {
-				res.close();
-			}
-			if(stmt != null) {
-				stmt.close();
-			}
 		}
     	return hotelList;
     }
@@ -118,36 +109,44 @@ public class HotelDAO {
      * 残室数の更新(取り消し時に増やす)
      */
     public boolean updateStock(ArrayList<OrderDetail> OrderDetailList){
-    	boolean result;
-		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMAster.HotelCode WHERE Date = ? AND CityCode = ?";
+    	boolean result = false;
+		String sql = "update Hotel set Stock = Stock + ? where ItemCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		Hotel hotel = null;
 		ArrayList<Hotel> hotelList = null;
 
 		try {
-			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, cityCode);
-			res =  stmt.executeQuery();
+			for (OrderDetail orderDetail : OrderDetailList) {
+				stmt = con.prepareStatement(sql);
+				stmt.setInt(1, orderDetail.getQuantity());
+				stmt.setString(2, orderDetail.getItemCode());
+				stmt.executeQuery();
+			}
+			result = true;
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw e;
-		} finally{
-			if(res != null) {
-				res.close();
-			}
-			if(stmt != null) {
-				stmt.close();
-			}
 		}
-
-    	return result;
+		return result;
     }
 
     /*
      * 残室数の更新(注文時に減らす)
      */
     public boolean updateStock(String itemCode, int quantity){
-    	return ;
+    	boolean result = false;
+		String sql = "update Hotel set Stock = Stock - ? where ItemCode = ?";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, quantity);
+			stmt.setString(2, itemCode);
+			stmt.executeQuery();
+			result = true;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
     }
 }
