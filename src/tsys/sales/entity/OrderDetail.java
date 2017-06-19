@@ -1,6 +1,8 @@
 package tsys.sales.entity;
 
-public class OrderDetail {
+import java.io.Serializable;
+
+public class OrderDetail implements Serializable {
 	/** 注文番号 */
 	private int orderNo;
 	/** 商品コード */

@@ -1,7 +1,8 @@
 package tsys.sales.entity;
 
+import java.io.Serializable;
 
-public class Member {
+public class Member implements Serializable {
 
 	/** 顧客コード */
 	private String memberCode;

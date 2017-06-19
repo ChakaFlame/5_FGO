@@ -1,8 +1,9 @@
 package tsys.sales.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Order {
+public class Order implements Serializable {
 	/** 注文番号 */
 	private int orderNo;
 	/** 注文日時 */

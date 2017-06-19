@@ -1,7 +1,8 @@
 package tsys.sales.entity;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Hotel {
+public class Hotel implements Serializable {
 	/** 商品コード */
 	private String itemCode;
 	/** ホテルコード */
