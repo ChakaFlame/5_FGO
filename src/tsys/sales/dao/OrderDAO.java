@@ -20,11 +20,8 @@ import tsys.sales.entity.Item;
 
 public class OrderDAO {
 
-    private Connection con;  //接続オブジェクト
-/**
- *
- * aaaaaaaaaaaaaaaaaaaaaaaaaaacon
- */
+private Connection con;  //接続オブジェクト
+
     /*
      * コンストラクタ
      */
