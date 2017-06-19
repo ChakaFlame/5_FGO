@@ -1,6 +1,6 @@
 /**
  *
- * OrberDAO.java
+ * OrderDAO.java
  *
  */
 package tsys.sales.dao;
@@ -159,6 +159,10 @@ public class OrderDAO {
     /*
      * Orderテーブルから削除
      */
+
+    public boolean deleteOrder(int OrderNo){
+    	return ;
+    }
     public boolean deleteOrderDetail(int OrderNo){
     	boolean deleteFlag = false;
     	//OrderMasterテーブルから該当の受注情報を削除
