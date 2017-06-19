@@ -1,6 +1,8 @@
 package tsys.sales.entity;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
 	/** ホテルインスタンス */
 	private Hotel hotel;
 	/** 予約数 */
