@@ -1,10 +1,10 @@
 package tsys.sales.logic;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import jsys.sales.dao.CustomerDAO;
+//import java.sql.Connection;
+//import java.sql.SQLException;
+import tsys.sales.dao.HotelDAO;
 import tsys.sales.dao.ConnectionManager;
+import tsys.sales.dao.OrderDAO;
 import tsys.sales.common.SalesBusinessException;
 import tsys.sales.common.SalesSystemException;
 

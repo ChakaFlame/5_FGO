@@ -1,6 +1,6 @@
 /**
  *
- * OrberDAO.java
+ * OrderDAO.java
  *
  */
 package tsys.sales.dao;
@@ -69,7 +69,7 @@ public class OrderDAO {
     /*
      * Orderテーブルから削除
      */
-    public boolean deleteOrderDetail(int OrderNo){
+    public boolean deleteOrder(int OrderNo){
     	return ;
     }
 
