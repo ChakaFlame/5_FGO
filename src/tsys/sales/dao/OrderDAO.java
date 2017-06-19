@@ -113,11 +113,11 @@ public class OrderDAO {
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, OrderDetail.OrderNo);
-    		stmt.setDate(2, OrderDetail.Date);
-    		stmt.setInt(3, OrderDetail.Total);
-    		stmt.setString(4, OrderDetail.MemberCode);
-    		stmt.setString(5, OrderDetail.Payment);
+    		stmt.setInt(1, Order.OrderNo);
+    		stmt.setDate(2, Order.Date);
+    		stmt.setInt(3, Order.Total);
+    		stmt.setString(4, Order.MemberCode);
+    		stmt.setString(5, Order.Payment);
     		res = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
