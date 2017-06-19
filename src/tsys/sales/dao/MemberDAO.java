@@ -1,3 +1,5 @@
+package tsys.sales.dao;
+
 /**
  *
  * MemberDAO.java
@@ -54,9 +56,9 @@ public class MemberDAO {
 
     		//検索結果がある場合、戻り値に設定する。
     		if (res.next()) {
-    			member = new Member(
-    					res.getString("memberCode"),
-    					res.getString("password"));
+    			member = new Member();
+    			member.setMemberCode(res.getString("memberCode"));
+    			member.setName(res.getString("name"));
     		}
 
     	}catch(SQLException e){
