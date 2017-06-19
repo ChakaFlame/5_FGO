@@ -114,11 +114,11 @@ public class OrderDAO {
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, Order.OrderNo);
-    		stmt.setDate(2, Order.Date);
-    		stmt.setInt(3, Order.Total);
-    		stmt.setString(4, Order.MemberCode);
-    		stmt.setString(5, Order.Payment);
+    		stmt.setInt(1, Order.getOrderNo());
+    		stmt.setDate(2, Order.getDate());
+    		stmt.setInt(3, Order.getTotal());
+    		stmt.setString(4, Order.getMemberCode());
+    		stmt.setString(5, Order.getPayment());
     		insertCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
@@ -128,10 +128,10 @@ public class OrderDAO {
     	stmt = null;
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, OrderDetail.OrderNo);
-    		stmt.setString(2, OrderDetail.ItemCode);
-    		stmt.setInt(3, OrderDetail.Price);
-    		stmt.setInt(4, OrderDetail.Quantity);
+    		stmt.setInt(1, OrderDetail.getOrderNo());
+    		stmt.setString(2, OrderDetail.getItemCode());
+    		stmt.setInt(3, OrderDetail.getPrice());
+    		stmt.setInt(4, OrderDetail.getQuantity());
     		insertDetailCount = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
