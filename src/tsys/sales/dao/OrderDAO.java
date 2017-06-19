@@ -35,6 +35,7 @@ public class OrderDAO {
     	PreparedStatement stmt = null;
     	ResultSet res = null;
     	Member member = null;
+    	ArrayList<Order> orderList = new ArrayList<Order>();
 
     	try {
     		stmt = con.prepareStatement(sql);
@@ -42,12 +43,11 @@ public class OrderDAO {
     		res = stmt.executeQuery();
 
     		//検索結果がある場合、検索結果の数だけOrderListに格納する。
-    		ArrayList<Order> orderList = new ArrayList<Order>();
     		if(res.next()) {
     			orderList.add( new Order(
-    					res.getString("orderNo"),
+    					res.getInt("orderNo"),
     					res.getDate("orderDate"),
-    					res.getint("orderTotal"),
+    					res.getInt("orderTotal"),
     					res.getString("memberCode"),
     					res.getString("payment")));
     		}
@@ -67,26 +67,26 @@ public class OrderDAO {
     /*
      * 注文詳細
      */
-    public ArrayList<OrderDetaill> findOrderDetail(int orderNo){
+    public ArrayList<OrderDetail> findOrderDetail(int orderNo){
     	String sql = "SELECT * FROM OrderDetail WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
     	Member member = null;
+    	ArrayList<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
 
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, orderNo);
+    		stmt.setint(1, orderNo);
     		res = stmt.executeQuery();
 
     		//検索結果がある場合、検索結果の数だけOrderDetailListに格納する。
-    		ArrayList<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
     		if(res.next()) {
     			orderDetailList.add( new OrderDetail(
-    					res.getString("orderNo"),
+    					res.getInt("orderNo"),
     					res.getString("itemCode"),
     					res.getString("name"),
-    					res.getString("price"),
-    					res.getString("quantity")));
+    					res.getInt("price"),
+    					res.getInt("quantity")));
     		}
     	} catch (SQLException e) {
     		throw e;
@@ -113,9 +113,9 @@ public class OrderDAO {
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, OrderDetail.OrderNo);
+    		stmt.setInt(1, OrderDetail.OrderNo);
     		stmt.setDate(2, OrderDetail.Date);
-    		stmt.setint(3, OrderDetail.Total);
+    		stmt.setInt(3, OrderDetail.Total);
     		stmt.setString(4, OrderDetail.MemberCode);
     		stmt.setString(5, OrderDetail.Payment);
     		res = stmt.executeUpdate();
@@ -136,10 +136,10 @@ public class OrderDAO {
 
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, OrderDetail.OrderNo);
+    		stmt.setInt(1, OrderDetail.OrderNo);
     		stmt.setString(2, OrderDetail.ItemCode);
-    		stmt.setString(3, OrderDetail.Price);
-    		stmt.setString(4, OrderDetail.Quantity);
+    		stmt.setInt(3, OrderDetail.Price);
+    		stmt.setInt(4, OrderDetail.Quantity);
     		res = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
@@ -161,9 +161,6 @@ public class OrderDAO {
      */
 
     public boolean deleteOrder(int OrderNo){
-    	return ;
-    }
-    public boolean deleteOrderDetail(int OrderNo){
     	boolean deleteFlag = false;
     	//OrderMasterテーブルから該当の受注情報を削除
     	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
@@ -172,7 +169,7 @@ public class OrderDAO {
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, OrderNo);
+    		stmt.setInt(1, OrderNo);
     		res = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return deleteFlag;
@@ -190,7 +187,7 @@ public class OrderDAO {
     	res = null;
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, OrderNo);
+    		stmt.setInt(1, OrderNo);
     		res = stmt.executeUpdate();
     	} catch (SQLException e) {
     		return deleteFlag;
@@ -210,7 +207,7 @@ public class OrderDAO {
     /*
      * メンバーの1件検索
      */
-    public Member findAddress(int memberCode){
+    public Member findAddress(String memberCode){
     	String sql = "SELECT * FROM Member WHERE MemberCode = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
