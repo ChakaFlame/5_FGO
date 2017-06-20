@@ -154,7 +154,7 @@ public class HotelDAO {
 
 		try {
 			stmt = con.prepareStatement(sql);
-			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			DateFormat format = new SimpleDateFormat("yyyy-M-d");
 			String date = format.format(hotelDate);
 			stmt.setString(1, date);
 			stmt.setString(2, cityCode);
