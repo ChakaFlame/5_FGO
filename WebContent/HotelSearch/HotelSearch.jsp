@@ -32,7 +32,7 @@
 				<td class="padding">宿泊都市を選ぶ</td>
 			</tr>
 			<tr>
-				<td class="padding"><select name="年">
+				<td class="padding"><select name="year">
 						<option value="1">2017</option>
 						<option value="2">2018</option>
 						<option value="3">2019</option>
@@ -43,7 +43,7 @@
 						<option value="8">2024</option>
 						<option value="9">2025</option>
 						<option value="10">2026</option>
-				</select> 年 <select name="月">
+				</select> 年 <select name="month">
 						<option value="6">6</option>
 						<option value="7">7</option>
 						<option value="8">8</option>
@@ -51,7 +51,7 @@
 						<option value="10">10</option>
 						<option value="11">11</option>
 						<option value="12">12</option>
-				</select> 月 <SELECT name="日">
+				</select> 月 <SELECT name="date">
 						<option value="">--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -104,7 +104,8 @@
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<div align="center">
-			<a href="/tourSystem/tsys" class="button" onclick="document.fm.BUTTON_ID.value='0802_01_01'; document.fm.submit()">検索</a>
+			<input type="hidden" name="BUTTON_ID" value="">
+			<a href="/tourSystem/tsys?BUTTON_ID=0802_01_01" class="button">検索</a>
 		</div>
 		<div id="table">
 		<br> <br> <br>
