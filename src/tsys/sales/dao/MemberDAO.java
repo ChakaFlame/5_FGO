@@ -87,7 +87,7 @@ public class MemberDAO {
     	// 作成
     	PreparedStatement stmt = null;
     	ResultSet res = null; 				//結果セット
-    	String sql = "SELECT email" + " FROM Member WHERE Address = ?";
+    	String sql = "SELECT Mail" + " FROM Member WHERE Mail = ?";
     	boolean caflag = true;
 
     	try {
@@ -97,7 +97,6 @@ public class MemberDAO {
 
     		//検索結果がある場合(すでに登録されているアドレスの場合)、フラグを折る。
     		if (res.next()) {
-    			System.out.println("hello");
     			caflag = false;
     		}
 
