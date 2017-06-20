@@ -10,7 +10,7 @@ import tsys.sales.entity.Order;
 import tsys.sales.entity.OrderDetail;
 
 public class TestOrderDAO_02 {
-	public static void main(){
+	public static void main(String[] args){
 		Connection con = null;
 
 		// テストのための準備としてデータベースに接続する。
@@ -21,7 +21,7 @@ public class TestOrderDAO_02 {
 		}
 
 		// ここからテストを行う。
-		int orderNo = 2;
+		int orderNo = 16;
 		try{
 			OrderDAO orderDAO = new OrderDAO(con);
 			ArrayList<OrderDetail> orderDetailList = orderDAO.findOrderDetail(orderNo);
