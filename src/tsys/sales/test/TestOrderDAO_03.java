@@ -2,6 +2,7 @@ package tsys.sales.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,8 +28,18 @@ public class TestOrderDAO_03{
 
 			Order order = new Order();
 
-			String DATE_PATTEN = "yyyy-mm-dd";
-			String sDate = new SimpleDateFormat(DATE_PATTEN).format(date);
+			String string_date = "2017-06-30";
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date date=null;
+			try {
+				date = format.parse(string_date);
+			} catch (ParseException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+
+			System.out.println(string_date);
+			System.out.println(date);
 
 			order.setOrderDate(date);
 			order.setOrderTotal(2000);
