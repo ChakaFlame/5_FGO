@@ -1,6 +1,6 @@
 package tsys.sales.test;
 
-/*
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,13 +29,13 @@ public class TestHotelDAO_03 {
 			OrderDetail orderDetail = new OrderDetail();
 
 			orderDetail.setOrderNo(1);
-			orderDetail.setItemCode("TOR000001");
+			orderDetail.setItemCode("HTL000001");
 			orderDetail.setPrice(25000);
 			orderDetail.setQuantity(2);
 
 			orderDetailList1.add(orderDetail);
 
-			boolean updated = hotelDAO.updateStock(orderDetailList1);
+			boolean updated = hotelDAO.updateStock(orderDetailList2);
 
 			if (updated) {
 				System.out.println("更新完了。");
@@ -46,9 +46,6 @@ public class TestHotelDAO_03 {
 		} catch (NullPointerException e) {
 			System.out.println("NullPointerExceptionがスローされました。");
 			e.printStackTrace();
-		} catch (SQLException e) {
-			System.out.println("SQLExceptionがスローされました。");
-			e.printStackTrace();
 		} finally {
 			try { //データベースへの接続を切断する
 				if (con != null) {
@@ -58,5 +55,6 @@ public class TestHotelDAO_03 {
 				e.printStackTrace();
 			}
 		}
+	}
 }
-*/
+
