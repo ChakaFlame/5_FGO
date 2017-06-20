@@ -6,11 +6,12 @@
 package tsys.sales.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 import tsys.sales.entity.Hotel;
 import tsys.sales.entity.OrderDetail;
@@ -180,8 +181,6 @@ public class HotelDAO {
     	boolean result = false;
 		String sql = "update Hotel set Stock = Stock + ? where ItemCode = ?";
 		PreparedStatement stmt = null;
-		ResultSet res = null;
-		ArrayList<Hotel> hotelList = null;
 		int updated = 0;
 
 		try {
@@ -207,7 +206,6 @@ public class HotelDAO {
     	boolean result = false;
 		String sql = "update Hotel set Stock = Stock - ? where ItemCode = ?";
 		PreparedStatement stmt = null;
-		ResultSet res = null;
 		int updated = 0;
 
 		try {
