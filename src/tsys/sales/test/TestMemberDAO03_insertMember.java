@@ -24,7 +24,7 @@ public class TestMemberDAO03_insertMember {
 		}
 		// ここからテストを行う。
 		try {
-			MemberDAO memberDAO = new MemberDAO(null);		//登録テスト用データの設定
+			MemberDAO memberDAO = new MemberDAO(con);		//登録テスト用データの設定
 			Member member = new Member();
 			member.setName("テストネーム");
 			member.setPassword("pass");
