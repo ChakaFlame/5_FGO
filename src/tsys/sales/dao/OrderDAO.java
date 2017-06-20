@@ -228,6 +228,6 @@ private Connection con;  //接続オブジェクト
     			stmt.close();
     		}
     	}
-    	return Member;
+    	return member;
     }
 }
