@@ -32,7 +32,7 @@ private Connection con;  //接続オブジェクト
     /*
      * 注文一覧
      */
-    public ArrayList<Order> findOrder(String memberCode){
+    public ArrayList<Order> findOrder(String memberCode) throws SQLException{
     	String sql = "SELECT * FROM OrderMaster WHERE MemberCode = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
@@ -69,7 +69,7 @@ private Connection con;  //接続オブジェクト
     /*
      * 注文詳細
      */
-    public ArrayList<OrderDetail> findOrderDetail(int orderNo){
+    public ArrayList<OrderDetail> findOrderDetail(int orderNo) throws SQLException{
     	String sql = "SELECT * FROM OrderDetail WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
@@ -106,7 +106,7 @@ private Connection con;  //接続オブジェクト
     /*
      * Orderテーブルに追加
      */
-    public boolean insertOrder(Order order){
+    public boolean insertOrder(Order order) throws SQLException{
     	boolean insertFlag = false;
     	//OrderMasterテーブルに該当の受注情報を追加
     	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
@@ -130,7 +130,7 @@ private Connection con;  //接続オブジェクト
     	insertFlag = true;
     	return insertFlag;
     }
-     public boolean insertOrderDetail(OrderDetail order){
+     public boolean insertOrderDetail(OrderDetail order) throws SQLException{
     	boolean insertFlag = false;
     	//OrderDetailテーブルに該当の受注情報を追加
     	String sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
@@ -158,7 +158,7 @@ private Connection con;  //接続オブジェクト
      * Orderテーブルから削除
      */
 
-    public boolean deleteOrder(int OrderNo){
+    public boolean deleteOrder(int OrderNo) throws SQLException{
     	boolean deleteFlag = false;
     	//OrderMasterテーブルから該当の受注情報を削除
     	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
@@ -195,7 +195,7 @@ private Connection con;  //接続オブジェクト
     /*
      * メンバーの1件検索
      */
-    public Member findAddress(String memberCode){
+    public Member findAddress(String memberCode) throws SQLException{
     	String sql = "SELECT * FROM Member WHERE MemberCode = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
