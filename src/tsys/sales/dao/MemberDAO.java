@@ -127,28 +127,29 @@ public class MemberDAO {
     	PreparedStatement stmt = null;
     	ResultSet res = null; 				//結果セット
     	Member immember= null;
-    	String sql = "INSERT INTO Member VALUES (?,?,?,?,?,?,?,?)";
-
+    	String sql = "INSERT INTO Member VALUES (\"CM\"+ LPAD(SELECT NEXTVAL(\"CM\"), 4, '0') ,"
+    			+ "?,?,?,?,?,?,?)";
+    	int updated = 0;
 
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, member.getMemberCode());	//→自動採番に要変更
-    		stmt.setString(2, member.getName());
-    		stmt.setString(3, member.getPassword());
-    		stmt.setString(4, member.getMail());
-    		stmt.setString(5, member.getZipCode());
-    		stmt.setString(6, member.getPrefecture());
+    		stmt.setString(1, member.getName());
+    		stmt.setString(2, member.getPassword());
+    		stmt.setString(3, member.getMail());
+    		stmt.setString(4, member.getZipCode());
+    		stmt.setString(5, member.getPrefecture());
     		stmt.setString(6, member.getAddress());
     		stmt.setString(7, member.getTel());
 
-    		res = stmt.executeQuery();
+    		updated = stmt.executeUpdate();
 
-    		//DBに登録した情報をエンティティにも設定
+    		if (updated > 0){
+        		//DBに登録した情報をエンティティにも設定
 
-    								//↓自動採番と同じ番号に要変更
-    		immember = new Member(member.getMemberCode(), member.getName(), member.getPassword(),
-    							member.getMail(), member.getZipCode(), member.getPrefecture(), member.getAddress(), member.getTel());
-
+				//↓自動採番と同じ番号に要変更
+    			immember = new Member(member.getMemberCode(), member.getName(), member.getPassword(),
+    						member.getMail(), member.getZipCode(), member.getPrefecture(), member.getAddress(), member.getTel());
+    		}
 
     	}catch(SQLException e){
     		e.printStackTrace();
