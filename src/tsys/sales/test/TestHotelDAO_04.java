@@ -1,9 +1,7 @@
 package tsys.sales.test;
 
-/*
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.HotelDAO;
@@ -23,8 +21,8 @@ public class TestHotelDAO_04 {
 		// ここからテストを行う。
 		try {
 			HotelDAO hotelDAO = new HotelDAO(con);
-			String itemCode = "TOR000001";
-			int quantity = 1;
+			String itemCode = "HTL000001";
+			int quantity = 2;
 
 			boolean updated = hotelDAO.updateStock(itemCode, quantity);
 
@@ -37,9 +35,6 @@ public class TestHotelDAO_04 {
 		} catch (NullPointerException e) {
 			System.out.println("NullPointerExceptionがスローされました。");
 			e.printStackTrace();
-		} catch (SQLException e) {
-			System.out.println("SQLExceptionがスローされました。");
-			e.printStackTrace();
 		} finally {
 			try { //データベースへの接続を切断する
 				if (con != null) {
@@ -49,5 +44,5 @@ public class TestHotelDAO_04 {
 				e.printStackTrace();
 			}
 		}
+	}
 }
-*/

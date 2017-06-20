@@ -182,15 +182,18 @@ public class HotelDAO {
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		ArrayList<Hotel> hotelList = null;
+		int updated = 0;
 
 		try {
 			for (OrderDetail orderDetail : OrderDetailList) {
 				stmt = con.prepareStatement(sql);
 				stmt.setInt(1, orderDetail.getQuantity());
 				stmt.setString(2, orderDetail.getItemCode());
-				stmt.executeQuery();
+				updated = stmt.executeUpdate();
 			}
-			result = true;
+			if (updated > 0){
+				result = true;
+			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -205,13 +208,16 @@ public class HotelDAO {
 		String sql = "update Hotel set Stock = Stock - ? where ItemCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
+		int updated = 0;
 
 		try {
 			stmt = con.prepareStatement(sql);
 			stmt.setInt(1, quantity);
 			stmt.setString(2, itemCode);
-			stmt.executeQuery();
-			result = true;
+			updated = stmt.executeUpdate();
+			if (updated > 0){
+				result = true;
+			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
