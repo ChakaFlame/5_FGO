@@ -102,9 +102,9 @@
 	<br>
 	<br>
 	<!-- フォーム -->
-	<form action="//" method="POST" name="fm">
+	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<div align="center">
-			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='0802_01_01'; document.fm.submit()">検索</a>
+			<a href="/tourSystem/tsys" class="button" onclick="document.fm.BUTTON_ID.value='0802_01_01'; document.fm.submit()">検索</a>
 		</div>
 		<div id="table">
 		<br> <br> <br>
