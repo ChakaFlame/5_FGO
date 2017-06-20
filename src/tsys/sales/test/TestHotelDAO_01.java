@@ -23,7 +23,7 @@ public class TestHotelDAO_01 {
 		// ここからテストを行う。
 		try {
 			HotelDAO hotelDAO = new HotelDAO(con);
-			Hotel hotel = hotelDAO.findHotelDetail("FK0001");
+			Hotel hotel = hotelDAO.findHotelDetail("HTL000002");
 
 			if (hotel == null) {
 				System.out.println("戻り値：" + hotel);

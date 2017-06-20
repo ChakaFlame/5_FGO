@@ -30,15 +30,21 @@ public class HotelDAO {
     /**
      * ホテル1件検索
      */
-    public Hotel findHotelDetail(String hotelCode) throws SQLException{
-		String sql = "SELECT * FROM Hotel WHERE HotelCode = ?";
+
+    public Hotel findHotelDetail(String itemCode) throws SQLException{
+		String sql = "SELECT * FROM Hotel WHERE ItemCode = ?";
+		String sql2 = "SELECT * FROM HotelMaster WHERE HotelCode = ?";
+		String sql3 = "SELECT * FROM City WHERE CityCode = ?";
+
 		PreparedStatement stmt = null;
+
 		ResultSet res = null;
+
 		Hotel hotel = null;
 
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, hotelCode);
+			stmt.setString(1, itemCode);
 			res =  stmt.executeQuery();
 
 			/**
@@ -46,17 +52,27 @@ public class HotelDAO {
 			 */
 			if(res.next()) {
 				hotel = new Hotel(
-						res.getString("itemCode"),
-						res.getString("hotelCode"),
-						res.getDate("hotelDate"),
-						res.getString("hotelName"),
-						res.getString("cityCode"),
-						res.getString("cityName"),
-						res.getString("grade"),
-						res.getInt("stock"),
-						res.getInt("basePrice"));
-			}else {
-				System.out.println("error");
+					res.getString("itemCode"),
+					res.getString("hotelCode"),
+					res.getDate("date"),
+					res.getInt("stock"));
+				stmt = con.prepareStatement(sql2);
+				stmt.setString(1, hotel.getHotelCode());
+				res =  stmt.executeQuery();
+				if(res.next()) {
+					hotel.setHotelName(res.getString("name"));
+					hotel.setCityCode(res.getString("cityCode"));
+					hotel.setGrade(res.getString("grade"));
+					hotel.setBasicPrice(res.getInt("basicPrice"));
+					stmt = con.prepareStatement(sql3);
+					stmt.setString(1, hotel.getCityCode());
+					res=  stmt.executeQuery();
+					if(res.next()) {
+						hotel.setCityName(res.getString("name"));
+					}else {
+					System.out.println("error");
+					}
+				}
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
