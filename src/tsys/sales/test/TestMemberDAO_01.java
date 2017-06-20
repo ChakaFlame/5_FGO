@@ -1,11 +1,4 @@
-///**
-// * All Rights Reserved, Copyright(c) Fujitsu Learning Media Limited
-// *
-// * TestMemberDAO01_checkAddress.java
-// *
-// */
-
-
+package tsys.sales.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,7 +7,7 @@ import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.MemberDAO;
 import tsys.sales.entity.Member;
 
-public class TestMemberDAO01_checkAddress {
+public class TestMemberDAO_01 {
 
 	/**
 	 * @param args
@@ -32,11 +25,15 @@ public class TestMemberDAO01_checkAddress {
 		// ここからテストを行う。
 		try {
 			MemberDAO memberDAO = new MemberDAO(con);
-			Member member = memberDAO.findMember("CA0001","pass");
+			Member member = memberDAO.findMember("CM0002","pass");
 
+			if(member == null){
+				System.out.println("結果なし。");
+			}
+			else{
 			System.out.println("メンバーコード：" + member.getMemberCode());
-			System.out.println("パスワード：" + member.getPassword());
-
+			System.out.println("メンバー名：" + member.getName());
+			}
 
 		} catch (NullPointerException e) {
 			System.out.println("NullPointerExceptionがスローされました。");

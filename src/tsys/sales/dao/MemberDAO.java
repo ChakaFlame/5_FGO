@@ -45,7 +45,7 @@ public class MemberDAO {
     	PreparedStatement stmt = null;
     	ResultSet res = null; 				//結果セット
     	Member member = null;
-    	String sql = "SELECT MemberCode,Password" + " FROM Member WHERE MemberCode = ? AND Password = ?";
+    	String sql = "SELECT MemberCode,Name FROM Member WHERE MemberCode = ? AND Password = ?";
 
 
     	try {
@@ -85,11 +85,9 @@ public class MemberDAO {
      */
     public boolean checkAddress(String address) throws SQLException{
     	// 作成
-
     	PreparedStatement stmt = null;
     	ResultSet res = null; 				//結果セット
-    	Member member = null;
-    	String sql = "SELECT Address" + " FROM Member WHERE Address = ?";
+    	String sql = "SELECT email" + " FROM Member WHERE Address = ?";
     	boolean caflag = true;
 
     	try {
@@ -99,9 +97,8 @@ public class MemberDAO {
 
     		//検索結果がある場合(すでに登録されているアドレスの場合)、フラグを折る。
     		if (res.next()) {
+    			System.out.println("hello");
     			caflag = false;
-//    			member = new Member(
-//    					res.getString("Address"));
     		}
 
     	}catch(SQLException e){

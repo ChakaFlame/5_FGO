@@ -1,11 +1,4 @@
-///**
-// * All Rights Reserved, Copyright(c) Fujitsu Learning Media Limited
-// *
-// * TestMemberDAO03_insertMember.java
-// *
-// */
-
-
+package tsys.sales.test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
