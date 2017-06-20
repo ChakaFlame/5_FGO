@@ -115,7 +115,7 @@ private Connection con;  //接続オブジェクト
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, order.getOrderNo());
-    		stmt.setDate(2,order.getOrderDate());
+    		stmt.setDate(2,(Date) order.getOrderDate());
     		stmt.setInt(3, order.getOrderTotal());
     		stmt.setString(4, order.getMemberCode());
     		stmt.setString(5, order.getPayment());
@@ -228,6 +228,6 @@ private Connection con;  //接続オブジェクト
     			stmt.close();
     		}
     	}
-    	return Member;
+    	return member;
     }
 }

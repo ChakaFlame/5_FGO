@@ -1,5 +1,5 @@
 package tsys.sales.test;
-/*
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class TestOrderDAO_02 {
 		int orderNo = 2;
 		try{
 			OrderDAO orderDAO = new OrderDAO(con);
-			ArrayList<OrderDetail> orderDetailList = OrderDAO.findOrderDetail(orderNo);
+			ArrayList<OrderDetail> orderDetailList = orderDAO.findOrderDetail(orderNo);
 			for (OrderDetail orderDetail : orderDetailList) {
 				System.out.println("受注番号：" + orderDetail.getOrderNo());
 				System.out.println("商品コード：" + orderDetail.getItemCode());

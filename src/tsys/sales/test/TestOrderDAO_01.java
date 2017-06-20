@@ -24,7 +24,7 @@ public class TestOrderDAO_01 {
 		String memberCode = "1";
 		try{
 			OrderDAO orderDAO = new OrderDAO(con);
-			ArrayList<Order> orderList = OrderDAO.findOrder(memberCode);
+			ArrayList<Order> orderList = orderDAO.findOrder(memberCode);
 			for (Order order : orderList) {
 				System.out.println("メンバーコード：" + order.getMemberCode());
 				System.out.println("受注番号：" + order.getOrderNo());
