@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class HotelSearchAction {
 	public String execute(HttpServletRequest req) {
@@ -14,6 +15,7 @@ public class HotelSearchAction {
 
 		String hotelDateSr = "";
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
+		DateFormat format = new SimpleDateFormat("yyyy-M-d");
 
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
 			req.setAttribute("messsage","宿泊日を選択してください");
@@ -21,7 +23,7 @@ public class HotelSearchAction {
 		}
 		Date hotelDate=null;
 		try {
-			hotelDate = DateFormat.getDateInstance().parse(hotelDateSr);
+			hotelDate = format.parse(hotelDateSr);
 		} catch (ParseException e1) { // TODO 自動生成 parse使う際にtrycatch必要らしいので追加
 			e1.printStackTrace();
 		}
