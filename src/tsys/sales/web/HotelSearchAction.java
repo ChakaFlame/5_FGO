@@ -7,8 +7,6 @@ import javax.servlet.http.*;
 import java.util.*;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class HotelSearchAction {
 	public String execute(HttpServletRequest req) {
@@ -21,7 +19,7 @@ public class HotelSearchAction {
 			req.setAttribute("messsage","宿泊日を選択してください");
 			return page;
 		}
-		Date hotelDate = null;
+		Date hotelDate=null;
 		try {
 			hotelDate = DateFormat.getDateInstance().parse(hotelDateSr);
 		} catch (ParseException e1) { // TODO 自動生成 parse使う際にtrycatch必要らしいので追加
