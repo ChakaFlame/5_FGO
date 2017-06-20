@@ -1,4 +1,4 @@
-
+package tsys.sales.web;
 
 import tsys.sales.common.*;
 import tsys.sales.entity.*;
@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 public class LoginAction {
 	public String execute(HttpServletRequest req){
 		String page = "/MainMenu.jsp";							//入力画面を戻り値に
-		boolean loginflag = false;							//ログインできるかのフラグ
+		//boolean loginflag = false;							//ログインできるかのフラグ
 		String memberCode = req.getParameter("MemberCode");
 		String password = req.getParameter("Password");
 
@@ -19,12 +19,11 @@ public class LoginAction {
 
 		try{
 			LoginLogic loginLogic = new LoginLogic();
-			loginflag = loginLogic.login(memberCode,password);
-			if(loginflag){
-				page = "/MainMenu.jsp";
-			}
-//			req.setAttribute("customer", customer);
-//			page = "/CustomerSearchResultView.jsp";
+			Member member = loginLogic.login(memberCode,password);
+
+			req.setAttribute("memberCode", member.getMemberCode());
+			req.setAttribute("password", member.getPassword());
+
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());

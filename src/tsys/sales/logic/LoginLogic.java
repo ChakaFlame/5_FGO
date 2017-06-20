@@ -16,10 +16,9 @@ import tsys.sales.dao.ConnectionManager;
 
 public class LoginLogic {
 
-	public boolean login(String memberCode, String password) throws SalesBusinessException, SalesSystemException {
+	public Member login(String memberCode, String password) throws SalesBusinessException, SalesSystemException {
 		Connection con = null;
 		Member member = null;
-		boolean loginflag = false;
 
 		try {
 			// データベースの接続を取得する
@@ -33,11 +32,6 @@ public class LoginLogic {
 			if(member == null) {
 				throw new SalesBusinessException("条件に一致する商品がありません。");
 			}
-
-			req.setAttribute("memberCode", member.getMemberCode());
-			req.setAttribute("password", member.getPassword());
-
-			loginflag = true;
 
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -53,6 +47,6 @@ public class LoginLogic {
 			}
 		}
 
-		return loginflag;
+		return member;
 	}
 }

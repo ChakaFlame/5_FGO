@@ -38,10 +38,10 @@
 				</tr>
 			</table>
 			<br>
-			<a href="/Mainmenu.jsp" class="button">ログイン</a>
+			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">ログイン</a>
 			<br>
 			<br>
-			<a href="/NewAccount.jsp">アカウントをお持ちでない方はコチラ</a>
+			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a>
 		</form>
 	</div>
 </body>
