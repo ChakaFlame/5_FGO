@@ -9,6 +9,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ *
+ * @author lk2692
+ *
+ */
 public class HotelSearchAction {
 	public String execute(HttpServletRequest req){
 		String page = "/HotelSearch.jsp";							//入力画面を戻り値に設定
