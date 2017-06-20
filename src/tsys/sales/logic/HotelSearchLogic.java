@@ -2,6 +2,7 @@ package tsys.sales.logic;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,6 +16,8 @@ public class HotelSearchLogic {
 	Connection con = null;
 
 	public ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate)throws SalesBusinessException, SalesSystemException {
+		final String DATE_PATTERN = "yyy-mm-dd";
+		String sHoteldate = new SimpleDateFormat(DATE_PATTERN).format(hotelDate);
 		ArrayList<Hotel> hotelList = null;
 		try {
 			// データベースの接続を取得する
@@ -22,7 +25,7 @@ public class HotelSearchLogic {
 
 			// 商品テーブルアクセス用のDAOを生成し、メソッドを呼び出す。
 			HotelDAO hotelDao = new HotelDAO(con);
-			hotelList = hotelDao.searchHotel(cityCode, hotelDate);
+			hotelList = hotelDao.searchHotel(cityCode, sHoteldate);
 
 			// 結果一覧がない場合、エラーを発生させる。
 			if(hotelList.isEmpty()) {
