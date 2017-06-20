@@ -91,7 +91,7 @@ public class HotelDAO {
     /**
      * ホテル条件一致検索
      */
-    public ArrayList<Hotel> searchHotel(int cityCode, Date date) throws SQLException{
+    public ArrayList<Hotel> searchHotel(String cityCode, Date date) throws SQLException{
 		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMAster.HotelCode WHERE Date = ? AND CityCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
@@ -100,7 +100,7 @@ public class HotelDAO {
 
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, cityCode);
+			stmt.setString(1, cityCode);
 			res =  stmt.executeQuery();
 
 			// 検索結果をhotelListに追加する。
