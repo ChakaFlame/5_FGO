@@ -23,15 +23,16 @@ public class TestHotelDAO_01 {
 		// ここからテストを行う。
 		try {
 			HotelDAO hotelDAO = new HotelDAO(con);
-			Hotel hotel = hotelDAO.findHotelDetail("HTL000002");
+			Hotel hotel = hotelDAO.findHotelDetail("HTL000429");
 
 			if (hotel == null) {
 				System.out.println("戻り値：" + hotel);
 			}else{
-				System.out.println("ホテルコード：" + hotel.getHotelCode());
+				System.out.println("ホテルコード：" +hotel.getHotelCode());
 				System.out.println("ホテル名　　：" + hotel.getHotelName());
-				System.out.println("都市コード　：" + hotel.getCityCode());
+				System.out.println("都市名　　　：" + hotel.getCityName());
 				System.out.println("グレード　　：" + hotel.getGrade());
+				System.out.println("残数　　　　：" + hotel.getStock());
 				System.out.println("基本料金　　：" + hotel.getBasicPrice());
 			}
 
