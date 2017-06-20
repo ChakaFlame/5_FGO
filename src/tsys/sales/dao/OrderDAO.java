@@ -106,29 +106,38 @@ private Connection con;  //接続オブジェクト
     /*
      * Orderテーブルに追加
      */
-    public boolean insertOrder(Order order) throws SQLException{
-    	boolean insertFlag = false;
+    public String insertOrder(Order order) throws SQLException{
+    	String orderNo = null;
+//    	boolean insertFlag = false;
     	//OrderMasterテーブルに該当の受注情報を追加
-    	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
-    	PreparedStatement stmt = null;
+    	String sql1 = "INSERT INTO OrderMaster(OrderDate, OrderTotal, MemberCode, Payment) VALUES ('?','?','?','?')";
+    	String sql2 = "SELECT * FROM OrderMaster order by OrderNo desc limit 1;";
+    	ResultSet res;
+    	PreparedStatement stmt1 = null;
+    	PreparedStatement stmt2 = null;
     	int insertCount;
     	try {
-    		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, order.getOrderNo());
-    		stmt.setDate(2,(Date) order.getOrderDate());
-    		stmt.setInt(3, order.getOrderTotal());
-    		stmt.setString(4, order.getMemberCode());
-    		stmt.setString(5, order.getPayment());
-    		insertCount = stmt.executeUpdate();
+    		stmt1 = con.prepareStatement(sql1);
+    		stmt1.setDate(1,(Date) order.getOrderDate());
+    		stmt1.setInt(2, order.getOrderTotal());
+    		stmt1.setString(3, order.getMemberCode());
+    		stmt1.setString(4, order.getPayment());
+    		insertCount = stmt1.executeUpdate();
+    		stmt2 = con.prepareStatement(sql2);
+    		res =  stmt2.executeQuery();
+    		orderNo = res.getString(1);
     	} catch (SQLException e) {
-    		return insertFlag;
+    		return orderNo;
     	} finally {
-    		if (stmt != null) {
-    			stmt.close();
+    		if (stmt1 != null) {
+    			stmt1.close();
+    		}
+    		if (stmt2 != null) {
+    			stmt2.close();
     		}
     	}
-    	insertFlag = true;
-    	return insertFlag;
+//    	insertFlag = true;
+    	return orderNo;
     }
      public boolean insertOrderDetail(OrderDetail order) throws SQLException{
     	boolean insertFlag = false;

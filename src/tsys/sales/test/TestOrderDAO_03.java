@@ -1,6 +1,9 @@
 package tsys.sales.test;
-/*
+
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.OrderDAO;
@@ -24,14 +27,17 @@ public class TestOrderDAO_03{
 
 			Order order = new Order();
 
-			order.setItemCode("test");
-			order.setPrice(25000);
-			order.setQuantity(2);
+			String DATE_PATTEN = "yyyy-mm-dd";
+			String sDate = new SimpleDateFormat(DATE_PATTEN).format(date);
 
+			order.setOrderDate(date);
+			order.setOrderTotal(2000);
+			order.setMemberCode("test");
+			order.setPayment("01");
 
-			boolean updated = orderDAO.insertOrder(order);
+			String updateNo = orderDAO.insertOrder(order);
 
-			if (updated) {
+			if (updateNo != null) {
 				System.out.println("更新完了。");
 			}else{
 				System.out.println("更新失敗。");
@@ -54,4 +60,4 @@ public class TestOrderDAO_03{
 		}
 	}
 }
-*/
+
