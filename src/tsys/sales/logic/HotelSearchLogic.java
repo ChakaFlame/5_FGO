@@ -27,12 +27,14 @@ public class HotelSearchLogic {
 
 			hotelList = hotelDao.searchHotel(cityCode, hotelDate);
 
-			Calendar sixMonth = Calendar.getInstance();
-			sixMonth.add(Calendar.MONTH,	6);
-			Date date = sixMonth.getTime();
+			Date current = new Date();
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(current);
+			cal.set(Calendar.MONTH, (cal.get(Calendar.MONTH)+6));
+			current = cal.getTime();
 
 			for(Hotel hotel : hotelList){
-				if((hotel.getHotelDate()).after(date)){
+				if((hotel.getHotelDate()).after(current)){
 					hotelList.remove(hotel);
 				}
 			}
