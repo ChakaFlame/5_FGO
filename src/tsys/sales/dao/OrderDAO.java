@@ -107,20 +107,19 @@ private Connection con;  //接続オブジェクト
     	String orderNo = null;
 //    	boolean insertFlag = false;
     	//OrderMasterテーブルに該当の受注情報を追加
-<<<<<<< HEAD
+
     	String sql1 = "INSERT INTO OrderMaster(OrderDate, OrderTotal, MemberCode, Payment) VALUES ('?','?','?','?')";
     	String sql2 = "SELECT * FROM OrderMaster order by OrderNo desc limit 1;";
     	ResultSet res;
     	PreparedStatement stmt1 = null;
     	PreparedStatement stmt2 = null;
     	int insertCount;
-=======
+
     	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
 
->>>>>>> refs/remotes/origin/master
+
     	try {
-<<<<<<< HEAD
     		stmt1 = con.prepareStatement(sql1);
     		stmt1.setDate(1,(Date) order.getOrderDate());
     		stmt1.setInt(2, order.getOrderTotal());
@@ -130,15 +129,6 @@ private Connection con;  //接続オブジェクト
     		stmt2 = con.prepareStatement(sql2);
     		res =  stmt2.executeQuery();
     		orderNo = res.getString(1);
-=======
-    		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, order.getOrderNo());
-    		stmt.setDate(2,(Date) order.getOrderDate());
-    		stmt.setInt(3, order.getOrderTotal());
-    		stmt.setString(4, order.getMemberCode());
-    		stmt.setString(5, order.getPayment());
-    		stmt.executeUpdate();
->>>>>>> refs/remotes/origin/master
     	} catch (SQLException e) {
     		return orderNo;
     	} finally {
