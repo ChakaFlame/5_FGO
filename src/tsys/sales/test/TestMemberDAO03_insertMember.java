@@ -1,8 +1,6 @@
 package tsys.sales.test;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import tsys.sales.dao.ConnectionManager;
@@ -16,7 +14,7 @@ public class TestMemberDAO03_insertMember {
 	 */
 	public static void main(String[] args) {
 		Connection con = null;
-		Member member2 = null;
+
 		// テストのための準備としてデータベースに接続する。
 
 		try {

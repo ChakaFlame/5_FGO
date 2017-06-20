@@ -6,8 +6,8 @@
 package tsys.sales.dao;
 
 import java.sql.Connection;
+
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import tsys.sales.entity.Member;
 import tsys.sales.entity.Order;
 import tsys.sales.entity.OrderDetail;
-import tsys.sales.entity.Item;
 
 public class OrderDAO {
 
@@ -36,7 +35,6 @@ private Connection con;  //接続オブジェクト
     	String sql = "SELECT * FROM OrderMaster WHERE MemberCode = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
-    	Member member = null;
     	ArrayList<Order> orderList = new ArrayList<Order>();
 
     	try {
@@ -73,7 +71,6 @@ private Connection con;  //接続オブジェクト
     	String sql = "SELECT * FROM OrderDetail WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
     	ResultSet res = null;
-    	Member member = null;
     	ArrayList<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
 
     	try {
@@ -111,7 +108,7 @@ private Connection con;  //接続オブジェクト
     	//OrderMasterテーブルに該当の受注情報を追加
     	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
-    	int insertCount;
+
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, order.getOrderNo());
@@ -119,7 +116,7 @@ private Connection con;  //接続オブジェクト
     		stmt.setInt(3, order.getOrderTotal());
     		stmt.setString(4, order.getMemberCode());
     		stmt.setString(5, order.getPayment());
-    		insertCount = stmt.executeUpdate();
+    		stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
     	} finally {
@@ -135,14 +132,13 @@ private Connection con;  //接続オブジェクト
     	//OrderDetailテーブルに該当の受注情報を追加
     	String sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
-    	int insertCount;
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, order.getOrderNo());
     		stmt.setString(2, order.getItemCode());
     		stmt.setInt(3, order.getPrice());
     		stmt.setInt(4, order.getQuantity());
-    		insertCount = stmt.executeUpdate();
+    		stmt.executeUpdate();
     	} catch (SQLException e) {
     		return insertFlag;
     	} finally {
@@ -163,13 +159,11 @@ private Connection con;  //接続オブジェクト
     	//OrderMasterテーブルから該当の受注情報を削除
     	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
-    	int deleteCount;
-    	int deleteCountDetail;
     	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderNo);
-    		deleteCount = stmt.executeUpdate();
+    		stmt.executeUpdate();
     	} catch (SQLException e) {
     		return deleteFlag;
     	}
@@ -179,7 +173,7 @@ private Connection con;  //接続オブジェクト
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderNo);
-    		deleteCountDetail = stmt.executeUpdate();
+    		stmt.executeUpdate();
     	} catch (SQLException e) {
     		return deleteFlag;
     	} finally {
