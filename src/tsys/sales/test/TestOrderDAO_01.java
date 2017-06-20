@@ -1,13 +1,13 @@
 package tsys.sales.test;
 
 import java.sql.Connection;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.OrderDAO;
 import tsys.sales.entity.Order;
-import tsys.sales.entity.OrderDetail;
 
 
 public class TestOrderDAO_01 {
