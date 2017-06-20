@@ -26,9 +26,8 @@ public class TestMemberDAO03_insertMember {
 		}
 		// ここからテストを行う。
 		try {
-			MemberDAO memberDAO = new MemberDAO(con);		//登録テスト用データの設定
+			MemberDAO memberDAO = new MemberDAO(null);		//登録テスト用データの設定
 			Member member = new Member();
-			member.setMemberCode("TE0001");
 			member.setName("テストネーム");
 			member.setPassword("pass");
 			member.setMail("test@tst.com");
@@ -38,7 +37,8 @@ public class TestMemberDAO03_insertMember {
 			member.setTel("11-1111-1111");
 
 			member = memberDAO.insertMember(member);		//insertMemberの実行
-
+			System.out.println(member.getName());
+			System.out.println(member.getMemberCode());
 		} catch (NullPointerException e) {
 			System.out.println("NullPointerExceptionがスローされました。");
 			e.printStackTrace();

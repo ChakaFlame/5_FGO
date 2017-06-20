@@ -123,32 +123,37 @@ public class MemberDAO {
      */
     public Member insertMember(Member member) throws SQLException{
     	// 作成
-
     	PreparedStatement stmt = null;
+    	PreparedStatement stmt2 = null;
+
     	ResultSet res = null; 				//結果セット
-    	Member immember= null;
-    	String sql = "INSERT INTO Member VALUES (\"CM\"+ LPAD(SELECT NEXTVAL(\"CM\"), 4, '0') ,"
-    			+ "?,?,?,?,?,?,?)";
+
+    	String sql = "INSERT INTO Member VALUES (CONCAT(\"CM\",LPAD(NEXTVAL(\"CM\"), 4, '0')),"
+    			+ "?,?,?,?,?,?,?,?)";
+		String sql2 = "SELECT * FROM MEMBER WHERE MAIL = ?";
+
     	int updated = 0;
 
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setString(1, member.getName());
     		stmt.setString(2, member.getPassword());
-    		stmt.setString(3, member.getMail());
-    		stmt.setString(4, member.getZipCode());
-    		stmt.setString(5, member.getPrefecture());
-    		stmt.setString(6, member.getAddress());
-    		stmt.setString(7, member.getTel());
-
+    		stmt.setString(3, member.getRole());
+    		stmt.setString(4, member.getMail());
+    		stmt.setString(5, member.getZipCode());
+    		stmt.setString(6, member.getPrefecture());
+    		stmt.setString(7, member.getAddress());
+    		stmt.setString(8, member.getTel());
     		updated = stmt.executeUpdate();
 
     		if (updated > 0){
         		//DBに登録した情報をエンティティにも設定
-
-				//↓自動採番と同じ番号に要変更
-    			immember = new Member(member.getMemberCode(), member.getName(), member.getPassword(),
-    						member.getMail(), member.getZipCode(), member.getPrefecture(), member.getAddress(), member.getTel());
+    			stmt2 = con.prepareStatement(sql2);
+    			stmt2.setString(1,member.getMail());
+    			res = stmt2.executeQuery();
+    			if (res.next()){
+    				member.setMemberCode(res.getString("MemberCode"));
+    			}
     		}
 
     	}catch(SQLException e){
@@ -166,6 +171,6 @@ public class MemberDAO {
     		}
     	}
 
-    	return immember;//メンバー;
+    	return member;//メンバー;
     }
 }
