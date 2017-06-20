@@ -1,16 +1,16 @@
 package tsys.sales.test;
-/*
+
 import java.sql.Connection;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.OrderDAO;
-import tsys.sales.entity.Order;
 import tsys.sales.entity.OrderDetail;
 
 public class TestOrderDAO_02 {
-	public static void main(){
+	public static void main(String[] args){
 		Connection con = null;
 
 		// テストのための準備としてデータベースに接続する。
@@ -21,10 +21,10 @@ public class TestOrderDAO_02 {
 		}
 
 		// ここからテストを行う。
-		int orderNo = 2;
+		int orderNo = 16;
 		try{
 			OrderDAO orderDAO = new OrderDAO(con);
-			ArrayList<OrderDetail> orderDetailList = OrderDAO.findOrderDetail(orderNo);
+			ArrayList<OrderDetail> orderDetailList = orderDAO.findOrderDetail(orderNo);
 			for (OrderDetail orderDetail : orderDetailList) {
 				System.out.println("受注番号：" + orderDetail.getOrderNo());
 				System.out.println("商品コード：" + orderDetail.getItemCode());

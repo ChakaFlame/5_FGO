@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ホテル検索</title>
-<link rel="stylesheet" type="text/css" href="Hotel.css">
+<link rel="stylesheet" type="text/css" href="Search.css">
 </head>
 <body>
 	<%-- 定義済みオブジェクトの使用 --%>
@@ -102,9 +102,9 @@
 	<br>
 	<br>
 	<!-- フォーム -->
-	<form action="//" method="POST" name="fm">
+	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<div align="center">
-			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='0802_01_01'; document.fm.submit()">検索</a>
+			<a href="/tourSystem/tsys" class="button" onclick="document.fm.BUTTON_ID.value='0802_01_01'; document.fm.submit()">検索</a>
 		</div>
 		<div id="table">
 		<br> <br> <br>

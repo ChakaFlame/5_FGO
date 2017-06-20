@@ -8,7 +8,6 @@ package tsys.sales.dao;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,7 +44,7 @@ public class MemberDAO {
     	PreparedStatement stmt = null;
     	ResultSet res = null; 				//結果セット
     	Member member = null;
-    	String sql = "SELECT MemberCode,Password" + " FROM Member WHERE MemberCode = ? AND Password = ?";
+    	String sql = "SELECT MemberCode,Name FROM Member WHERE MemberCode = ? AND Password = ?";
 
 
     	try {
@@ -85,11 +84,9 @@ public class MemberDAO {
      */
     public boolean checkAddress(String address) throws SQLException{
     	// 作成
-
     	PreparedStatement stmt = null;
     	ResultSet res = null; 				//結果セット
-    	Member member = null;
-    	String sql = "SELECT Address" + " FROM Member WHERE Address = ?";
+    	String sql = "SELECT Mail" + " FROM Member WHERE Mail = ?";
     	boolean caflag = true;
 
     	try {
@@ -100,8 +97,6 @@ public class MemberDAO {
     		//検索結果がある場合(すでに登録されているアドレスの場合)、フラグを折る。
     		if (res.next()) {
     			caflag = false;
-//    			member = new Member(
-//    					res.getString("Address"));
     		}
 
     	}catch(SQLException e){
@@ -127,32 +122,38 @@ public class MemberDAO {
      */
     public Member insertMember(Member member) throws SQLException{
     	// 作成
-
     	PreparedStatement stmt = null;
-    	ResultSet res = null; 				//結果セット
-    	Member immember= null;
-    	String sql = "INSERT INTO Member VALUES (?,?,?,?,?,?,?,?)";
+    	PreparedStatement stmt2 = null;
 
+    	ResultSet res = null; 				//結果セット
+
+    	String sql = "INSERT INTO Member VALUES (CONCAT(\"CM\",LPAD(NEXTVAL(\"CM\"), 4, '0')),"
+    			+ "?,?,?,?,?,?,?,?)";
+		String sql2 = "SELECT * FROM MEMBER WHERE MAIL = ?";
+
+    	int updated = 0;
 
     	try {
     		stmt = con.prepareStatement(sql);
-    		stmt.setString(1, member.getMemberCode());	//→自動採番に要変更
-    		stmt.setString(2, member.getName());
-    		stmt.setString(3, member.getPassword());
+    		stmt.setString(1, member.getName());
+    		stmt.setString(2, member.getPassword());
+    		stmt.setString(3, member.getRole());
     		stmt.setString(4, member.getMail());
     		stmt.setString(5, member.getZipCode());
     		stmt.setString(6, member.getPrefecture());
-    		stmt.setString(6, member.getAddress());
-    		stmt.setString(7, member.getTel());
+    		stmt.setString(7, member.getAddress());
+    		stmt.setString(8, member.getTel());
+    		updated = stmt.executeUpdate();
 
-    		res = stmt.executeQuery();
-
-    		//DBに登録した情報をエンティティにも設定
-
-    								//↓自動採番と同じ番号に要変更
-    		immember = new Member(member.getMemberCode(), member.getName(), member.getPassword(),
-    							member.getMail(), member.getZipCode(), member.getPrefecture(), member.getAddress(), member.getTel());
-
+    		if (updated > 0){
+        		//DBに登録した情報をエンティティにも設定
+    			stmt2 = con.prepareStatement(sql2);
+    			stmt2.setString(1,member.getMail());
+    			res = stmt2.executeQuery();
+    			if (res.next()){
+    				member.setMemberCode(res.getString("MemberCode"));
+    			}
+    		}
 
     	}catch(SQLException e){
     		e.printStackTrace();
@@ -169,6 +170,6 @@ public class MemberDAO {
     		}
     	}
 
-    	return immember;//メンバー;
+    	return member;//メンバー;
     }
 }

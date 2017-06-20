@@ -40,7 +40,7 @@ public class FrontController extends HttpServlet {
 			case "0100_01_01":
 				ToHotelSearchAction toHotelSearchAction = new ToHotelSearchAction();
 				page = toHotelSearchAction.execute(req);
-				//page = "/HotelSearch.jsp";
+				//page = "/tourSystem/HotelSearch.jsp";
 				break;
 			// ホテル検索画面の検索ボタンが押された場合
 			case "0802_01_01":

@@ -6,9 +6,12 @@
 package tsys.sales.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -142,7 +145,7 @@ public class HotelDAO {
     /**
      * ホテル条件一致検索
      */
-    public ArrayList<Hotel> searchHotel(String cityCode, String date) throws SQLException{
+    public ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate) throws SQLException{
 		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMaster.HotelCode WHERE Date = ? AND CityCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
@@ -151,6 +154,8 @@ public class HotelDAO {
 
 		try {
 			stmt = con.prepareStatement(sql);
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			String date = format.format(hotelDate);
 			stmt.setString(1, date);
 			stmt.setString(2, cityCode);
 			res =  stmt.executeQuery();
@@ -180,17 +185,18 @@ public class HotelDAO {
     	boolean result = false;
 		String sql = "update Hotel set Stock = Stock + ? where ItemCode = ?";
 		PreparedStatement stmt = null;
-		ResultSet res = null;
-		ArrayList<Hotel> hotelList = null;
+		int updated = 0;
 
 		try {
 			for (OrderDetail orderDetail : OrderDetailList) {
 				stmt = con.prepareStatement(sql);
 				stmt.setInt(1, orderDetail.getQuantity());
 				stmt.setString(2, orderDetail.getItemCode());
-				stmt.executeQuery();
+				updated = stmt.executeUpdate();
 			}
-			result = true;
+			if (updated > 0){
+				result = true;
+			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -204,14 +210,16 @@ public class HotelDAO {
     	boolean result = false;
 		String sql = "update Hotel set Stock = Stock - ? where ItemCode = ?";
 		PreparedStatement stmt = null;
-		ResultSet res = null;
+		int updated = 0;
 
 		try {
 			stmt = con.prepareStatement(sql);
 			stmt.setInt(1, quantity);
 			stmt.setString(2, itemCode);
-			stmt.executeQuery();
-			result = true;
+			updated = stmt.executeUpdate();
+			if (updated > 0){
+				result = true;
+			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
