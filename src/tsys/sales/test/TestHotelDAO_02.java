@@ -2,7 +2,11 @@ package tsys.sales.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.HotelDAO;
@@ -28,10 +32,10 @@ public class TestHotelDAO_02 {
 			int cityCode = 4;
 			String strCityCode = String.format("%02d", cityCode);
 			String date = "2017-01-01";
-			//DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-			//Date testDate = format.parse(string);
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date testDate = format.parse(date);
 
-			hotelList = hotelDAO.searchHotel(strCityCode, date);
+			hotelList = hotelDAO.searchHotel(strCityCode, testDate);
 
 			if (hotelList.isEmpty()) {
 				System.out.println("検索結果なし。");
@@ -49,6 +53,9 @@ public class TestHotelDAO_02 {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			System.out.println("SQLExceptionがスローされました。");
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} finally {
 			try { //データベースへの接続を切断する

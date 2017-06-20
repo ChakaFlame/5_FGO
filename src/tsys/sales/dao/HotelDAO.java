@@ -10,8 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 
 import tsys.sales.entity.Hotel;
 import tsys.sales.entity.OrderDetail;
@@ -143,7 +145,7 @@ public class HotelDAO {
     /**
      * ホテル条件一致検索
      */
-    public ArrayList<Hotel> searchHotel(String cityCode, String hotelDate) throws SQLException{
+    public ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate) throws SQLException{
 		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMaster.HotelCode WHERE Date = ? AND CityCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
@@ -152,7 +154,9 @@ public class HotelDAO {
 
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, hotelDate);
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			String date = format.format(hotelDate);
+			stmt.setString(1, date);
 			stmt.setString(2, cityCode);
 			res =  stmt.executeQuery();
 
