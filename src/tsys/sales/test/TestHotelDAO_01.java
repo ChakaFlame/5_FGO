@@ -1,5 +1,5 @@
 package tsys.sales.test;
-/*
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -7,7 +7,7 @@ import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.HotelDAO;
 import tsys.sales.entity.Hotel;
 
-public class TestHotelDAO01_01 {
+public class TestHotelDAO_01 {
 
 	public static void main(String[] args) {
 
@@ -23,7 +23,7 @@ public class TestHotelDAO01_01 {
 		// ここからテストを行う。
 		try {
 			HotelDAO hotelDAO = new HotelDAO(con);
-			Hotel hotel = hotelDAO.findHotel("FA0001");
+			Hotel hotel = hotelDAO.findHotelDetail("FK0001");
 
 			if (hotel == null) {
 				System.out.println("戻り値：" + hotel);
@@ -31,7 +31,7 @@ public class TestHotelDAO01_01 {
 				System.out.println("ホテルコード：" + hotel.getHotelCode());
 				System.out.println("ホテル名　　：" + hotel.getHotelName());
 				System.out.println("都市コード　：" + hotel.getCityCode());
-				System.out.println("グレード　　：" + hotel.getHotelGrade());
+				System.out.println("グレード　　：" + hotel.getGrade());
 				System.out.println("基本料金　　：" + hotel.getBasicPrice());
 			}
 
@@ -52,4 +52,3 @@ public class TestHotelDAO01_01 {
 		}
 	}
 }
-*/
