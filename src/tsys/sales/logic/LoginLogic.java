@@ -1,13 +1,5 @@
 package tsys.sales.logic;
 
-/**
- * All Rights Reserved, Copyright(c) Fujitsu Learning Media Limited
- *
- * SearchCustomerController.java
- *
- */
-
-
 import java.sql.*;
 import tsys.sales.common.*;
 import tsys.sales.dao.*;
