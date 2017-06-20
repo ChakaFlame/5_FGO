@@ -9,7 +9,7 @@ import tsys.sales.logic.HotelDetailLogic;
 
 public class ToHotelSearchAction {
 	public String execute(HttpServletRequest req){
-		String page = "/HotelSearch.jsp";							//入力画面を戻り値に設定
+		String page = "/HotelSearch/HotelSearch.jsp";							//入力画面を戻り値に設定
 
 			return page;
 	}
