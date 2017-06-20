@@ -39,6 +39,9 @@ public class TestHotelDAO_02 {
 				for (Hotel hotel : hotelList){
 					System.out.println("ホテルコード：" + hotel.getHotelCode());
 					System.out.println("ホテル名　　：" + hotel.getHotelName());
+					System.out.println("料金　　　　：" + hotel	.getBasicPrice());
+					System.out.println("空室　　　　：" + hotel	.getStock());
+					System.out.println("------------------------------------------");
 				}
 			}
 		} catch (NullPointerException e) {
