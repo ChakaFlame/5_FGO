@@ -30,15 +30,86 @@ public class HotelDAO {
     /**
      * ホテル1件検索
      */
-    public Hotel findHotelDetail(String hotelCode) throws SQLException{
-		String sql = "SELECT * FROM Hotel WHERE HotelCode = ?";
+
+    public String findCityName(String cityCode) throws SQLException{
+		String sql = "SELECT * FROM City WHERE CityCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
+		String city = null;
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, cityCode);
+			res =  stmt.executeQuery();
+
+			/**
+			 *  検索結果がある場合、戻り値に設定する。
+			 */
+			if(res.next()) {
+				city = res.getString("name");
+			}else {
+				System.out.println("error");
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally{
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+    	return city;
+    }
+
+    public Hotel findHotel(Hotel hotel) throws SQLException{
+		String sql = "SELECT * FROM HotelMaster WHERE HotelCode = ?";
+		PreparedStatement stmt = null;
+
+		ResultSet res = null;
+
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, hotel.getHotelCode());
+			res =  stmt.executeQuery();
+
+			/**
+			 *  検索結果がある場合、戻り値に設定する。
+			 */
+			if(res.next()) {
+				hotel.setHotelName(res.getString("name"));
+				hotel.setCityCode(res.getString("cityCode"));
+				hotel.setCityName(this.findCityName(hotel.getCityCode()));
+				hotel.setGrade(res.getString("grade"));
+				hotel.setBasicPrice(res.getInt("basicPrice"));
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally{
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+    	return hotel;
+    }
+
+    public Hotel findHotelDetail(String itemCode) throws SQLException{
+		String sql = "SELECT * FROM Hotel WHERE ItemCode = ?";
+
+		PreparedStatement stmt = null;
+
+		ResultSet res = null;
+
 		Hotel hotel = null;
 
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, hotelCode);
+			stmt.setString(1, itemCode);
 			res =  stmt.executeQuery();
 
 			/**
@@ -46,17 +117,13 @@ public class HotelDAO {
 			 */
 			if(res.next()) {
 				hotel = new Hotel(
-						res.getString("itemCode"),
-						res.getString("hotelCode"),
-						res.getDate("hotelDate"),
-						res.getString("hotelName"),
-						res.getString("cityCode"),
-						res.getString("cityName"),
-						res.getString("grade"),
-						res.getInt("stock"),
-						res.getInt("basePrice"));
-			}else {
-				System.out.println("error");
+					res.getString("itemCode"),
+					res.getString("hotelCode"),
+					res.getDate("date"),
+					res.getInt("stock")
+				);
+				hotel = this.findHotel(hotel);
+				hotel.setCityName(this.findCityName(hotel.getCityCode()));
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -75,30 +142,29 @@ public class HotelDAO {
     /**
      * ホテル条件一致検索
      */
-    public ArrayList<Hotel> searchHotel(String cityCode, Date date) throws SQLException{
-		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMAster.HotelCode WHERE Date = ? AND CityCode = ?";
+    public ArrayList<Hotel> searchHotel(String cityCode, String date) throws SQLException{
+		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMaster.HotelCode WHERE Date = ? AND CityCode = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Hotel hotel = null;
-		ArrayList<Hotel> hotelList = null;
+		ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
 
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, cityCode);
+			stmt.setString(1, date);
+			stmt.setString(2, cityCode);
 			res =  stmt.executeQuery();
 
 			// 検索結果をhotelListに追加する。
 			while(res.next()) {
 				hotel = new Hotel(
-					res.getString("itemCode"),
-					res.getString("hotelCode"),
-					res.getDate("hotelDate"),
-					res.getString("hotelName"),
-					res.getString("cityCode"),
-					res.getString("cityName"),
-					res.getString("grade"),
-					res.getInt("stock"),
-					res.getInt("basePrice"));
+						res.getString("itemCode"),
+						res.getString("hotelCode"),
+						res.getDate("date"),
+						res.getInt("stock")
+					);
+					hotel = this.findHotel(hotel);
+					hotel.setCityName(this.findCityName(hotel.getCityCode()));
 				hotelList.add(hotel);
 			}
 		} catch(SQLException e) {
