@@ -12,7 +12,7 @@ import tsys.sales.entity.Hotel;
 public class HotelDetailLogic {
 	Connection con = null;
 
-	Hotel getDetail(String hotelCode)throws SalesBusinessException, SalesSystemException {
+	public Hotel getDetail(String hotelCode)throws SalesBusinessException, SalesSystemException {
 		Hotel hotel = null;
 		try {
 			// データベースの接続を取得する

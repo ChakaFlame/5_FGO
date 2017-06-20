@@ -14,7 +14,7 @@ import tsys.sales.entity.Hotel;
 public class HotelSearchLogic {
 	Connection con = null;
 
-	ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate)throws SalesBusinessException, SalesSystemException {
+	public ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate)throws SalesBusinessException, SalesSystemException {
 		ArrayList<Hotel> hotelList = null;
 		try {
 			// データベースの接続を取得する
