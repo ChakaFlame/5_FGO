@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import tsys.sales.common.SalesBusinessException;
@@ -23,12 +24,24 @@ public class HotelSearchLogic {
 
 			// 商品テーブルアクセス用のDAOを生成し、メソッドを呼び出す。
 			HotelDAO hotelDao = new HotelDAO(con);
+
 			hotelList = hotelDao.searchHotel(cityCode, hotelDate);
+
+			Calendar sixMonth = Calendar.getInstance();
+			sixMonth.add(Calendar.MONTH,	6);
+			Date date = sixMonth.getTime();
+
+			for(Hotel hotel : hotelList){
+				if((hotel.getHotelDate()).after(date)){
+					hotelList.remove(hotel);
+				}
+			}
 
 			// 結果一覧がない場合、エラーを発生させる。
 			if(hotelList.isEmpty()) {
-				throw new SalesBusinessException("エラーが発生しました。");
+				throw new SalesBusinessException("結果なし。");
 			}
+
 		}catch(SQLException e) {
 			e.printStackTrace();
 			throw new SalesSystemException("エラーが発生しました。");
