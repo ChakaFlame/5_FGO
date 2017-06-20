@@ -16,7 +16,7 @@ public class HotelSearchAction {
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
 
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
-			req.setAttribute("messsage","宿泊日を選択してください");
+			req.setAttribute("message","宿泊日を選択してください");
 			return page;
 		}
 		Date hotelDate=null;
