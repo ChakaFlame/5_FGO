@@ -20,6 +20,8 @@ public class Member implements Serializable {
 	private String address;
 	/** 電話番号 */
 	private String tel;
+	/** 権限 */
+	private String role = "Customer";
 
 	/**
 	 * 引数のないコンストラクタ:何もしない。
@@ -153,6 +155,21 @@ public class Member implements Serializable {
 	 */
 	public String getTel() {
 		return tel;
+	}
+
+	/**
+	 * @return role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role セットする role
+	 */
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	/**
