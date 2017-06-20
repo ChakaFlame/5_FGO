@@ -20,14 +20,14 @@ public class HotelDAO {
 
     private Connection con;  //接続オブジェクト
 
-    /*
+    /**
      * コンストラクタ
      */
     public HotelDAO(Connection con) {
     	this.con = con;
     }
 
-    /*
+    /**
      * ホテル1件検索
      */
     public Hotel findHotelDetail(String hotelCode) throws SQLException{
@@ -41,7 +41,9 @@ public class HotelDAO {
 			stmt.setString(1, hotelCode);
 			res =  stmt.executeQuery();
 
-			// 検索結果がある場合、戻り値に設定する。
+			/**
+			 *  検索結果がある場合、戻り値に設定する。
+			 */
 			if(res.next()) {
 				hotel = new Hotel(
 						res.getString("itemCode"),
@@ -70,7 +72,7 @@ public class HotelDAO {
     	return hotel;
     }
 
-    /*
+    /**
      * ホテル条件一致検索
      */
     public ArrayList<Hotel> searchHotel(int cityCode, Date date) throws SQLException{
