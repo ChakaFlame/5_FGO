@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ホテル検索</title>
-<link rel="stylesheet" type="text/css" href="Search.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/HotelSearch/Search.css">
 </head>
 <body>
 	<%-- 定義済みオブジェクトの使用 --%>
