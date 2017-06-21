@@ -51,7 +51,6 @@
 				</select></td>
 			</tr>
 		</table>
-		<!--  -->
 		<form action="/jsys/jsys" method="POST" name="fm"></form>
 		<br> <br>
 			<!-- ボタンID用フィールド -->
