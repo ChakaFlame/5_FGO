@@ -26,7 +26,8 @@
 		<br>
 		<br>
 		<!-- フォーム -->
-		<form action="/5_FGO/tsys" method="POST" name="inform">
+		<form action="/tourSystem/tsys" method="POST" name="fm">
+			<input type="hidden" name="BUTTON_ID" value="">
 			<table border="0">
 				<tr>
 					<td class="sample1">メンバーコード</td>
@@ -38,10 +39,11 @@
 				</tr>
 			</table>
 			<br>
-			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">ログイン</a>
+			<span class="button" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">ログイン</span>
 			<br>
-			<input class="button" type="button" name="test" value="login" onClick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
+			<input class="button" type="button"  value="login" onclick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
 			<br>
+			<input class="button" type="アカウントをお持ちでない方はコチラ"  value="login" onclick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
 			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a>
 		</form>
 	</div>
