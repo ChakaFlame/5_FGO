@@ -35,19 +35,24 @@
 			<td class="padding">部屋数</td>
 			<td class="padding">小計</td>
 		</tr>
-		<c:forEach items="${sessionScope.cart}">
+		<c:forEach var="hotel" items="${sessionScope.cart}">
 		<tr>
-			<td><c:out value="${sessionScope.cart.hotel.hotelcode}" /></td>
-			<td><c:out value="${sessionScope.cart.hotel.hotelName}" /></td>
-			<td><c:out value="${sessionScope.cart.hotel.hotelDate}" /></td>
-			<td><c:out value="${sessionScope.cart.hotel.price}" />円</td>
-			<td  align="right"><c:out value="${sessionScope.cart.reservNo}" /></td>
-			<td><c:out value="${sessionScope.cart.calcPrice()}" />円</td>
+			<td><c:out value="${hotel.hotelcode}" /></td>
+			<td><c:out value="${hotel.hotelName}" /></td>
+			<td><c:out value="${hotel.hotelDate}" /></td>
+			<td><c:out value="${hotel.price}" />円</td>
+			<td  align="right"><c:out value="${hotel.reservNo}" /></td>
+			<td><c:out value="${hotel.calcPrice()}" />円</td>
 		</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="4" align="right">合計<td>
-			<td><c:out value="${sessionScope.cart.calcPrice()}" />円</td>
+			<td class="sample2">
+				<c:forEach var="hotel" items="${sessionScope.cart}">
+				${totalPrice += hotel.price}$
+				</c:forEach>
+				<c:out value="${totalPrice}" />円
+			</td>
 		</tr>
 	</table>
 	</div>
@@ -67,7 +72,11 @@
 		</tr>
 		<tr>
 			<td class="sample1">送付先</td>
-			<td class="padding"><c:out value="${requestScope.address}" /></td>
+			<td class="padding">
+				〒<c:out value="${requestScope.zipCode}" />　　
+				<c:out value="${requestScope.prefecture}" />
+				<c:out value="${requestScope.address}" />
+			</td>
 		</tr>
 		<tr>
 			<td class="sample1">決済方法<td>

@@ -11,11 +11,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.*;
 
 import tsys.sales.entity.Member;
 import tsys.sales.entity.Order;
 import tsys.sales.entity.OrderDetail;
+import tsys.sales.entity.Item;
 
 public class OrderDAO {
 
@@ -46,7 +47,7 @@ private Connection con;  //接続オブジェクト
     		if(res.next()) {
     			orderList.add( new Order(
     					res.getInt("orderNo"),
-    					res.getDate("orderDate"),
+    					res.getString("orderDate"),
     					res.getInt("orderTotal"),
     					res.getString("memberCode"),
     					res.getString("payment")));
@@ -103,8 +104,9 @@ private Connection con;  //接続オブジェクト
     /*
      * Orderテーブルに追加
      */
-    public String insertOrder(Order order) throws SQLException{
-    	String orderNo = null;
+    public int insertOrder(ArrayList<Item> cart,String orderDate,int orderTotal,String memberCode,String payment)
+    			throws SQLException{
+    	int orderNo = 0;
 //    	boolean insertFlag = false;
     	//OrderMasterテーブルに該当の受注情報を追加
 
@@ -121,14 +123,14 @@ private Connection con;  //接続オブジェクト
 
     	try {
     		stmt1 = con.prepareStatement(sql1);
-    		stmt1.setDate(1,(Date) order.getOrderDate());
-    		stmt1.setInt(2, order.getOrderTotal());
-    		stmt1.setString(3, order.getMemberCode());
-    		stmt1.setString(4, order.getPayment());
+    		stmt1.setString(1,orderDate);
+    		stmt1.setInt(2, orderTotal);
+    		stmt1.setString(3, memberCode);
+    		stmt1.setString(4, payment);
     		insertCount = stmt1.executeUpdate();
     		stmt2 = con.prepareStatement(sql2);
     		res =  stmt2.executeQuery();
-    		orderNo = res.getString(1);
+    		orderNo = res.getInt(1);
     	} catch (SQLException e) {
     		return orderNo;
     	} finally {
@@ -142,23 +144,25 @@ private Connection con;  //接続オブジェクト
 //    	insertFlag = true;
     	return orderNo;
     }
-     public boolean insertOrderDetail(OrderDetail order) throws SQLException{
+     public boolean insertOrderDetail(int orderNo,ArrayList<Item> cart) throws SQLException{
     	boolean insertFlag = false;
     	//OrderDetailテーブルに該当の受注情報を追加
     	String sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
     	PreparedStatement stmt = null;
-    	try {
-    		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, order.getOrderNo());
-    		stmt.setString(2, order.getItemCode());
-    		stmt.setInt(3, order.getPrice());
-    		stmt.setInt(4, order.getQuantity());
-    		stmt.executeUpdate();
-    	} catch (SQLException e) {
-    		return insertFlag;
-    	} finally {
-    		if (stmt != null) {
-    			stmt.close();
+    	for (Item item : cart) {
+    		try {
+    			stmt = con.prepareStatement(sql);
+    			stmt.setInt(1, orderNo);
+    			stmt.setString(2, item.getHotel().getItemCode());
+    			stmt.setString(3, item.getHotel().getHotelName());
+    			stmt.setInt(4, item.getHotel().getBasicPrice());
+    			stmt.executeUpdate();
+    		} catch (SQLException e) {
+    			return insertFlag;
+    		} finally {
+    			if (stmt != null) {
+    				stmt.close();
+    			}
     		}
     	}
     	insertFlag = true;
