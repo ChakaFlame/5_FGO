@@ -25,7 +25,7 @@ public class HotelDetailAction {
 		} catch (SalesSystemException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
-			page = "/SalesErrorView.jsp";
+			page = "/Error.jsp";
 		}
 			return page;
 	}

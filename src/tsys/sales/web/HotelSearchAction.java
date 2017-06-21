@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 
 public class HotelSearchAction {
 	public String execute(HttpServletRequest req) {
-		String page = "/HotelSearch/HotelSearch.jsp"; // 入力画面を戻り値に設定
+		String page = "/HotelSearch/HotelSearchView.jsp"; // 入力画面を戻り値に設定
 		DateFormat format = new SimpleDateFormat("yyyy-M-d");
 
 		String hotelDateSr = "";
@@ -42,7 +42,7 @@ public class HotelSearchAction {
 			ArrayList<Hotel> hotelList = hotelSearchLogic.searchHotel(cityCode, hotelDate);
 
 			req.setAttribute("HotelList", hotelList);
-			page = "/HotelSearch/HotelSearch.jsp"; // ホテル検索画面内に結果表示させるため同画面に戻る
+			page = "/HotelSearch/HotelSearchView.jsp"; // ホテル検索画面内に結果表示させるため同画面に戻る
 		} catch (SalesBusinessException e) {
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
