@@ -18,29 +18,29 @@
 	<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
 		<h2>
-			<c:out value="${requestScope.hotelList.hotelName}" />
+			<c:out value="${requestScope.Hotel.hotelName}" />
 		</h2>
 		<br> <br>
 		<table>
 			<tr>
 				<td class="sample1">ホテル名</td>
-				<td><c:out value="${requestScope.hotelList.hotelName}" /></td>
+				<td><c:out value="${requestScope.Hotel.hotelName}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">宿泊日</td>
-				<td><c:out value="${requestScope.hotelList.hotelDate}" /></td>
+				<td><c:out value="${requestScope.Hotel.hotelDate}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">グレード</td>
-				<td><c:out value="${requestScope.hotelList.grade}" /></td>
+				<td><c:out value="${requestScope.Hotel.grade}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">料金</td>
-				<td><c:out value="${requestScope.hotelList.price}" />円</td>
+				<td><c:out value="${requestScope.Hotel.price}" />円</td>
 			</tr>
 			<tr>
 				<td class="sample1">空室</td>
-				<td><c:out value="${requestScope.hotelList.stock}" /></td>
+				<td><c:out value="${requestScope.Hotel.stock}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">予約数</td>
