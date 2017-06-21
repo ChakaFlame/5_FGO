@@ -1,7 +1,6 @@
 package tsys.sales.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Hotel implements Serializable {
 	/** 商品コード */
@@ -9,7 +8,7 @@ public class Hotel implements Serializable {
 	/** ホテルコード */
 	private String hotelCode;
 	/** 宿泊日 */
-	private Date hotelDate;
+	private String hotelDate;
 	/** ホテル名 */
 	private String hotelName;
 	/** 都市コード */
@@ -30,7 +29,7 @@ public class Hotel implements Serializable {
 	/**
 	 * @param itemCode
 	 * @param hotelCode
-	 * @param hotelDate
+	 * @param date
 	 * @param hotelName
 	 * @param cityCode
 	 * @param cityName
@@ -38,13 +37,13 @@ public class Hotel implements Serializable {
 	 * @param stock
 	 * @param basicPrice
 	 */
-	public Hotel(String itemCode, String hotelCode, Date hotelDate, int stock) {
+	public Hotel(String itemCode, String hotelCode, String date, int stock) {
 		this.itemCode = itemCode;
 		this.hotelCode = hotelCode;
-		this.hotelDate = hotelDate;
+		this.hotelDate = date;
 		this.stock = stock;
 	}
-	public Hotel(String itemCode, String hotelCode, Date hotelDate, String hotelName, String cityCode, String cityName,
+	public Hotel(String itemCode, String hotelCode, String hotelDate, String hotelName, String cityCode, String cityName,
 			String grade, int stock, int basicPrice) {
 		this.itemCode = itemCode;
 		this.hotelCode = hotelCode;
@@ -94,13 +93,13 @@ public class Hotel implements Serializable {
 	/**
 	 * @return hotelDate
 	 */
-	public Date getHotelDate() {
+	public String getHotelDate() {
 		return hotelDate;
 	}
 	/**
 	 * @param hotelDate セットする hotelDate
 	 */
-	public void setHotelDate(Date hotelDate) {
+	public void setHotelDate(String hotelDate) {
 		this.hotelDate = hotelDate;
 	}
 	/**

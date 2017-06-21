@@ -122,7 +122,7 @@ public class HotelDAO {
 				hotel = new Hotel(
 					res.getString("itemCode"),
 					res.getString("hotelCode"),
-					res.getDate("date"),
+					res.getString("date"),
 					res.getInt("stock")
 				);
 				hotel = this.findHotel(hotel);
@@ -165,7 +165,7 @@ public class HotelDAO {
 				hotel = new Hotel(
 						res.getString("itemCode"),
 						res.getString("hotelCode"),
-						res.getDate("date"),
+						res.getString("date"),
 						res.getInt("stock")
 					);
 					hotel = this.findHotel(hotel);

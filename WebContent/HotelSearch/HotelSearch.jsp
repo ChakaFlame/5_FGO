@@ -26,13 +26,14 @@
 	<br>
 	<br>
 	<div align="center">
+	<form id="form" method="post" action="/tourSystem/tsys">
 		<table>
 			<tr class="sample1">
 				<td class="padding">宿泊日を選ぶ</td>
 				<td class="padding">宿泊都市を選ぶ</td>
 			</tr>
 			<tr>
-				<td class="padding"><select name="year">
+				<td class="padding"><select id="year" name="year">
 						<option value="1">2017</option>
 						<option value="2">2018</option>
 						<option value="3">2019</option>
@@ -43,7 +44,7 @@
 						<option value="8">2024</option>
 						<option value="9">2025</option>
 						<option value="10">2026</option>
-				</select> 年 <select name="month">
+				</select> 年 <select id="month" name="month">
 						<option value="6">6</option>
 						<option value="7">7</option>
 						<option value="8">8</option>
@@ -51,7 +52,7 @@
 						<option value="10">10</option>
 						<option value="11">11</option>
 						<option value="12">12</option>
-				</select> 月 <SELECT name="date">
+				</select> 月 <select id="date" name="date">
 						<option value="">--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -85,7 +86,7 @@
 						<option value="30">30</option>
 						<option value="31">31</option>
 				</select> 日</td>
-				<td class="padding"><select name="都市名">
+				<td class="padding"><select id="city" name="city">
 						<option value="1">北海道</option>
 						<option value="2">東北</option>
 						<option value="3">関東</option>
@@ -97,6 +98,7 @@
 				</select></td>
 			</tr>
 		</table>
+		</form>
 	</div>
 	<br>
 	<br>
@@ -105,7 +107,7 @@
 	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<div align="center">
 			<input type="hidden" name="BUTTON_ID" value="">
-			<a href="/tourSystem/tsys?BUTTON_ID=0802_01_01" class="button">検索</a>
+			<a href="/tourSystem/tsys?BUTTON_ID=0802_01_01" class="button" >検索</a>
 		</div>
 		<div id="table">
 		<br> <br> <br>
