@@ -8,14 +8,16 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Login/login.css">
 </head>
 <body>
-	<div align="center">
-	<h2>ログアウト</h2>
-	<h3>ログアウトしました。</h3>
-	<br>
-	<br>
-	<br>
-	<input class="button" type="button"  value="メニューへ" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">
-	</div>
-
+	<form action="/tourSystem/tsys" method="POST" name="fm">
+		<input type="hidden" name="BUTTON_ID" value="">
+		<div align="center">
+		<h2>ログアウト</h2>
+		<h3>ログアウトしました。</h3>
+		<br>
+		<br>
+		<br>
+		<input class="button" type="button"  value="メニューへ" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">
+		</div>
+	</form>
 </body>
 </html>
