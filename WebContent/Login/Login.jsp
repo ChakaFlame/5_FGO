@@ -39,12 +39,11 @@
 				</tr>
 			</table>
 			<br>
-			<span class="button" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">ログイン</span>
 			<br>
-			<input class="button" type="button"  value="login" onclick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
+			<input class="button" type="button"  value="ログイン仮" onclick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
+			<input class="button" type="button"  value="ログイン" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">
 			<br>
-			<input class="button" type="アカウントをお持ちでない方はコチラ"  value="login" onclick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
-			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a>
+			<a href="#" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a><!-- 未実装 -->
 		</form>
 	</div>
 </body>
