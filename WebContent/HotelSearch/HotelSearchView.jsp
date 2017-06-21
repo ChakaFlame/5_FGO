@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ホテル検索</title>
-<link rel="stylesheet" type="text/css" href="Search.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/HotelSearch/Search.css">
 </head>
 <body>
 	<%-- 定義済みオブジェクトの使用 --%>
@@ -111,8 +111,8 @@
 				<c:forEach var="hotelList" items="${requestScope.HotelList}">
 					<tr>
 						<td class="padding"><a
-							href="./tsys?BUTTON_ID=L0802_01_01&itemCode=${hotel.itemCode}"><c:out
-									value="${hotelList.itemCode}" /></a></td>
+							href="./tsys?BUTTON_ID=L0802_01_01&itemCode=${hotelList.itemCode}"><c:out
+									value="${hotelList.itemCode}"/></a></td>
 						<td class="padding"><c:out value="${hotelList.hotelName}" /></td>
 						<td class="number"><c:out value="${hotelList.price}" /></td>
 						<td class="number"><c:out value="${hotelList.stock}" /></td>

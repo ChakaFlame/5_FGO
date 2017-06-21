@@ -10,15 +10,17 @@ import java.util.*;
 public class HotelDetailAction {
 	public String execute(HttpServletRequest req){
 		String page = "/HotelSearch.jsp";							//入力画面を戻り値に設定
+
 		HttpSession session=req.getSession();
-		String hotelCode = (String) session.getAttribute("hotelCode");
+
+		String hotelCode = req.getParameter("itemCode");
 
 		try{
 			HotelDetailLogic hotelDetailLogic = new HotelDetailLogic();
 			Hotel hotel = hotelDetailLogic.getDetail(hotelCode);
 
 			req.setAttribute("Hotel", hotel);
-			page = "/HotelDetail.jsp";								//ホテル商品詳細へ
+			page = "/HotelSearch/HotelDetail.jsp";								//ホテル商品詳細へ
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
