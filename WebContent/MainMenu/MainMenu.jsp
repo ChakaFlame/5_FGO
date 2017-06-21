@@ -43,6 +43,7 @@
 		</div>
 	</section>
 	</form>
+	<jsp:include page="footer/footer.html" />
 </body>
 <!--<IFRAME src="Footer.jsp" name="footer" width="100%" height="60px"></IFRAME>-->
 </html>
