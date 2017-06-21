@@ -28,6 +28,7 @@ public class LoginAction {
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
+			page = "/Error/Error.jsp";
 		} catch (SalesSystemException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
