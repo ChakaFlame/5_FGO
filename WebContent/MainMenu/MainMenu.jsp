@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="Menu.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/MainMenu/Menu.css">
 <title>メインメニュー</title>
 </head>
 
