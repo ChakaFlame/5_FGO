@@ -34,17 +34,38 @@ public class FrontController extends HttpServlet {
 			buttonID = "M_01";
 		}
 
-		// どのボタンが押されたかによって処理を振り分ける。
+		// どのボタンが押されたかによって処理を振り分ける。			<! 正常系のみ記述済み !>
 		switch(buttonID) {
-			// メニュー画面のホテルボタンが押された場合
 
+			//メインメニューへ戻る
 			case "M_01":
-			MenuAction menuAction = new MenuAction();
-			page = menuAction.execute(req);		//page = "/tourSystem/HotelSearch.jsp";
-			break;
+				MenuAction menuAction = new MenuAction();
+				page = menuAction.execute(req);
+				break;
+			//ヘッダ ログイン
+			case "M_03":
+				ToLoginAction toLoginAction = new ToLoginAction();
+				page = toLoginAction.execute(req);
+				break;
+			//ヘッダ メンバー名(商品一覧)
+			case "M_04":
+				ToOrderListAction toOrderListAction = new ToOrderListAction();
+				page = toOrderListAction.execute(req);
+				break;
+			//ヘッダ カート
+			case "M_05":
+				ToShoppingcartAction toShoppingcartAction = new ToShoppingcartAction();
+				page = toShoppingcartAction.execute(req);
+				break;
+			//ヘッダ ログアウト
+			case "M_06":
+				ToLogoutAction toLogoutAction = new ToLogoutAction();
+				page = toLogoutAction.execute(req);
+				break;
 
-
+			// メニュー画面のホテルボタンが押された場合
 			case "0100_01_01":
+			case "0201_01_01"://ユースケース図100,200間で齟齬有り
 				ToHotelSearchAction toHotelSearchAction = new ToHotelSearchAction();
 				page = toHotelSearchAction.execute(req);		//page = "/tourSystem/HotelSearch.jsp";
 				break;
@@ -57,6 +78,23 @@ public class FrontController extends HttpServlet {
 			case "L0802_01_01":
 				HotelDetailAction hotelDetailAction = new HotelDetailAction();
 				page = hotelDetailAction.execute(req);
+				break;
+
+			//ログイン画面 ログインボタン
+			case "0101_01_01":
+				LoginAction loginAction = new LoginAction();
+				page = loginAction.execute(req);
+				break;
+			//ホテル商品詳細 カートへボタン
+			case "0802_02_01"://ユースケース図800,200間で齟齬有り
+			case "0801_01":
+				ShoppingCartAddAction shoppingCartAddAction = new ShoppingCartAddAction();
+				page = shoppingCartAddAction.execute(req);
+				break;
+			//ショッピングカート画面 購入ボタン
+			case "0201_01_02":
+				ShoppingCartBuyAction shoppingCartBuyAction = new ShoppingCartBuyAction();
+				page = shoppingCartBuyAction.execute(req);
 				break;
 		}
 
