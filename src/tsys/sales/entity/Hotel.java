@@ -38,13 +38,13 @@ public class Hotel implements Serializable {
 	 * @param stock
 	 * @param basicPrice
 	 */
-	public Hotel(String itemCode, String hotelCode, Date hotelDate, int stock) {
+	public Hotel(String itemCode, String hotelCode, String hotelDate, int stock) {
 		this.itemCode = itemCode;
 		this.hotelCode = hotelCode;
 		this.hotelDate = hotelDate;
 		this.stock = stock;
 	}
-	public Hotel(String itemCode, String hotelCode, Date hotelDate, String hotelName, String cityCode, String cityName,
+	public Hotel(String itemCode, String hotelCode, String hotelDate, String hotelName, String cityCode, String cityName,
 			String grade, int stock, int basicPrice) {
 		this.itemCode = itemCode;
 		this.hotelCode = hotelCode;
@@ -94,13 +94,13 @@ public class Hotel implements Serializable {
 	/**
 	 * @return hotelDate
 	 */
-	public Date getHotelDate() {
+	public String getHotelDate() {
 		return hotelDate;
 	}
 	/**
 	 * @param hotelDate セットする hotelDate
 	 */
-	public void setHotelDate(Date hotelDate) {
+	public void setHotelDate(String hotelDate) {
 		this.hotelDate = hotelDate;
 	}
 	/**
