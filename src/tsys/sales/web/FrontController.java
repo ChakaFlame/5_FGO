@@ -65,9 +65,9 @@ public class FrontController extends HttpServlet {
 
 			// メニュー画面のホテルボタンが押された場合
 			case "0100_01_01":
-			case "0201_01_01"://ユースケース図100,200間で齟齬有り
+			case "0201_01_01"://ユースケース図100,200間でボタンIDに齟齬有り
 				ToHotelSearchAction toHotelSearchAction = new ToHotelSearchAction();
-				page = toHotelSearchAction.execute(req);		//page = "/tourSystem/HotelSearch.jsp";
+				page = toHotelSearchAction.execute(req);	//page = "/tourSystem/HotelSearch.jsp";
 				break;
 			// ホテル検索画面の検索ボタンが押された場合
 			case "0802_01_01":
