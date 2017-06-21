@@ -85,20 +85,41 @@
 							<option value="04">福岡</option>
 							<option value="05">鹿児島</option>
 							<option value="06">那覇</option>
+
 					</select></td>
 				</tr>
 			</table>
 			<input type="hidden" name="BUTTON_ID" value=""> <input
-			type="submit" value="検索" onclick="this.form.BUTTON_ID.value='0802_01_01';">
+				type="submit" value="検索"
+				onclick="this.form.BUTTON_ID.value='0802_01_01';">
 		</form>
 	</div>
 	<br>
-	<c:out value="${reqestScope.message}"/>
 	<br>
 	<br>
 	<div id="table">
 		<br> <br> <br>
-			</div>
+		<div align="center">
+			<table>
+				<tr class="sample1">
+					<td class="padding">商品コード</td>
+					<td class="padding">ホテル名</td>
+					<td class="padding">料金</td>
+					<td class="padding">空室</td>
+				</tr>
+				<c:forEach var="hotelList" items="${requestScope.HotelList}">
+					<tr>
+						<td class="padding"><a
+							href="./tsys?BUTTON_ID=L0802_01_01&itemCode=${hotelList.itemCode}"><c:out
+									value="${hotelList.itemCode}"/></a></td>
+						<td><c:out value="${hotelList.hotelName}" /></td>
+						<td class="number"><c:out value="${hotelList.price}" /></td>
+						<td class="number"><c:out value="${hotelList.stock}" /></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
 
 </body>
 </html>
