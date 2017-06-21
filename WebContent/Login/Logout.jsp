@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログアウト</title>
-<link rel="stylesheet" type="text/css" href="login.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/Login/login.css">
 </head>
 <body>
 	<div align="center">
