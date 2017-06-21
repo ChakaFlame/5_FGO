@@ -19,7 +19,7 @@ public class HotelSearchAction {
 		System.out.println(hotelDateSr);
 
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
-			req.setAttribute("messsage","宿泊日を選択してください");
+			req.setAttribute("message","宿泊日を選択してください");
 			return page;
 		}
 		Date hotelDate=null;

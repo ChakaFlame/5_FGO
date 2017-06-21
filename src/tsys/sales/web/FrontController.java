@@ -37,10 +37,16 @@ public class FrontController extends HttpServlet {
 		// どのボタンが押されたかによって処理を振り分ける。
 		switch(buttonID) {
 			// メニュー画面のホテルボタンが押された場合
+
+			case "M_01":
+			MenuAction menuAction = new MenuAction();
+			page = menuAction.execute(req);		//page = "/tourSystem/HotelSearch.jsp";
+			break;
+
+
 			case "0100_01_01":
 				ToHotelSearchAction toHotelSearchAction = new ToHotelSearchAction();
-				page = toHotelSearchAction.execute(req);
-				//page = "/tourSystem/HotelSearch.jsp";
+				page = toHotelSearchAction.execute(req);		//page = "/tourSystem/HotelSearch.jsp";
 				break;
 			// ホテル検索画面の検索ボタンが押された場合
 			case "0802_01_01":

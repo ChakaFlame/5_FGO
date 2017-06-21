@@ -37,10 +37,11 @@ public class Hotel implements Serializable {
 	 * @param stock
 	 * @param basicPrice
 	 */
-	public Hotel(String itemCode, String hotelCode, String date, int stock) {
+
+	public Hotel(String itemCode, String hotelCode, String hotelDate, int stock) {
 		this.itemCode = itemCode;
 		this.hotelCode = hotelCode;
-		this.hotelDate = date;
+		this.hotelDate = hotelDate;
 		this.stock = stock;
 	}
 	public Hotel(String itemCode, String hotelCode, String hotelDate, String hotelName, String cityCode, String cityName,
