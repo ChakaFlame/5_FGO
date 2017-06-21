@@ -10,8 +10,8 @@ import java.util.*;
 public class HotelDetailAction {
 	public String execute(HttpServletRequest req){
 		String page = "/HotelSearch.jsp";							//入力画面を戻り値に設定
-
-		String hotelCode = req.getParameter("hotelCode");
+		HttpSession session=req.getSession();
+		String hotelCode = (String) session.getAttribute("hotelCode");
 
 		try{
 			HotelDetailLogic hotelDetailLogic = new HotelDetailLogic();
