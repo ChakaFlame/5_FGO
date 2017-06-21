@@ -9,7 +9,7 @@ public class Hotel implements Serializable {
 	/** ホテルコード */
 	private String hotelCode;
 	/** 宿泊日 */
-	private Date hotelDate;
+	private String hotelDate;
 	/** ホテル名 */
 	private String hotelName;
 	/** 都市コード */
