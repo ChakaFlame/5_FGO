@@ -11,7 +11,11 @@
 
 <!-- <IFRAME src="Header.jsp" name="header" width="100%" height="110px"></IFRAME> -->
 <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
-<jsp:include page="header/header.html" />
+<% if (request.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header.html" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<!-- メニュー -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
@@ -22,7 +26,7 @@
 		<span onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()">
 		<div class="card" style="background-color: #547A82;">
 		  	<div class="header">
-	  			<img alt="globe" src="hotel.png" style="padding-top:40px; width:90px">
+	  			<img alt="globe" src="img/hotel.png" style="padding-top:40px; width:90px">
 				<h3>ホテル</h3>
 	  		</div>
 		</div>
@@ -30,14 +34,14 @@
 
 		<div class="card" style="background-color: #3EACA8;">
 	  		<div class="header">
-	  			<img alt="globe" src="plane.png" style="padding-top:40px; width:90px">
+	  			<img alt="globe" src="img/plane.png" style="padding-top:40px; width:90px">
 	    		<h3>フライト</h3>
 	  		</div>
 		</div>
 
 		<div class="card" style=" background-color: #A2D4AB;">
 	 		<div class="header" >
-	  			<img alt="globe" src="globe.png" style="padding-top:40px; width:90px">
+	  			<img alt="globe" src="img/globe.png" style="padding-top:40px; width:90px">
 	    		<h3>ツアー</h3>
 	  		</div>
 		</div>
