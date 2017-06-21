@@ -54,9 +54,7 @@
 				</select></td>
 			</tr>
 		</table>
-
 		<br> <br>
-
 			<span class="button" onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</span>
 	</form>
 	</div>
