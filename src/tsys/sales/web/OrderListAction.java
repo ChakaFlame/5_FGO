@@ -8,8 +8,8 @@ import java.util.*;
 public class OrderListAction {
 	public String execute(HttpServletRequest req) {
 		String page = "/Order/OrderList.jsp";
-		req.getSession();
-		String memberCode = req.getParameter("memberCode");
+		HttpSession session = req.getSession();
+		String memberCode = (String) session.getAttribute("memberCode");
 		try {
 			OrderListLogic orderListLogic = new OrderListLogic();
 			ArrayList<Order> orderList =  null;
