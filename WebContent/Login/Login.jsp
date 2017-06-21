@@ -40,6 +40,7 @@
 			<br>
 			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">ログイン</a>
 			<br>
+			<input class="button" type="button" name="test" value="login" onClick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
 			<br>
 			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a>
 		</form>
