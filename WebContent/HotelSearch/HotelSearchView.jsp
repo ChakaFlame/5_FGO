@@ -113,7 +113,7 @@
 							href="./tsys?BUTTON_ID=L0802_01_01&itemCode=${hotelList.itemCode}"><c:out
 									value="${hotelList.itemCode}"/></a></td>
 						<td><c:out value="${hotelList.hotelName}" /></td>
-						<td class="number"><c:out value="${hotelList.price}" /></td>
+						<td class="number"><c:out value="${hotelList.basicPrice}" /></td>
 						<td class="number"><c:out value="${hotelList.stock}" /></td>
 					</tr>
 				</c:forEach>

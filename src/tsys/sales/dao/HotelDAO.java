@@ -166,12 +166,7 @@ public class HotelDAO {
 						res.getString("itemCode"),
 						res.getString("hotelCode"),
 						res.getString("date"),
-						res.getString("hotelName"),
-						res.getString("cityCode"),
-						res.getString("cityName"),
-						res.getString("grade"),
-						res.getInt("stock"),
-						res.getInt("basicPrice")
+						res.getInt("stock")
 					);
 					hotel = this.findHotel(hotel);
 					hotel.setCityName(this.findCityName(hotel.getCityCode()));

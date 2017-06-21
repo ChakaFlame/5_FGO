@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td class="sample1">料金</td>
-				<td><c:out value="${requestScope.Hotel.price}" />円</td>
+				<td><c:out value="${requestScope.Hotel.basicPrice}" />円</td>
 			</tr>
 			<tr>
 				<td class="sample1">空室</td>
