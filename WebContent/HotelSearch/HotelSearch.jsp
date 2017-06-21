@@ -45,7 +45,6 @@
 							<option value="11">11</option>
 							<option value="12">12</option>
 					</select> 月 <select id="date" name="date">
-							<option value="">--</option>
 							<option value="01">1</option>
 							<option value="02">2</option>
 							<option value="03">3</option>
