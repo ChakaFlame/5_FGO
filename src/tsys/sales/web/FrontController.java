@@ -87,6 +87,7 @@ public class FrontController extends HttpServlet {
 				break;
 			//ホテル商品詳細 カートへボタン
 			case "0802_02_01"://ユースケース図800,200間で齟齬有り
+			case "0801_01_01":
 			case "0801_01":
 				ShoppingCartAddAction shoppingCartAddAction = new ShoppingCartAddAction();
 				page = shoppingCartAddAction.execute(req);
