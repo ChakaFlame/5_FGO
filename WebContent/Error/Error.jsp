@@ -10,7 +10,7 @@
 <body>
 <div align="center">
     <br>
-      <h3><c:out value="${requestScope.error}" /></h3><br>
+      <h3><c:out value="${requestScope.message}" /></h3><br>
 </div>
 </body>
 </html>
