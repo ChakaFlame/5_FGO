@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ショッピングカート</title>
-	<link rel="stylesheet" type="text/css" href="cart.css">
+	<link rel="stylesheet" type="text/css" href="/tourSystem/Shoppingcart/cart.css">
 </head>
 <body>
 	<!-- ショッピングカート -->
