@@ -3,6 +3,9 @@ package tsys.sales.logic;
 import java.sql.Connection;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -33,8 +36,11 @@ public class HotelSearchLogic {
 			cal.set(Calendar.MONTH, (cal.get(Calendar.MONTH)+6));
 			current = cal.getTime();
 
+			DateFormat format = new SimpleDateFormat("yyyy-M-d");
+
 			for(Hotel hotel : hotelList){
-				if((hotel.getHotelDate()).after(current)){
+				Date hotelDate1 = format.parse(hotel.getHotelDate());
+				if(hotelDate1.after(current)){
 					hotelList.remove(hotel);
 				}
 			}
@@ -44,7 +50,7 @@ public class HotelSearchLogic {
 				throw new SalesBusinessException("結果なし。");
 			}
 
-		}catch(SQLException e) {
+		}catch(SQLException | ParseException e) {
 			e.printStackTrace();
 			throw new SalesSystemException("エラーが発生しました。");
 		}finally {

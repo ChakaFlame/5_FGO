@@ -12,10 +12,11 @@ import java.text.SimpleDateFormat;
 public class HotelSearchAction {
 	public String execute(HttpServletRequest req) {
 		String page = "/HotelSearch/HotelSearch.jsp"; // 入力画面を戻り値に設定
+		DateFormat format = new SimpleDateFormat("yyyy-M-d");
 
 		String hotelDateSr = "";
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
-		DateFormat format = new SimpleDateFormat("yyyy-M-d");
+
 		System.out.println(hotelDateSr);
 
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
