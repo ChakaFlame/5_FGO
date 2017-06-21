@@ -52,8 +52,8 @@
 			</tr>
 		</table>
 		<form action="/jsys/jsys" method="POST" name="fm"></form>
-		<br> <br> <a href="#" class="button"
-			onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</a>
+		<br> <br>
+			<span onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</span>
 	</div>
 
 </body>
