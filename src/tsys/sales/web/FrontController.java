@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet {
 
 		// ボタンIDがnullの場合、デフォルト値を設定する。[メニュー画面]
 		if (buttonID == null) {
-			buttonID = "M_01";
+			buttonID = "M_03";
 		}
 
 		// どのボタンが押されたかによって処理を振り分ける。			<! 正常系のみ記述済み !>
