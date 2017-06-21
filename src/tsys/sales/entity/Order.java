@@ -7,7 +7,7 @@ public class Order implements Serializable {
 	/** 注文番号 */
 	private int orderNo;
 	/** 注文日時 */
-	private Date orderDate;
+	private String orderDate;
 	/** 注文合計金額 */
 	private int orderTotal;
 	/** 顧客コード */
@@ -26,7 +26,7 @@ public class Order implements Serializable {
 	 * @param memberCode
 	 * @param payment
 	 */
-	public Order(int orderNo, Date orderDate, int orderTotal, String memberCode, String payment) {
+	public Order(int orderNo, String orderDate, int orderTotal, String memberCode, String payment) {
 		super();
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
