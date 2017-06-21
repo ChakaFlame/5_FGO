@@ -20,17 +20,18 @@ public class ShoppingCartBuyAction {
 	public String execute(HttpServletRequest req) {
 		String page = "/ShoppingCart.jsp";
 
-		//セッションからログイン状態を獲得する。
-		HttpSession session = req.getSession(false);
+		//セッションを繋ぐ。
+		HttpSession session = req.getSession();
 
-		//ログインしていない場合はログイン画面に遷移
-		if (session == null) {
-			page = "/Login.jsp";
-			return page;
-		}
 		//カートが空の場合はショッピングカート画面でメッセージ表示
 		if (session.getAttribute("cart") == null) {
 			req.setAttribute("message", "ショッピングカートが空です。");
+			return page;
+		}
+
+		//ログインしていない場合はログイン画面に遷移
+		if (session.getAttribute("memberCode") == null) {
+			page = "/Login.jsp";
 			return page;
 		}
 
