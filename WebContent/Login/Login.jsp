@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel="stylesheet" type="text/css" href="login.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/Login/login.css">
 <script type="text/javascript">
 	// 検索ボタンが押された場合、未入力チェックを行う。
 	function PushSearchButton() {
