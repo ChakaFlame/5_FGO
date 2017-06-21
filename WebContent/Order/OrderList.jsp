@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>注文一覧</title>
-<link rel="stylesheet" type="text/css" href="Order.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 	<div align="center">
 		<c:out value="${sessionScope.memberName}" /><h2>様の注文一覧</h2>

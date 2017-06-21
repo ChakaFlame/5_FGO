@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ホテル商品詳細</title>
-<link rel="stylesheet" type="text/css" href="Hotel.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/HotelSearch/Hotel.css">
 
 </head>
 <body>

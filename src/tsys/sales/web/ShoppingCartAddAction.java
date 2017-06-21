@@ -29,9 +29,11 @@ public class ShoppingCartAddAction {
 			int reservNo = Integer.parseInt(req.getParameter("reservNo"));
 
 			if(hotel == null){
+				req.setAttribute("erroe", "ホテルが見つかりません。");
 				return page;
 			}
-			if(reservNo == 0){
+			if(reservNo <= 0){
+				req.setAttribute("error", "予約室数が異常です。");
 				return page;
 			}
 
