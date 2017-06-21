@@ -25,10 +25,14 @@ public class ConnectionManager {
 	public static synchronized Connection getConnection() throws SQLException {
 		Connection con = null;
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
+		} catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
 		}
 
 		return con;
