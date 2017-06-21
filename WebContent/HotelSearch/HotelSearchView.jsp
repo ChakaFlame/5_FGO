@@ -79,14 +79,13 @@
 							<option value="31">31</option>
 					</select> 日</td>
 					<td class="padding"><select id="city" name="city">
-							<option value="01">北海道</option>
-							<option value="02">東北</option>
-							<option value="03">関東</option>
-							<option value="04">中部</option>
-							<option value="05">近畿</option>
-							<option value="06">四国</option>
-							<option value="07">九州</option>
-							<option value="08">沖縄</option>
+							<option value="01">札幌</option>
+							<option value="02">旭川</option>
+							<option value="03">函館</option>
+							<option value="04">福岡</option>
+							<option value="05">鹿児島</option>
+							<option value="06">那覇</option>
+
 					</select></td>
 				</tr>
 			</table>
@@ -113,7 +112,7 @@
 						<td class="padding"><a
 							href="./tsys?BUTTON_ID=L0802_01_01&itemCode=${hotelList.itemCode}"><c:out
 									value="${hotelList.itemCode}"/></a></td>
-						<td class="padding"><c:out value="${hotelList.hotelName}" /></td>
+						<td><c:out value="${hotelList.hotelName}" /></td>
 						<td class="number"><c:out value="${hotelList.price}" /></td>
 						<td class="number"><c:out value="${hotelList.stock}" /></td>
 					</tr>
