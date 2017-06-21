@@ -24,27 +24,32 @@
 		<table>
 			<tr>
 				<td class="sample1">ホテル名</td>
-				<td><c:out value="${requestScope.Hotel.hotelName}" /></td>
+				<!-- <td><c:out value="${requestScope.Hotel.hotelName}" /></td> -->
+				<td><c:out value="${sessionScope.Hotel.hotelName}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">宿泊日</td>
-				<td><c:out value="${requestScope.Hotel.hotelDate}" /></td>
+				<!-- <td><c:out value="${requestScope.Hotel.hotelDate}" /></td> -->
+				<td><c:out value="${sessionScope.Hotel.hotelDate}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">グレード</td>
-				<td><c:out value="${requestScope.Hotel.grade}" /></td>
+				<!-- <td><c:out value="${requestScope.Hotel.grade}" /></td> -->
+				<td><c:out value="${sessionScope.Hotel.grade}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">料金</td>
-				<td><c:out value="${requestScope.Hotel.basicPrice}" />円</td>
+				<!-- <td><c:out value="${requestScope.Hotel.basicPrice}" />円</td> -->
+				<td><c:out value="${sessionScope.Hotel.basicPrice}" />円</td>
 			</tr>
 			<tr>
 				<td class="sample1">空室</td>
-				<td><c:out value="${requestScope.Hotel.stock}" /></td>
+				<!-- <td><c:out value="${requestScope.Hotel.stock}" /></td> -->
+				<td><c:out value="${sessionScope.Hotel.stock}" />円</td>
 			</tr>
 			<tr>
 				<td class="sample1">予約数</td>
-				<td><select name="部屋数">
+				<td><select name="reservNo">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -60,7 +65,6 @@
 						<option value="13">13</option>
 						<option value="14">14</option>
 						<option value="15">15</option>
-						<!--   -->
 				</select></td>
 			</tr>
 		</table>
