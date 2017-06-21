@@ -37,24 +37,24 @@
 							<option value="2017">2017</option>
 							<option value="2018">2018</option>
 					</select> 年 <select id="month" name="month">
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
 							<option value="10">10</option>
 							<option value="11">11</option>
 							<option value="12">12</option>
 					</select> 月 <select id="date" name="date">
 							<option value="">--</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
 							<option value="10">10</option>
 							<option value="11">11</option>
 							<option value="12">12</option>
@@ -79,14 +79,14 @@
 							<option value="31">31</option>
 					</select> 日</td>
 					<td class="padding"><select id="city" name="city">
-							<option value="1">北海道</option>
-							<option value="2">東北</option>
-							<option value="3">関東</option>
-							<option value="4">中部</option>
-							<option value="5">近畿</option>
-							<option value="6">四国</option>
-							<option value="7">九州</option>
-							<option value="7">沖縄</option>
+							<option value="01">北海道</option>
+							<option value="02">東北</option>
+							<option value="03">関東</option>
+							<option value="04">中部</option>
+							<option value="05">近畿</option>
+							<option value="06">四国</option>
+							<option value="07">九州</option>
+							<option value="08">沖縄</option>
 					</select></td>
 				</tr>
 			</table>
