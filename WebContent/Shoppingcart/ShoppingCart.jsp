@@ -10,7 +10,7 @@
 <body>
 	<!-- ショッピングカート -->
 	<!-- フォーム -->
-	<form action="/tsys" method="POST" name="inform">
+	<form action="/tourSystem/tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center">

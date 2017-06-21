@@ -14,6 +14,9 @@
 </head>
 <body>
 	<div align="center">
+	<form action="/tourSystem/tsys" method="POST" name="fm">
+	<!-- ボタンID用フィールド -->
+			<input type="hidden" name="BUTTON_ID" value="">
 		<h2>
 			<c:out value="${requestScope.hotelList.hotelName}" />
 		</h2>
@@ -51,12 +54,11 @@
 				</select></td>
 			</tr>
 		</table>
-		<form action="/jsys/jsys" method="POST" name="fm"></form>
-		<br> <br>
-			<!-- ボタンID用フィールド -->
-			<input type="hidden" name="BUTTON_ID" value="">
-			<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</a>
-	</div>
 
+		<br> <br>
+
+			<span class="button" onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</span>
+	</form>
+	</div>
 </body>
 </html>
