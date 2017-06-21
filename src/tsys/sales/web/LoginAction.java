@@ -35,6 +35,5 @@ public class LoginAction {
 		}
 			return page;
 	}
-
 }
 
