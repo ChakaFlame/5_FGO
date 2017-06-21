@@ -20,14 +20,14 @@ public class ShoppingCartConfirmAction {
 	 * @return 次画面名
 	 */
 	public String execute(HttpServletRequest req) {
-		String page = "/OrderConfirmation.jsp";
+		String page = "/Order/OrderConfirmation.jsp";
 
 
 		//セッションを繋ぐ
 		HttpSession session = req.getSession(false);
 		if (session == null) {
 			req.setAttribute("message", "エラーが発生しました。");
-			page = "Error.jsp";
+			page = "/Error/Error.jsp";
 			return page;
 		}
 		//セッションから必要事項をゲット
@@ -42,10 +42,10 @@ public class ShoppingCartConfirmAction {
 			ShoppingCartConfirmLogic shoppingCartConfirmLogic = new ShoppingCartConfirmLogic();
 			if(!shoppingCartConfirmLogic.orderConfirm(payment, memberCode, cart)) {
 				req.setAttribute("message", "エラーが発生しました。");
-				page = "Error.jsp";
+				page = "/Error/Error.jsp";
 				return page;
 			} else {
-				page = "/OrderConfirmed.jsp";
+				page = "/Order/OrderConfirmed.jsp";
 			}
 		} catch(SalesBusinessException e) {
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class ShoppingCartConfirmAction {
 			e.printStackTrace();
 			req.setAttribute("message", e.getMessage());
 			//エラー画面に戻り値を設定
-			page = "/Error.jsp";
+			page = "/Error/Error.jsp";
 		}
 		return page;
 	}

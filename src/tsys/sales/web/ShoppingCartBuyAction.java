@@ -18,7 +18,7 @@ public class ShoppingCartBuyAction {
 	 * @return 次画面名
 	 */
 	public String execute(HttpServletRequest req) {
-		String page = "/ShoppingCart.jsp";
+		String page = "/Shoppingcart/ShoppingCart.jsp";
 
 		//セッションを繋ぐ。
 		HttpSession session = req.getSession();
@@ -31,7 +31,7 @@ public class ShoppingCartBuyAction {
 
 		//ログインしていない場合はログイン画面に遷移
 		if (session.getAttribute("memberCode") == null) {
-			page = "/Login.jsp";
+			page = "/Login/Login.jsp";
 			return page;
 		}
 
@@ -44,7 +44,7 @@ public class ShoppingCartBuyAction {
 			req.setAttribute("member", member);
 
 			//結果画面を戻り値に設定する。
-			page = "/OrderConfirmation.jsp";
+			page = "/Order/OrderConfirmation.jsp";
 		} catch(SalesBusinessException e) {
 			e.printStackTrace();
 			req.setAttribute("message", e.getMessage());
@@ -52,7 +52,7 @@ public class ShoppingCartBuyAction {
 			e.printStackTrace();
 			req.setAttribute("message", e.getMessage());
 			//エラー画面に戻り値を設定
-			page = "/Error.jsp";
+			page = "/Error/Error.jsp";
 		}
 		return page;
 	}
