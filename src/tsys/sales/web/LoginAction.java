@@ -23,8 +23,7 @@ public class LoginAction {
 			Member member = loginLogic.login(memberCode,password);
 
 			req.setAttribute("memberCode", member.getMemberCode());
-			req.setAttribute("password", member.getPassword());
-
+			req.setAttribute("memberName", member.getName());
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
