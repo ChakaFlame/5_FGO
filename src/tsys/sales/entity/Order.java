@@ -43,7 +43,7 @@ public class Order implements Serializable {
 	/**
 	 * @return orderDate
 	 */
-	public Date getOrderDate() {
+	public String getOrderDate() {
 		return orderDate;
 	}
 	/**
@@ -73,7 +73,7 @@ public class Order implements Serializable {
 	/**
 	 * @param orderDate セットする orderDate
 	 */
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
 	/**
