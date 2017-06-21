@@ -56,7 +56,7 @@
 		<br>
 		<table>
 		<tr>
-			<td onclick="document.inform.BUTTON_ID.value='0201_01_01';document.inform.submit()" class="button">買物を続ける</td>
+			<td onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()" class="button">買物を続ける</td>
 			<td onclick="document.inform.BUTTON_ID.value='0201_01_02';document.inform.submit()" class="button">購入</td>
 		</tr>
 		</table>
