@@ -22,7 +22,7 @@ public class LoginLogic {
 
 			// 検索結果がない場合、エラーを発生させる。
 			if(member == null) {
-				throw new SalesBusinessException("条件に一致する商品がありません。");
+				throw new SalesBusinessException("エラーが発生しました。");
 			}
 
 		}catch(SQLException e) {
