@@ -17,8 +17,6 @@ public class HotelSearchAction {
 		String hotelDateSr = "";
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
 
-		System.out.println(hotelDateSr);
-
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
 			req.setAttribute("message","宿泊日を選択してください");
 			return page;
