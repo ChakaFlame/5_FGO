@@ -14,8 +14,7 @@
 	<br>
 	<br>
 	<br>
-	<a href="/MainMenu.jsp" class="button">メニューへ</a>
-	<!--	<a href="#" class="button" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">		-->
+	<input class="button" type="button"  value="メニューへ" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">
 	</div>
 
 </body>

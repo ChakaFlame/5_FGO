@@ -10,8 +10,8 @@ public class LoginAction {
 	public String execute(HttpServletRequest req){
 		String page = "/MainMenu/MainMenu.jsp";							//入力画面を戻り値に
 		//boolean loginflag = false;							//ログインできるかのフラグ
-		String memberCode = req.getParameter("MemberCode");
-		String password = req.getParameter("Password");
+		String memberCode = req.getParameter("membercode");
+		String password = req.getParameter("password");
 
 		if(memberCode != null && password != null && (memberCode.equals("") || password.equals("")) ){
 			req.setAttribute("messsage", "メンバーコードとパスワードを入力してください");

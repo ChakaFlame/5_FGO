@@ -40,7 +40,6 @@
 			</table>
 			<br>
 			<br>
-			<input class="button" type="button"  value="ログイン仮" onclick="document.fm.BUTTON_ID.value='M_06'; document.fm.submit()">
 			<input class="button" type="button"  value="ログイン" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">
 			<br>
 			<a href="#" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a><!-- 未実装 -->
