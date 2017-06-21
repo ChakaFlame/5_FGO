@@ -16,6 +16,7 @@ public class HotelSearchAction {
 		String hotelDateSr = "";
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
 		DateFormat format = new SimpleDateFormat("yyyy-M-d");
+		System.out.println(hotelDateSr);
 
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
 			req.setAttribute("message","宿泊日を選択してください");
@@ -28,7 +29,7 @@ public class HotelSearchAction {
 			e1.printStackTrace();
 		}
 
-		String cityCode = req.getParameter("cityCode");
+		String cityCode = req.getParameter("city");
 
 		if (cityCode != null && cityCode.equals("")) {
 			req.setAttribute("messsage", "宿泊都市を選択してください");
@@ -51,5 +52,4 @@ public class HotelSearchAction {
 		}
 		return page;
 	}
-//action
 }

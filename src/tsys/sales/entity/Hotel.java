@@ -1,7 +1,6 @@
 package tsys.sales.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Hotel implements Serializable {
 	/** 商品コード */
@@ -30,7 +29,7 @@ public class Hotel implements Serializable {
 	/**
 	 * @param itemCode
 	 * @param hotelCode
-	 * @param hotelDate
+	 * @param date
 	 * @param hotelName
 	 * @param cityCode
 	 * @param cityName
@@ -38,6 +37,7 @@ public class Hotel implements Serializable {
 	 * @param stock
 	 * @param basicPrice
 	 */
+
 	public Hotel(String itemCode, String hotelCode, String hotelDate, int stock) {
 		this.itemCode = itemCode;
 		this.hotelCode = hotelCode;
