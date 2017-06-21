@@ -11,7 +11,11 @@
 
 <!-- <IFRAME src="Header.jsp" name="header" width="100%" height="110px"></IFRAME> -->
 <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
-<jsp:include page="header/header.html" />
+<% if (session.getAttribute("memberName") == null) { %>
+	<jsp:include page="header/header.html" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<!-- メニュー -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">

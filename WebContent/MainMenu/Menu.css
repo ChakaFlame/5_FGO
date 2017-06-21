@@ -6,7 +6,9 @@
   text-align: center;
   float: left; magin:5%; margin-left:8%; margin-top:8%;
 }
-
+.wrapper{
+	margin-left:8%;
+}
 .header {
     color: white;
     padding: 10px;
