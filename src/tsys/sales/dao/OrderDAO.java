@@ -30,8 +30,14 @@ private Connection con;  //接続オブジェクト
     }
 
     /**
-     * memberCodeを引数とし、DBからmemberCodeが一致した行のすべてのカラムを抜き出す
+     * @param memberCode
+     * @return
+     * @throws SQLException
+     *
+     * 注文番号と一致するものを検索する。
+     * memberCodeを引数とし、DBからmemberCodeが一致した行の全カラムを抜き出す
      * 複数ある場合もOrderList ArrayList<Order>に格納する
+     * ArrayList<Order>を返す。
      */
     public ArrayList<Order> findOrder(String memberCode) throws SQLException{
     	String sql = "SELECT * FROM OrderMaster WHERE MemberCode = ?";
@@ -44,9 +50,8 @@ private Connection con;  //接続オブジェクト
     		stmt.setString(1, memberCode);
     		res = stmt.executeQuery();
 
-    		/**
-    		 * 検索結果がある場合、検索結果の数だけOrderListに格納する。
-    		 */
+    		// 検索結果がある場合、検索結果の数だけOrderListに格納する。
+
     		if(res.next()) {
     			orderList.add( new Order(
     					res.getInt("orderNo"),
@@ -68,9 +73,18 @@ private Connection con;  //接続オブジェクト
     	return orderList;
     }
 
-    /**
-     * orderNoより注文詳細
-     */
+   /**
+    *
+    * @param orderNo
+    * @return
+    * @throws SQLException
+    *
+    * 注文詳細を表示する。
+    * orderNoを引数に、OrderDetailテーブルより一致する行の全カラムを抜き出し
+    * orderDetailListに格納する。
+    * ArrayList<OrderDetail>を返す。
+    */
+
     public ArrayList<OrderDetail> findOrderDetail(int orderNo) throws SQLException{
     	String sql = "SELECT * FROM OrderDetail WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
@@ -104,8 +118,20 @@ private Connection con;  //接続オブジェクト
     	return orderDetailList;
     }
 
-    /*
-     * Orderテーブルに追加
+
+    /**
+     *
+     * @param cart
+     * @param orderDate
+     * @param orderTotal
+     * @param memberCode
+     * @param payment
+     * @return
+     * @throws SQLException
+     *
+     * Orderテーブルに注文情報を挿入する。
+     * 引数をSQLのINSERT文で挿入する。
+     * OrderNoを返す。
      */
     public int insertOrder(ArrayList<Item> cart,String orderDate,int orderTotal,String memberCode,String payment)
     			throws SQLException{
@@ -147,6 +173,17 @@ private Connection con;  //接続オブジェクト
 //    	insertFlag = true;
     	return orderNo;
     }
+    /**
+     *
+     * @param orderNo
+     * @param cart
+     * @return
+     * @throws SQLException
+     *
+     * OrderDetailテーブルに注文詳細情報を挿入する。
+     * 引数をSQLのINSERT文で挿入する。
+     * 成功であればtrue,失敗であればfalseを返す。
+     */
      public boolean insertOrderDetail(int orderNo,ArrayList<Item> cart) throws SQLException{
     	boolean insertFlag = false;
     	//OrderDetailテーブルに該当の受注情報を追加
@@ -172,10 +209,17 @@ private Connection con;  //接続オブジェクト
     	return insertFlag;
     }
 
-    /*
-     * Orderテーブルから削除
-     */
-
+     /**
+      *
+      * @param OrderNo
+      * @return
+      * @throws SQLException
+      *
+      * Orderテーブル,OrderDetailテーブルから該当情報を削除
+      * 引数から受け取った注文番号で検索し、該当情報を両テーブル
+      * （Order,OrderDetail）から削除する。
+      * 成功すればtrue,失敗であればfalseが返す。
+      */
     public boolean deleteOrder(int OrderNo) throws SQLException{
     	boolean deleteFlag = false;
     	//OrderMasterテーブルから該当の受注情報を削除
@@ -207,9 +251,15 @@ private Connection con;  //接続オブジェクト
     	deleteFlag = true;
     	return deleteFlag;
     }
-
-    /*
-     * メンバーの1件検索
+    /**
+     *
+     * @param memberCode
+     * @return
+     * @throws SQLException
+     *
+     * memberCodeより、１件検索を行う。
+     * 引数のmemberCodeより、MemberテーブルのmemberCodeと一致するものを
+     * Memberインスタンスに格納、そのオブジェクトを返す。
      */
     public Member findAddress(String memberCode) throws SQLException{
     	String sql = "SELECT * FROM Member WHERE MemberCode = ?";
