@@ -25,8 +25,9 @@ public class MemberDAO {
     }
 
 
-    /*
-     * メンバーの検索
+    /**
+     * 登録されているメンバーの検索を行う。
+     * 引数としてメンバーコード、パスワードを受け取り、登録済みの場合はMember型で該当のメンバー情報を返す。
      */
     public Member findMember(String memberCode, String password) throws SQLException{
     	// 作成
@@ -69,8 +70,9 @@ public class MemberDAO {
 
     }
 
-    /*
-     * アドレスの重複をチェック
+    /**
+     * 既に登録されているメールアドレスかどうかの確認を行う。
+     * メールアドレスを引数として受け取り、登録済みであればfalse、未登録であればtrueを返す。
      */
     public boolean checkAddress(String address) throws SQLException{
     	// 作成
@@ -107,8 +109,9 @@ public class MemberDAO {
     	return caflag;//ture false;
     }
 
-    /*
-     *  メンバーをDBに追加
+    /**
+     * メンバーの新規登録を行う。
+     * Membar型の引数を受け取り、データベースに登録を行った後、再度Member型でメンバー情報を返す。
      */
     public Member insertMember(Member member) throws SQLException{
     	// 作成
