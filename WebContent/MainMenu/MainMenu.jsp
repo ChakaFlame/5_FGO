@@ -38,7 +38,6 @@
 	    		<h3>フライト</h3>
 	  		</div>
 		</div>
-
 		<div class="card" style=" background-color: #f57650;">
 	 		<div class="header" >
 	  			<img alt="globe" src="img/globe.png" style="padding-top:40px; width:90px">
