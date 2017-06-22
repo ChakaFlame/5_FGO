@@ -1,1 +1,6 @@
+tsys.sales.common
 tsys.sales.dao
+tsys.sales.entity
+tsys.sales.logic
+tsys.sales.test
+tsys.sales.web
