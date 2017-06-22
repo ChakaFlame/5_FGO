@@ -22,7 +22,6 @@ import tsys.sales.entity.OrderDetail;
 public class HotelDAO {
 
     private Connection con;  //接続オブジェクト
-
     /**
      * コンストラクタ
      */
@@ -31,9 +30,8 @@ public class HotelDAO {
     }
 
     /**
-     * ホテル1件検索
+     * 都市コードで該当都市を検索し、都市名を返す。
      */
-
     public String findCityName(String cityCode) throws SQLException{
 		String sql = "SELECT * FROM City WHERE CityCode = ?";
 		PreparedStatement stmt = null;
@@ -66,6 +64,9 @@ public class HotelDAO {
     	return city;
     }
 
+    /**
+     * ホテルインスタンスに該当する詳細情報を追加し、ホテルインスタンスを返す。
+     */
     public Hotel findHotel(Hotel hotel) throws SQLException{
 		String sql = "SELECT * FROM HotelMaster WHERE HotelCode = ?";
 		PreparedStatement stmt = null;
@@ -101,6 +102,9 @@ public class HotelDAO {
     	return hotel;
     }
 
+    /**
+     * 商品コードでホテル商品を検索し、ホテル商品詳細を返す。
+     */
     public Hotel findHotelDetail(String itemCode) throws SQLException{
 		String sql = "SELECT * FROM Hotel WHERE ItemCode = ?";
 
@@ -143,7 +147,7 @@ public class HotelDAO {
     }
 
     /**
-     * ホテル条件一致検索
+     * 都市コードと宿泊日で条件と一致するホテル検索し、ホテルリストを返す。
      */
     public ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate) throws SQLException{
 		String sql = "SELECT * FROM Hotel INNER JOIN HotelMaster ON Hotel.HotelCode = HotelMaster.HotelCode WHERE Date = ? AND CityCode = ?";
@@ -178,8 +182,8 @@ public class HotelDAO {
     	return hotelList;
     }
 
-    /*
-     * 残室数の更新(取り消し時に増やす)
+    /**
+     * 注文取消後、注文詳細リストで残室数の更新(取り消し時に増やす)し、更新結果（true-成功, false-失敗）を返す。
      */
     public boolean updateStock(ArrayList<OrderDetail> OrderDetailList){
     	boolean result = false;
@@ -203,8 +207,8 @@ public class HotelDAO {
 		return result;
     }
 
-    /*
-     * 残室数の更新(注文時に減らす)
+    /**
+     * 商品コードと購入数で残室数を更新(注文時に減らす)し、更新結果（true-成功, false-失敗）を返す。
      */
     public boolean updateStock(String itemCode, int quantity){
     	boolean result = false;
