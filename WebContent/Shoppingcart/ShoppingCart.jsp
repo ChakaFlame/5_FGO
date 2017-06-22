@@ -32,7 +32,7 @@
 		</tr>
 		<c:forEach var="hotel" items="${sessionScope.cart}">
 		<tr>
-			<td><c:out value="${hotel.hotelcode}" /></td>
+			<td><c:out value="${hotel.hotelCode}" /></td>
 			<td><c:out value="${hotel.hotelName}" /></td>
 			<td><c:out value="${hotel.hotelDate}" /></td>
 			<td><c:out value="${hotel.price}" />円</td>
