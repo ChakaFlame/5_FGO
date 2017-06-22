@@ -45,7 +45,7 @@
 			<tr>
 				<td class="sample1">空室</td>
 				<!-- <td><c:out value="${requestScope.Hotel.stock}" /></td> -->
-				<td><c:out value="${sessionScope.Hotel.stock}" />円</td>
+				<td><c:out value="${sessionScope.Hotel.stock}" /></td>
 			</tr>
 			<tr>
 				<td class="sample1">予約数</td>
