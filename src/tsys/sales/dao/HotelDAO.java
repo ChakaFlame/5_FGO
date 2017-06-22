@@ -22,7 +22,6 @@ import tsys.sales.entity.OrderDetail;
 public class HotelDAO {
 
     private Connection con;  //接続オブジェクト
-
     /**
      * コンストラクタ
      */
