@@ -24,16 +24,6 @@ public class MemberDAO {
     	this.con = con;
     }
 
-    /*
-//     * 接続のクローズ
-//     */
-//    public void close() throws SQLException {
-//
-//        if (con != null) {
-//            con.close();
-//        }
-//
-//    }
 
     /*
      * メンバーの検索
