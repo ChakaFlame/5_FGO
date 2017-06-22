@@ -29,8 +29,9 @@ private Connection con;  //接続オブジェクト
     	this.con = con;
     }
 
-    /*
-     * 注文一覧
+    /**
+     * memberCodeを引数とし、DBからmemberCodeが一致した行のすべてのカラムを抜き出す
+     * 複数ある場合もOrderList ArrayList<Order>に格納する
      */
     public ArrayList<Order> findOrder(String memberCode) throws SQLException{
     	String sql = "SELECT * FROM OrderMaster WHERE MemberCode = ?";
@@ -43,7 +44,9 @@ private Connection con;  //接続オブジェクト
     		stmt.setString(1, memberCode);
     		res = stmt.executeQuery();
 
-    		//検索結果がある場合、検索結果の数だけOrderListに格納する。
+    		/**
+    		 * 検索結果がある場合、検索結果の数だけOrderListに格納する。
+    		 */
     		if(res.next()) {
     			orderList.add( new Order(
     					res.getInt("orderNo"),
@@ -65,8 +68,8 @@ private Connection con;  //接続オブジェクト
     	return orderList;
     }
 
-    /*
-     * 注文詳細
+    /**
+     * orderNoより注文詳細
      */
     public ArrayList<OrderDetail> findOrderDetail(int orderNo) throws SQLException{
     	String sql = "SELECT * FROM OrderDetail WHERE OrderNo = ?";
