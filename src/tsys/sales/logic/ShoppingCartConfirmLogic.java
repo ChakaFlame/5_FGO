@@ -65,7 +65,7 @@ public class ShoppingCartConfirmLogic {
 				//OrderDAOを生成し、メソッドを呼び出す。
 				OrderDAO orderDAO = new OrderDAO(con);
 				con.setAutoCommit(false);
-				orderNo = orderDAO.insertOrder(cart,orderDate,orderTotal,memberCode,payment);
+				orderNo = orderDAO.insertOrder(orderDate,orderTotal,memberCode,payment);
 			} catch (SQLException e) {
 					con.rollback();
 					e.printStackTrace();
