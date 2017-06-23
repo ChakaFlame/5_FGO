@@ -8,6 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="/tourSystem/Shoppingcart/cart.css">
 </head>
 <body>
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header.html" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<!-- ショッピングカート -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
@@ -62,5 +67,6 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>
