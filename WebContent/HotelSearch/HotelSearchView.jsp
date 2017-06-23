@@ -13,6 +13,11 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/HotelSearch/Hotel.css">
 </head>
 <body>
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header.html" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<%-- 定義済みオブジェクトの使用 --%>
 	<%
 		request.setCharacterEncoding("UTF8");
@@ -119,6 +124,7 @@
 			</table>
 		</div>
 	</div>
+	<jsp:include page="footer/footer.html" />
 
 </body>
 </html>

@@ -13,6 +13,11 @@
 
 </head>
 <body>
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header.html" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<div align="center">
 	<form action="/tourSystem/tsys" method="POST" name="fm">
 	<!-- ボタンID用フィールド -->
@@ -72,5 +77,6 @@
 			<span class="button" onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</span>
 	</form>
 	</div>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>
