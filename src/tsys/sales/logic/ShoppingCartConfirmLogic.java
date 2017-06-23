@@ -52,11 +52,11 @@ public class ShoppingCartConfirmLogic {
 
 					//検索結果がない場合、エラーを発生させる。
 					if(dopayment == null) {
-						throw new SalesBusinessException("エラーが発生しました。");
+						throw new SalesBusinessException("エラーが発生しました。３");
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。");
+					throw new SalesSystemException("エラーが発生しました。４");
 				}
 			}
 
@@ -69,16 +69,15 @@ public class ShoppingCartConfirmLogic {
 			} catch (SQLException e) {
 					con.rollback();
 					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。");
+					throw new SalesSystemException("エラーが発生しました。５");
 			} finally {
 				try {
 					if (con != null) {
-						con.commit();
 						con.close();
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。");
+					throw new SalesSystemException("エラーが発生しました。６");
 				}
 			}
 			//OrderDetailテーブルの更新
@@ -87,7 +86,7 @@ public class ShoppingCartConfirmLogic {
 				OrderDAO orderDAO = new OrderDAO(con);
 				for (Item item : cart) {
 					if(item.getReservNo() > item.getHotel().getStock()) {
-						throw new SalesSystemException("エラーが発生しました。");
+						throw new SalesSystemException("エラーが発生しました。７");
 					}
 				}
 				try {
@@ -95,25 +94,24 @@ public class ShoppingCartConfirmLogic {
 				} catch (SQLException e) {
 					con.rollback();
 					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。");
+					throw new SalesSystemException("エラーが発生しました。８");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new SalesSystemException("エラーが発生しました。");
+				throw new SalesSystemException("エラーが発生しました。９");
 			} finally {
 				try {
 					if (con != null) {
-						con.commit();
 						con.close();
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。");
+					throw new SalesSystemException("エラーが発生しました。１０");
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SalesSystemException("エラーが発生しました。");
+			throw new SalesSystemException("エラーが発生しました。１１");
 		} finally {
 			try {
 				if (con != null) {
@@ -122,7 +120,7 @@ public class ShoppingCartConfirmLogic {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new SalesSystemException("エラーが発生しました。");
+				throw new SalesSystemException("エラーが発生しました。１２");
 			}
 		}
 		orderFlag = true;
