@@ -23,7 +23,6 @@
 	<div align="center">
 		<table border="0">
 		<tr class="sample1">
-			<td class="padding">ホテルコード</td>
 			<td class="padding">ホテル名</td>
 			<td class="padding">宿泊日</td>
 			<td class="padding">宿泊料金</td>
@@ -32,7 +31,6 @@
 		</tr>
 		<c:forEach var="cart" items="${sessionScope.cart}">
 		<tr>
-			<td><c:out value="${cart.hotel.hotelCode}" /></td>
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
 			<td><c:out value="${cart.hotel.basicPrice}" />円</td>

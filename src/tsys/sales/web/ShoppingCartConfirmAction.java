@@ -33,6 +33,9 @@ public class ShoppingCartConfirmAction {
 		//セッションから必要事項をゲット
 		String memberCode = (String)session.getAttribute("memberCode");
 		ArrayList<Item> cart = (ArrayList<Item>)session.getAttribute("cart");
+		String zipCode = (String)session.getAttribute("zipCode");
+		String prefecture = (String)session.getAttribute("prefecture");
+		String address = (String)session.getAttribute("address");
 
 		//クライアントの入力値を取得する。
 		String payment = req.getParameter("PAYMENT");
@@ -70,6 +73,12 @@ public class ShoppingCartConfirmAction {
 		} else {
 			payment = "コンビニエンスストア決済";
 		}
+
+		//必要な項目をリクエストに格納
+		req.setAttribute("payment", payment);
+		req.setAttribute("zipCode", zipCode);
+		req.setAttribute("prefecture", prefecture);
+		req.setAttribute("address", address);
 
 		return page;
 	}
