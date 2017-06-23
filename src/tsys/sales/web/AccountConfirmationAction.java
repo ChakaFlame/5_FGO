@@ -16,9 +16,9 @@ public class AccountConfirmationAction {
 		try{
 
 			AccountConfirmationLogic accountConfirmationLogic = new AccountConfirmationLogic();
-			Member member = accountConfirmationLogic.memberConfirmed(member);
+			Member member_IM = accountConfirmationLogic.memberConfirmed(member);
 
-			req.setAttribute("member", member);
+			req.setAttribute("member", member_IM);
 			page = "/Account/AccountConfirmed.jsp";
 
 		} catch (SalesBusinessException e){

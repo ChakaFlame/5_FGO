@@ -9,14 +9,12 @@
 <script type="text/javascript">
 	// 検索ボタンが押された場合、未入力チェックを行う。
 	function PushSearchButton() {
-		var memberCode = document.inform.MemberCode.value;
+		var memberCode = document.inform.password.value;
 		if (memberCode == "") {
-			alert("メンバーコードを入力してください。");
+			alert("パスワードを入力してください。");
 			return false;
 		}
-
-		document.inform.BUTTON_ID.value='0101_01_01';
-		document.inform.submit();
+		return true;
 	}
 </script>
 </head>
