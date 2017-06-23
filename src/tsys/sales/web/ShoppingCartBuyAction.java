@@ -41,9 +41,9 @@ public class ShoppingCartBuyAction {
 			Member member = shoppingCartBuyLogic.findAddress((String)session.getAttribute("memberCode"));
 
 			//検索結果をリクエストスコープに格納
-			session.setAttribute("member", member.getZipCode());
-			session.setAttribute("member", member.getPrefecture());
-			session.setAttribute("member", member.getAddress());
+			session.setAttribute("zipCode", member.getZipCode());
+			session.setAttribute("prefecture", member.getPrefecture());
+			session.setAttribute("address", member.getAddress());
 
 			//結果画面を戻り値に設定する。
 			page = "/Order/OrderConfirmation.jsp";

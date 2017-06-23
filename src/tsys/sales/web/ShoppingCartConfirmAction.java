@@ -56,6 +56,21 @@ public class ShoppingCartConfirmAction {
 			//エラー画面に戻り値を設定
 			page = "/Error/Error.jsp";
 		}
+
+		//セッションに保存したカート情報（他決済に必要な情報）の削除
+		session.removeAttribute("cart");
+		session.removeAttribute("totalPrice");
+		session.removeAttribute("zipCode");
+		session.removeAttribute("prefecture");
+		session.removeAttribute("address");
+
+		//決済方法の判定
+		if (payment.equals("01")) {
+			payment = "代金引き換え";
+		} else {
+			payment = "コンビニエンスストア決済";
+		}
+
 		return page;
 	}
 }

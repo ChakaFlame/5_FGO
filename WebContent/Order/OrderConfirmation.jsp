@@ -37,9 +37,9 @@
 			<td><c:out value="${cart.hotel.hotelCode}" /></td>
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
-			<td><c:out value="${cart.hotel.basicPrice}" />円</td>
-			<td  align="right"><c:out value="${cart.reservNo}" /></td>
-			<td><c:out value="${cart.calcPrice()}" />円</td>
+			<td class="number"><c:out value="${cart.hotel.basicPrice}" />円</td>
+			<td class="number"><c:out value="${cart.reservNo}" /></td>
+			<td class="number"><c:out value="${cart.calcPrice()}" />円</td>
 		</tr>
 		</c:forEach>
 		<tr>
@@ -67,16 +67,16 @@
 		<tr>
 			<td class="sample1">送付先</td>
 			<td class="padding">
-				〒<c:out value="${sessionScope.member.zipCode}" />　　
-				<c:out value="${sessionScope.member.prefecture}" />
-				<c:out value="${sessionScope.member.address}" />
+				〒<c:out value="${sessionScope.zipCode}" />　　
+				<c:out value="${sessionScope.prefecture}" />
+				<c:out value="${sessionScope.address}" />
 			</td>
 		</tr>
 		<tr>
 			<td class="sample1">決済方法<td>
 				<select name="PAYMENT">
-					<option value="代金引換">代金引換</option>
-					<option value="コンビに決済">コンビニ決済</option>
+					<option value="01">代金引換</option>
+					<option value="02">コンビニ決済</option>
 				</select>
 		</tr>
 	</table>
