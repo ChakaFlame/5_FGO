@@ -19,10 +19,8 @@
 	<br>
 	<br>
 	<br>
-	<div align="left">
-		<h4>購入商品情報</h4>
-	</div>
 	<div align="center">
+		<h4>購入商品情報</h4>
 		<table border="0">
 		<tr class="sample1">
 			<td class="padding">ホテル名</td>
@@ -51,8 +49,6 @@
 	<br>
 	<div align="left">
 		<h4>メンバー情報</h4>
-	</div>
-	<div align="left">
 		<table border="0">
 		<tr>
 			<td class="sample1">メンバーコード</td>
@@ -60,7 +56,7 @@
 		</tr>
 		<tr>
 			<td class="sample1">メンバー名</td>
-			<td class="padding"><c:out value="${sessionScope.name}" /></td>
+			<td class="padding"><c:out value="${sessionScope.memberName}" /></td>
 		</tr>
 		<tr>
 			<td class="sample1">送付先</td>

@@ -26,7 +26,6 @@ public class ShoppingCartAddAction {
 
 		// ホテルの情報、予約数を獲得する。
 		Hotel hotel = (Hotel) session.getAttribute("Hotel");
-//		Hotel hotel = (Hotel) req.getAttribute("Hotel");
 		int reservNo = Integer.parseInt(req.getParameter("reservNo"));
 
 		if(hotel == null){
