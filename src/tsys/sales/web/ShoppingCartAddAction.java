@@ -12,6 +12,7 @@ public class ShoppingCartAddAction {
 	public String execute(HttpServletRequest req){
 		String page = "/HotelSearch.jsp";		// ホテル検索画面を戻り値に
 		ArrayList<Item> cart;
+		int totalPrice = 0;
 
 		// セッションからカートを獲得する。
 		HttpSession session = req.getSession();
@@ -41,12 +42,19 @@ public class ShoppingCartAddAction {
 		Item item = new Item();
 		item.setHotel(hotel);
 		item.setReservNo(reservNo);
+		item.setPrice(hotel.getBasicPrice());
 
 		// カートに商品を追加する。
 		cart.add(item);
 
+		//合計値を計算
+		for (Item item2 : cart) {
+			totalPrice += item2.calcPrice();
+		}
+
 		// カートをsessionに格納
 		session.setAttribute("cart", cart);
+		session.setAttribute("totalPrice", totalPrice);
 		page = "/Shoppingcart/ShoppingCart.jsp";
 
 		return page;
