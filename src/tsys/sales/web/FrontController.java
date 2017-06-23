@@ -48,11 +48,11 @@ public class FrontController extends HttpServlet {
 				page = toLoginAction.execute(req);
 				break;
 			//ヘッダ メンバー名(商品一覧)
-/*			case "M_04":
-				ToOrderListAction toOrderListAction = new ToOrderListAction();
-				page = toOrderListAction.execute(req);
+			case "M_04":
+				OrderListAction orderListAction = new OrderListAction();
+				page = orderListAction.execute(req);
 				break;
-*/			//ヘッダ カート
+			//ヘッダ カート
 			case "M_05":
 				ToShoppingcartAction toShoppingcartAction = new ToShoppingcartAction();
 				page = toShoppingcartAction.execute(req);
