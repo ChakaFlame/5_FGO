@@ -37,6 +37,7 @@ public class ShoppingCartAddAction {
 			return page;
 		}
 
+
 		// 追加する商品の情報をitemに格納
 		Item item = new Item();
 		item.setHotel(hotel);
