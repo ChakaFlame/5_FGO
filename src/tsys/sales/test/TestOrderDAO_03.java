@@ -26,29 +26,9 @@ public class TestOrderDAO_03{
 		try {
 			OrderDAO orderDAO = new OrderDAO(con);
 
-			Order order = new Order();
+			int orderNo = orderDAO.insertOrder("2017-06-30",20000,"TS0001", "01");
 
-			String string_date = "2017-06-30";
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			Date date=null;
-			try {
-				date = format.parse(string_date);
-			} catch (ParseException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-
-			System.out.println(string_date);
-			System.out.println(date);
-
-			order.setOrderDate(date);
-			order.setOrderTotal(2000);
-			order.setMemberCode("test");
-			order.setPayment("01");
-
-			String updateNo = orderDAO.insertOrder(order);
-
-			if (updateNo != null) {
+			if (orderNo != 0) {
 				System.out.println("更新完了。");
 			}else{
 				System.out.println("更新失敗。");

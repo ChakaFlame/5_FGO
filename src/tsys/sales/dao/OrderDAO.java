@@ -133,15 +133,15 @@ private Connection con;  //接続オブジェクト
      * 引数をSQLのINSERT文で挿入する。
      * OrderNoを返す。
      */
-    public int insertOrder(ArrayList<Item> cart,String orderDate,int orderTotal,String memberCode,String payment)
+    public int insertOrder(String orderDate,int orderTotal,String memberCode,String payment)
     			throws SQLException{
     	int orderNo = 0;
 //    	boolean insertFlag = false;
     	//OrderMasterテーブルに該当の受注情報を追加
 
-    	String sql1 = "INSERT INTO OrderMaster(OrderDate, OrderTotal, MemberCode, Payment) VALUES ('?','?','?','?')";
-    	String sql2 = "SELECT * FROM OrderMaster order by OrderNo desc limit 1;";
-    	ResultSet res;
+    	String sql1 = "INSERT INTO OrderMaster(OrderDate, OrderTotal, MemberCode, Payment) VALUES (?,?,?,?)";
+    	String sql2 = "SELECT * FROM OrderMaster order by OrderNo desc limit 1";
+    	ResultSet res = null;
     	PreparedStatement stmt1 = null;
     	PreparedStatement stmt2 = null;
     	int insertCount;
@@ -159,7 +159,9 @@ private Connection con;  //接続オブジェクト
     		insertCount = stmt1.executeUpdate();
     		stmt2 = con.prepareStatement(sql2);
     		res =  stmt2.executeQuery();
-    		orderNo = res.getInt(1);
+    		if(res.next()){
+	    		orderNo = res.getInt(1);
+    		}
     	} catch (SQLException e) {
     		return orderNo;
     	} finally {
