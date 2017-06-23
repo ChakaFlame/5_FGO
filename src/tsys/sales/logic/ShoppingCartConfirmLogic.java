@@ -88,15 +88,14 @@ public class ShoppingCartConfirmLogic {
 				for (Item item : cart) {
 					if(item.getReservNo() > item.getHotel().getStock()) {
 						throw new SalesSystemException("エラーが発生しました。");
-					}  else {
-						try {
-							orderFlag = orderDAO.insertOrderDetail(orderNo,cart);
-						} catch (SQLException e) {
-							con.rollback();
-							e.printStackTrace();
-							throw new SalesSystemException("エラーが発生しました。");
-						}
 					}
+				}
+				try {
+					orderFlag = orderDAO.insertOrderDetail(orderNo,cart);
+				} catch (SQLException e) {
+					con.rollback();
+					e.printStackTrace();
+					throw new SalesSystemException("エラーが発生しました。");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
