@@ -70,9 +70,9 @@
 		<tr>
 			<td class="sample1">送付先</td>
 			<td class="padding">
-				〒<c:out value="${requestScope.zipCode}" />　　
-				<c:out value="${requestScope.prefecture}" />
-				<c:out value="${requestScope.address}" />
+				〒<c:out value="${sessionScope.zipCode}" />　　
+				<c:out value="${sessionScope.prefecture}" />
+				<c:out value="${sessionScope.address}" />
 			</td>
 		</tr>
 		<tr>
