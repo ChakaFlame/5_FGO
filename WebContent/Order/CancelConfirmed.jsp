@@ -42,8 +42,8 @@
 			<td class="padding">小計</td>
 		</tr>
 		<tr>
-			<td><td class="padding"><c:out value="${sessionScope.ItemNo}"/></td>
-			<td>福岡プリンセスホテル</td>
+			<td><td class="padding"><c:out value="${sessionScope.itemNo}"/></td>
+			<td><c:out value="${sessionScope.hotelName}"/></td>
 			<td>2020/08/15</td>
 			<td class="number2">15,000円</td>
 			<td class="number1">1</td>
