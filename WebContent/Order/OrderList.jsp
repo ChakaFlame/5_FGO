@@ -8,23 +8,31 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 	<div align="center">
-		<c:out value="${sessionScope.memberName}" /><h2>様の注文一覧</h2>
+		<h2><c:out value="${sessionScope.memberName}" /> 様の<br>
+		注文一覧</h2>
 		<table border="0">
 			<tr>
+
 				<td class="sample1">注文番号</td>
 				<td class="sample1">注文日</td>
 				<td class="sample1">金額</td>
 			</tr>
-				<c:forEach var="order"items="requestScope.orderList">
+
+			<c:forEach var="order" items="${sessionScope.orderList}" varStatus="status">
 				<tr>
-					<td class="padding"><a href=""><c:out
-								value="${order.orderNum}" /></a></td>
-					<td class="padding"><c:out
-							value="${order.orderDate}" /></td>
-					<td class="number"><c:out
-							value="${order.price}" /></td>
+					<td class="padding">
+						<a href="Order/OrderDetail.jsp">
+						<c:out value="${requestScope.orderNoList[status.index]}" />
+						<input type="hidden" name="index" value="${status.index}"/>
+						</a>
+					</td>
+					<td class="padding">
+						<c:out value="${order.orderDate}" />
+					</td>
+					<td class="number">
+						<c:out value="${order.orderTotal}" /></td>
 				</tr>
-				</c:forEach>
+			</c:forEach>
 		</table>
 	</div>
 </body>

@@ -10,13 +10,24 @@ public class OrderListAction {
 		String page = "/Order/OrderList.jsp";
 		HttpSession session = req.getSession();
 		String memberCode = (String) session.getAttribute("memberCode");
+
 		try {
 			OrderListLogic orderListLogic = new OrderListLogic();
 			ArrayList<Order> orderList =  null;
+			ArrayList<String> orderNoList = new ArrayList<String>();
+
 			orderList = orderListLogic.orderList(memberCode);
+			session.setAttribute("orderList", orderList);
+
 			if (orderList == null) {
 				req.setAttribute("message", "注文履歴なし。");
 				return page;
+			}else{
+				for(Order order : orderList){
+					String num = Integer.toString(order.getOrderNo());
+					orderNoList.add(num);
+				}
+				req.setAttribute("orderNoList", orderNoList);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
