@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<head>
 <meta charset="UTF-8">
 <title>注文取消確定</title>
 <link rel="stylesheet" type="text/css" href="Order.css">
@@ -31,9 +28,9 @@
 			</tr>
 			<tr>
 				<td class="sample1">注文番号</td>
-				<td class="padding"><c:out value="${sessionScope.orderNo}"/></td>
+				<td class="padding"><c:out value="${reqestScope.order.orderNo}"/></td>
 				<td class="sample1">注文日</td>
-				<td class="padding"><c:out value="${sessionScope.cart.orderDate}"/></td>
+				<td class="padding"><c:out value="${reqestScope.order.orderDate}"/></td>
 			</tr>
 		</table>
 		<br>
@@ -50,17 +47,17 @@
 				int reservCount = 0;
 				int sum = 0;
 			%>
-			<c:forEach var="order" items="${sessionScope.order}">
+			<c:forEach var="order" items="${reqestScope}">
 				<tr>
 					<td><td class="padding"><td><c:out value="${order.hotelCode}" /></td>
-					<td><c:out value="${cart.hotel.hotelName}"/></td>
-					<td><c:out value="${cart.hotel.hotelDate}"/></td>
-					<td class="number2"><c:out value="${cart.price}"/></td>
-					<td class="number1"><c:out value="${cart.reservNo}"/></td>
-					<td class="number2"><c:out value="${cart.calcPrice()}" /></td>
+					<td><c:out value="${order.hotelName}"/></td>
+					<td><c:out value="${order.hotelDate}"/></td>
+					<td class="number2"><c:out value="${order.price}"/></td>
+					<td class="number1"><c:out value="${order.reservNo}"/></td>
+					<td class="number2"><c:out value="${order.calcPrice()}" /></td>
 					<%
-						reservCount += (int)session.getAttribute("cart.reservNo");
-						sum += (int)session.getAttribute("cart.calcPrice()");
+						reservCount += (int)session.getAttribute("order.reservNo");
+						sum += (int)session.getAttribute("order.calcPrice()");
 					%>
 				</tr>
 			</c:forEach>
