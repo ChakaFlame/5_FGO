@@ -10,7 +10,7 @@ public class NewAccountLogic {
 
 	public boolean checkAddress(String mail) throws SalesBusinessException, SalesSystemException {
 		Connection con = null;
-		Member member = null;
+		//Member member = null;
 		boolean caflag = false;
 
 		try {
@@ -22,9 +22,9 @@ public class NewAccountLogic {
 			caflag = memberDAO.checkAddress(mail);
 
 			// 検索結果がない場合、エラーを発生させる。
-			if(member == null) {
-				throw new SalesBusinessException("エラーが発生しました。");
-			}
+//			if(member == null) {
+//				throw new SalesBusinessException("エラーが発生しました。");
+//			}
 
 		}catch(SQLException e) {
 			e.printStackTrace();

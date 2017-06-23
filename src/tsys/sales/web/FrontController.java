@@ -102,6 +102,18 @@ public class FrontController extends HttpServlet {
 				ShoppingCartConfirmAction shoppingCartConfirmAction = new ShoppingCartConfirmAction();
 				page = shoppingCartConfirmAction.execute(req);
 				break;
+
+			//新規登録画面 確認ボタン
+			case "0901_01_01":
+					NewAccountAction newAccountAction = new NewAccountAction();
+					page = newAccountAction.execute(req);
+					break;
+			//登録確認画面 登録ボタン
+			case "0901_03_01":
+					AccountConfirmationAction accountConfirmationAction = new AccountConfirmationAction();
+					page = accountConfirmationAction.execute(req);
+					break;
+
 		}
 
 		RequestDispatcher rd = req.getRequestDispatcher(page);
