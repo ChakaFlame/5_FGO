@@ -19,11 +19,14 @@ public class LoginAction {
 		}
 
 		try{
+
 			LoginLogic loginLogic = new LoginLogic();
 			Member member = loginLogic.login(memberCode,password);
 
-			req.setAttribute("memberCode", member.getMemberCode());
-			req.setAttribute("memberName", member.getName());
+			HttpSession session = req.getSession();
+			session.setAttribute("memberCode", member.getMemberCode());
+			session.setAttribute("memberName", member.getName());
+
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
