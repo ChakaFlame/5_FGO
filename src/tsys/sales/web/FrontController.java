@@ -97,6 +97,11 @@ public class FrontController extends HttpServlet {
 				ShoppingCartBuyAction shoppingCartBuyAction = new ShoppingCartBuyAction();
 				page = shoppingCartBuyAction.execute(req);
 				break;
+			//注文確認画面 注文確定ボタン
+			case "0201_02_01":
+				ShoppingCartConfirmAction shoppingCartConfirmAction = new ShoppingCartConfirmAction();
+				page = shoppingCartConfirmAction.execute(req);
+				break;
 		}
 
 		RequestDispatcher rd = req.getRequestDispatcher(page);
