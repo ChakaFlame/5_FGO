@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/HotelSearch/Hotel.css">
 </head>
 <body>
+<form id="form" method="post" action="/tourSystem/tsys">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header.html" />
 <% } else {%>
@@ -22,6 +23,8 @@
 	<%
 		request.setCharacterEncoding("UTF8");
 	%>
+
+
 	<div align="center">
 		<h2>ホテル検索</h2>
 	</div>
@@ -29,7 +32,7 @@
 	<br>
 	<br>
 	<div align="center">
-		<form id="fm" method="post" action="/tourSystem/tsys">
+		<form id="form" method="post" action="/tourSystem/tsys">
 			<table>
 				<tr class="sample1">
 					<td class="padding">宿泊日を選ぶ</td>
@@ -91,7 +94,7 @@
 				</tr>
 			</table>
 			<input type="hidden" name="BUTTON_ID" value=""> <input
-			type="submit" value="検索" onclick="this.fm.BUTTON_ID.value='0802_01_01';">
+			type="submit" value="検索" onclick="this.form.BUTTON_ID.value='0802_01_01';">
 		</form>
 	</div>
 	<br>
