@@ -42,7 +42,7 @@
 			<td class="padding">小計</td>
 		</tr>
 		<tr>
-			<td>FKO001</td>
+			<td><td class="padding"><c:out value="${sessionScope.ItemNo}"/></td>
 			<td>福岡プリンセスホテル</td>
 			<td>2020/08/15</td>
 			<td class="number2">15,000円</td>
