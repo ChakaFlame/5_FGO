@@ -20,9 +20,11 @@ public class OrderListLogic {
 			con = ConnectionManager.getConnection();
 			OrderDAO orderDAO = new OrderDAO(con);
 			orderList = orderDAO.findOrder(memberCode);
+
 			if (orderList.isEmpty()){
 				throw new SalesBusinessException("注文履歴なし。");
 			}
+
 		}catch(SQLException | SalesBusinessException e) {
 			e.printStackTrace();
 		}finally {
