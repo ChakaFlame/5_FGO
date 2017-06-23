@@ -15,9 +15,10 @@ import tsys.sales.common.SalesSystemException;
 import tsys.sales.dao.ConnectionManager;
 import tsys.sales.dao.HotelDAO;
 import tsys.sales.entity.Hotel;
+import tsys.sales.entity.OrderDetail;
 
 public class HotelSearchLogic {
-	Connection con = null;
+	static Connection con = null;
 
 	public ArrayList<Hotel> searchHotel(String cityCode, Date hotelDate)throws SalesBusinessException, SalesSystemException {
 		ArrayList<Hotel> hotelList = null;
@@ -66,4 +67,35 @@ public class HotelSearchLogic {
 
 		return hotelList;
 	}
+
+	public static Hotel searchHotel(OrderDetail orderDetail)throws SalesBusinessException, SalesSystemException {
+		Hotel hotel = null;
+		try {
+			// データベースの接続を取得する
+			con = ConnectionManager.getConnection();
+
+			// 商品テーブルアクセス用のDAOを生成し、メソッドを呼び出す。
+			HotelDAO hotelDao = new HotelDAO(con);
+			String orderDetailstr=orderDetail.getItemCode();
+
+			hotel = hotelDao.findHotelDetail(orderDetailstr);
+		}catch(SQLException e) {
+				e.printStackTrace();
+				throw new SalesSystemException("エラーが発生しました。");
+			}finally {
+				try {
+					if(con != null){
+						con.close();
+					}
+				} catch(SQLException e) {
+					e.printStackTrace();
+					throw new SalesSystemException("エラーが発生しました。");
+				}
+			}
+
+			return hotel;
+
+	}
+
 }
+
