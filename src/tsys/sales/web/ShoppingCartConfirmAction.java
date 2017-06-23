@@ -33,6 +33,7 @@ public class ShoppingCartConfirmAction {
 		//セッションから必要事項をゲット
 		String memberCode = (String)session.getAttribute("memberCode");
 		ArrayList<Item> cart = (ArrayList<Item>)session.getAttribute("cart");
+		int totalPrice = (int)session.getAttribute("totalPrice");
 		String zipCode = (String)session.getAttribute("zipCode");
 		String prefecture = (String)session.getAttribute("prefecture");
 		String address = (String)session.getAttribute("address");
@@ -60,25 +61,28 @@ public class ShoppingCartConfirmAction {
 			page = "/Error/Error.jsp";
 		}
 
+		//決済方法の判定
+				if (payment.equals("01")) {
+					payment = "代金引き換え";
+				} else {
+					payment = "コンビニエンスストア決済";
+				}
+
+
+		//必要な項目をリクエストに格納
+				req.setAttribute("cart", cart);
+				req.setAttribute("payment", payment);
+				req.setAttribute("totalPrice", totalPrice);
+				req.setAttribute("zipCode", zipCode);
+				req.setAttribute("prefecture", prefecture);
+				req.setAttribute("address", address);
+
 		//セッションに保存したカート情報（他決済に必要な情報）の削除
 		session.removeAttribute("cart");
 		session.removeAttribute("totalPrice");
 		session.removeAttribute("zipCode");
 		session.removeAttribute("prefecture");
 		session.removeAttribute("address");
-
-		//決済方法の判定
-		if (payment.equals("01")) {
-			payment = "代金引き換え";
-		} else {
-			payment = "コンビニエンスストア決済";
-		}
-
-		//必要な項目をリクエストに格納
-		req.setAttribute("payment", payment);
-		req.setAttribute("zipCode", zipCode);
-		req.setAttribute("prefecture", prefecture);
-		req.setAttribute("address", address);
 
 		return page;
 	}
