@@ -19,7 +19,6 @@ public class NewAccountAction {
 		String tel = req.getParameter("tel");
 		String mail = req.getParameter("mail");
 
-
 		if(																						//項目全てがnull出なく空文字文字のとき
 				memberCode != null && name != null && password != null
 				&& zipCode != null && prefecture != null && tel != null && mail != null
@@ -33,9 +32,9 @@ public class NewAccountAction {
 		try{
 
 			NewAccountLogic newAccountLogic = new NewAccountLogic();
-			boolean caflag = newAccountLogic.checkAddress(mail);
+			caflag = newAccountLogic.checkAddress(mail);
 
-			if(!caflag){									//メールアドレスの重複が無かった場合 登録情報をmemberに設定 caflag == false
+			if(caflag){									//メールアドレスの重複が無かった場合 登録情報をmemberに設定 caflag == false
 
 				Member member = new Member();			//情報の設定
 				member.setMemberCode(memberCode);

@@ -19,7 +19,7 @@
 	<jsp:include page="header/header2.jsp" />
 <% } %>
 	<div align="center">
-	<form action="/tourSystem/tsys" method="POST" name="fm">
+	<form action="/tourSystem/tsys" method="POST" name="form">
 	<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
 		<h2>
@@ -74,7 +74,7 @@
 			</tr>
 		</table>
 		<br> <br>
-			<span class="button" onclick="document.fm.BUTTON_ID.value='0801_01_01'; document.fm.submit()">カートへ</span>
+			<span class="button" onclick="document.form.BUTTON_ID.value='0801_01_01'; document.form.submit()">カートへ</span>
 	</form>
 	</div>
 	<jsp:include page="footer/footer.html" />

@@ -2,6 +2,7 @@ package tsys.sales.logic;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import tsys.sales.common.SalesBusinessException;
@@ -34,8 +35,9 @@ public class ShoppingCartConfirmLogic {
 			con = ConnectionManager.getConnection();
 
 			//orderDate（受注年月日）の取得
-			Date OrderDate = new Date();
-			String orderDate = convertDate2String(OrderDate);
+			Calendar cal = Calendar.getInstance();
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	        String orderDate = sdf.format(cal.getTime());
 
 			//orderTotal（合計金額）の計算
 			for (Item item : cart) {
@@ -125,10 +127,5 @@ public class ShoppingCartConfirmLogic {
 		}
 		orderFlag = true;
 		return orderFlag;
-	}
-
-	private String convertDate2String(Date orderDate) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
 	}
 }

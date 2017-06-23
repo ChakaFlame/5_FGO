@@ -17,6 +17,8 @@
 		<tr>
 			<td class="sample1">メンバー名</td>
 			<td>XXXXXX</td>
+			<td><c:out value="${requestScope.member.membername}" /></td>
+			<!-- <td><c:out value="${sessionScope.Hotel.hotelName}" /></td> -->
 		</tr>
 		<tr>
 			<td class="sample1">パスワード</td>

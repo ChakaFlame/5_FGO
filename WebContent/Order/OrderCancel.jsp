@@ -1,13 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>注文取消</title>
+<link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
+	<!-- 注文取消 -->
+	<!-- フォーム -->
+	<form action="/tourSystem/tsys" method="POST" name="inform">
+		<!-- ボタンID用フィールド -->
+		<input type="hidden" name="BUTTON_ID" value="">
+
 <div align="center">
 		<h2>注文取消</h2>
 		<table border="0">
@@ -21,42 +27,47 @@
 				<td class="sample1">注文番号</td>
 				<td class="padding"><c:out value="${sessionScope.order.index}" /></td>
 				<td class="sample1">注文日</td>
-				<td class="padding">2017/<c:out value="${sessionScope.order.orderDate}" /></td>
+				<td class="padding"><c:out value="${sessionScope.order.orderDate}" /></td>
 			</tr>
 		</table>
 		<br>
 		<table border="0">
 		<tr class="sample1">
-			<td class="padding">ホテルコード</td>
 			<td class="padding">ホテル名</td>
 			<td class="padding">宿泊日</td>
 			<td class="padding">宿泊料金</td>
 			<td class="padding">部屋数</td>
 			<td class="padding">小計</td>
 		</tr>
+		<%
+			int orderCount = 0;
+			int sum = 0;
+		%>
+		<c:forEach var="orderD" items="${session.orderDetail}">
+			<tr>
+				<td><c:out value="${orderD.name}" /></td>
+				<td><c:out value="${orderD.hotelDate}" /></td>
+				<td class="number2"><c:out value="${orderD.price}" /></td>
+				<td class="number1"><c:out value="${orderD.quantity}" /></td>
+				<%
+					int subtotal = (int)session.getAttribute("orderDetail.price") * (int)session.getAttribute("orderDetail.quantity");
+					sum += subtotal;
+				%>
+				<td class="number2"><%= subtotal %></td>
+			</tr>
+			<%
+				orderCount += (int)session.getAttribute("orderDetail.quantity");
+			%>
+		</c:forEach>
 		<tr>
-
-			<td><c:out value="${sessionScope.orderDetail.name}" /></td>
-			<td><c:out value="${sessionScope.order}" /></td>
-			<td class="number2">15,000円</td>
-			<td class="number1">1</td>
-			<td class="number2">15,000円</td>
-		</tr>
-		<tr>
-			<td>FKO002</td>
-			<td>アサトンタワーホテル　博多</td>
-			<td>2020/08/16</td>
-			<td class="number2">15,000円</td>
-			<td class="number1">1</td>
-			<td class="number2">15,000円</td>
-		</tr>
-		<tr>
-			<td colspan="4" align="right">合計（２件）<td>
-			<td class="sample2">30,000円</td>
+			<td colspan="4" align="right">合計（<%= orderCount %>件）<td>
+			<td class="sample2"><%= sum %>円</td>
 		</tr>
 		</table>
 		<br>
-		<a href="#" class="button">確認</a>
+			<span onclick="document.inform.BUTTON_ID.value='0202_01_01';document.inform.submit()"
+              class="button">確認</span>
 	</div>
+	</form>
 </body>
 </html>
