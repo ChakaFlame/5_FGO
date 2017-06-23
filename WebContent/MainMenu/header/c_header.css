@@ -22,6 +22,23 @@
     background-color:#6495ed;
     border-radius:5px;
 }
+
+.button2 {
+	width:100px;
+    font-size:24px;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:8px 0 10px;
+    margin: 8px;
+    color:#333;
+    border:1px solid #333;
+    color:#fff;
+    background-color:#6495ed;
+    border-radius:5px;
+}
+
 .padding {
     padding:10px;
     text-align:center;

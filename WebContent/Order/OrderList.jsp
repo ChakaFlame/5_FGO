@@ -21,9 +21,8 @@
 			<c:forEach var="order" items="${sessionScope.orderList}" varStatus="status">
 				<tr>
 					<td class="padding">
-						<a href="Order/OrderDetail.jsp">
-						<c:out value="${requestScope.orderNoList[status.index]}" />
-						<input type="hidden" name="index" value="${status.index}"/>
+						<a href="./tsys?BUTTON_ID=L0802_01_01&orderNo="${requestScope.orderNoList[status.index]}">
+						<input type="hidden" name="index" value="${status.index}" onclick=""/>
 						</a>
 					</td>
 					<td class="padding">
