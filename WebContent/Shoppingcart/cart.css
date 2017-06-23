@@ -7,6 +7,12 @@
 	color:#dc143c;
 	text-align:center;
 }
+.header {
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    max-height:1.5%;
+}
 .button {
     width:200px;
     font-size:15px;
