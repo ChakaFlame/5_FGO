@@ -22,8 +22,6 @@
 	<%
 		request.setCharacterEncoding("UTF8");
 	%>
-
-
 	<div align="center">
 		<h2>ホテル検索</h2>
 	</div>
