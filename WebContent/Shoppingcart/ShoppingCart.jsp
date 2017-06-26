@@ -9,7 +9,7 @@
 </head>
 <body>
 <% if (session.getAttribute("memberCode") == null) { %>
-	<jsp:include page="header/header.html" />
+	<jsp:include page="header/header1.jsp" />
 <% } else {%>
 	<jsp:include page="header/header2.jsp" />
 <% } %>

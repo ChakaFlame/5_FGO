@@ -10,7 +10,7 @@
 </head>
 
 <!-- <IFRAME src="Header.jsp" name="header" width="100%" height="110px"></IFRAME> -->
-<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<body>
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>

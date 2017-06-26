@@ -10,7 +10,7 @@
 
 <title>Header</title>
 </head>
-<body>
+<body  topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
 	<div style="webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
  		-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
 	 	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);">
