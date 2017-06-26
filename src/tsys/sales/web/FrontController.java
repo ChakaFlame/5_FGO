@@ -1,6 +1,8 @@
 package tsys.sales.web;
 
 import java.io.*;
+import java.sql.SQLException;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -78,6 +80,16 @@ public class FrontController extends HttpServlet {
 			case "L0802_01_01":
 				HotelDetailAction hotelDetailAction = new HotelDetailAction();
 				page = hotelDetailAction.execute(req);
+				break;
+
+			case "L0202_01_01":
+				OrderDetailAction orderDetailAction = new OrderDetailAction();
+			try {
+				page = orderDetailAction.execute(req);
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 				break;
 
 			//ログイン画面 ログインボタン

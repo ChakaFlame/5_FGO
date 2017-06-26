@@ -21,7 +21,7 @@ public class AccountConfirmationLogic {
 			member_IM = memberDAO.insertMember(member);					//member:ユーザの入力情報を持つ//引数に自動采番されたメンバーコードを持ったmember_iM
 
 			// 検索結果がない場合、エラーを発生させる。
-			if(member == null) {
+			if(member_IM == null) {
 				throw new SalesBusinessException("エラーが発生しました。");
 			}
 
