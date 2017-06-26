@@ -37,14 +37,14 @@
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
 			<td class="number"><c:out value="${cart.hotel.basicPrice}" />円</td>
-			<td class="right"><c:out value="${cart.reservNo}" /></td>
+			<td class="number"><c:out value="${cart.reservNo}" /></td>
 			<td class="number"><c:out value="${cart.calcPrice()}" />円</td>
 		</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="3" align="right">合計<td>
 			<td class="sample2">
-				<c:out value="${requestScopeScope.totalPrice}" />円
+				<c:out value="${requestScope.totalPrice}" />円
 			</td>
 		</tr>
 		</table>
@@ -71,7 +71,7 @@
 		</tr>
 		<tr>
 			<td class="sample1">決済方法<td>
-			<td><c:out value="${requestScope.payment}" /></td>
+			<td class="padding"><c:out value="${requestScope.payment}" /></td>
 		</tr>
 	</table>
 	</div>
