@@ -53,5 +53,6 @@
 		<input class="button" type="button"  value="登録" onclick="document.fm.BUTTON_ID.value='0901_03_01'; document.fm.submit()">
 		</div>
 	</form>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>

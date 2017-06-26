@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 
 public class NewAccountAction {
 	public String execute(HttpServletRequest req){
-		String page = "/Account/NewAccount.jsp";						//入力画面を戻り値に
+		String page = "//tourSystem/Account/NewAccount.jsp";						//入力画面を戻り値に
 		boolean caflag = false;										//メールアドレスの重複があったかのフラグ
 
 		//String memberCode = req.getParameter("membercode");	//■自動採番について確認  大文字小文字の確認
@@ -25,7 +25,7 @@ public class NewAccountAction {
 				&& zipCode != null && prefecture != null && tel != null && address != null && mail != null
 				&& (name.equals("") || password.equals("")
 				|| zipCode.equals("") || prefecture.equals("") || tel.equals("") || address.equals("") || mail.equals("")) ){
-			req.setAttribute("messsage", "情報を入力してください");
+			req.setAttribute("message", "情報を入力してください");
 			return page;
 		}
 
@@ -34,6 +34,10 @@ public class NewAccountAction {
 
 			NewAccountLogic newAccountLogic = new NewAccountLogic();
 			caflag = newAccountLogic.checkAddress(mail);
+
+			if(!caflag){
+				req.setAttribute("message", "既に登録済みのメールアドレスです。");
+			}
 
 			if(caflag){									//メールアドレスの重複が無かった場合 登録情報をmemberに設定 caflag == false
 

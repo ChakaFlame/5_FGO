@@ -11,7 +11,7 @@ public class AccountConfirmationAction {
 		String page = "/Account/AccountConfirmation.jsp";						//入力画面を戻り値に
 		HttpSession session = req.getSession();								//session獲得用
 		Member member = new Member();
-		member = (Member) session.getAttribute("member");							//Member型にキャストしてgetAttribute
+		member = (Member) session.getAttribute("member");						//Member型にキャストしてgetAttribute
 		System.out.println(member.getName());	//デバッグ用
 
 
@@ -32,6 +32,8 @@ public class AccountConfirmationAction {
 			req.setAttribute("error", e.getMessage());
 			page = "Error/Error.jsp";
 		}
+
+		//session.invalidate();		//新規登録時のmemberオブジェクト受け渡し用セッションの破棄
 
 		return page;
 	}

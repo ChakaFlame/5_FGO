@@ -31,7 +31,7 @@
 	<br>
 	<br>
 	<!-- フォーム -->
-	<form action="/tourSystem/tsys" method="POST" name="fm">
+	<form action="./tsys" method="POST" name="inform">
 		<input type="hidden" name="BUTTON_ID" value="">
 		<table>
 			<tr>
@@ -75,9 +75,13 @@
 		</table>
 		<br>
 		<br>
-		<input class="button" type="button"  value="確認" onclick="document.fm.BUTTON_ID.value='0901_01_01'; document.fm.submit()">
+		<input class="button" type="button"  value="確認" onclick="this.form.BUTTON_ID.value='0901_01_01'; this.form.submit()">
 	</form>
 	</div>
+	<div align="center" style="color:red; font-weight:bold;">
+    	<%-- エラーメッセージがある場合、出力 --%>
+    	<c:out value="${requestScope.message}" />
+	</div>
+	<jsp:include page="footer/footer.html" />
 </body>
-</html>
 </html>

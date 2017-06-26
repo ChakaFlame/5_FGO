@@ -94,7 +94,7 @@
 					</select></td>
 				</tr>
 			</table>
-			<input type="button" value="検索" onclick="this.form.BUTTON_ID.value='0802_01_01';this.form.submit();">
+			<span class="button" onclick="document.inform.BUTTON_ID.value='0802_01_01';document.inform.submit();">検索</span>
 		</form>
 	</div>
 	<br>
@@ -112,7 +112,7 @@
 				</tr>
 				<c:forEach var="hotelList" items="${requestScope.HotelList}">
 					<tr>
-						<td class="padding"><a
+						<td class="padding"><a style="font-weight:bold; color:#5A5050;"
 							href="./tsys?BUTTON_ID=L0802_01_01&itemCode=${hotelList.itemCode}"><c:out
 									value="${hotelList.itemCode}"/></a></td>
 						<td class="padding"><c:out value="${hotelList.hotelName}" /></td>
@@ -123,6 +123,8 @@
 			</table>
 		</div>
 	</div>
+	<br><br>
+	<br><br>
 	<jsp:include page="footer/footer.html" />
 
 </body>
