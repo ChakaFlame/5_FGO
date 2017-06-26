@@ -26,7 +26,7 @@ public class OrderListAction {
 				for (Order order : orderList){
 					orderNoList.add(Integer.toString(order.getOrderNo()));
 				}
-				session.setAttribute("orderList", orderList);
+				req.setAttribute("orderList", orderList);
 				req.setAttribute("orderNoList", orderNoList);
 			}
 		}catch (Exception e) {

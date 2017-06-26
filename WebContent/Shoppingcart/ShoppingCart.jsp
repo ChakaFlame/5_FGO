@@ -46,7 +46,7 @@
 		<tr>
 			<td colspan="3" align="right">合計<td>
 			<td class="sample2">
-				<c:out value="${sessionScope.totalPrice}" />円
+				<c:out value="${requestScope.totalPrice}" />円
 			</td>
 		</tr>
 		</table>

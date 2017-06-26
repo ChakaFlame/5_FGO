@@ -54,7 +54,7 @@ public class ShoppingCartAddAction {
 
 		// カートをsessionに格納
 		session.setAttribute("cart", cart);
-		session.setAttribute("totalPrice", totalPrice);
+		req.setAttribute("totalPrice", totalPrice);
 		page = "/Shoppingcart/ShoppingCart.jsp";
 
 		return page;
