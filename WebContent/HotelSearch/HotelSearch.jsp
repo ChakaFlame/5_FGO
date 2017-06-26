@@ -24,7 +24,7 @@
 	%>
 
 
-	<div align="center">
+	<div align="center" style="padding-top: 1%;">
 		<h2>ホテル検索</h2>
 	</div>
 	<br>

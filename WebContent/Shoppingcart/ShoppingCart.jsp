@@ -18,7 +18,7 @@
 	<form action="/tourSystem/tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
-	<div align="center">
+	<div align="center" style="padding-top: 1%;">
 		<!-- 見出し -->
 		<h2>ショッピングカート</h2>
 	</div>

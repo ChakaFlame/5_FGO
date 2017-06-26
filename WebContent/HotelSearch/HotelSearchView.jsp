@@ -24,13 +24,13 @@
 	%>
 
 
-	<div align="center">
+	<div align="center" style="padding-top: 1%;">
 		<h2>ホテル検索</h2>
 	</div>
 	<br>
 	<br>
 	<br>
-	<div align="center">
+	<div align="center" >
 		<form name="inform" method="post" action="./tsys">
 		<input type="hidden" name="BUTTON_ID" value="">
 		<table>

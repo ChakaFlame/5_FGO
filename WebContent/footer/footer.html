@@ -24,13 +24,12 @@ html {
  */
 
 .footer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
   background-color: #5A5050;
-  text-align: center;
 }
 </style>
 
@@ -38,15 +37,21 @@ html {
 </head>
 <body>
 
-<div class="footer">
-	<table style="color:white; font-family: 'Verdana'; width:100%;">
+<div class="footer"  style="color:white; font-family: 'Verdana'; font-size:14px;">
+	<table style="width:100%;">
 		<tr>
-			<td align="right" style="font-size:20px;" >
-			TOPへ <img src="up.png" alt="topへ" style="width: 20px; height: 20px;">
+			<td width="80%"></td>
+			<td width="10%" style="text-align: right" >
+				<a href="MainMenu/MainMenu.jsp" style="color:white">  HOMEへ
+				<img src="img/home.png" alt="topへ" style="width: 15px; height: 15px;"></a>
+			</td>
+			<td width="10%" style="text-align: right; padding-right:3%">
+				<a href="" style="color:white">  TOPへ
+				<img src="img/top.png" alt="topへ" style="width: 15px; height: 15px;"></a>
 			</td>
 		</tr>
-	</table>
-</div>
+			</table>
+			 </div>
 
 </body>
 </html>

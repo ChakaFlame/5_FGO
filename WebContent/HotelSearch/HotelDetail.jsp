@@ -18,6 +18,9 @@
 <% } else {%>
 	<jsp:include page="header/header2.jsp" />
 <% } %>
+	<div align="center" style="padding-top: 1%;">
+		<h2>ホテル商品詳細</h2>
+	</div>
 	<div align="center">
 	<form action="./tsys" method="POST" name="inform">
 	<!-- ボタンID用フィールド -->
@@ -74,7 +77,7 @@
 			</tr>
 		</table>
 		<br> <br>
-			<span class="button" onclick="this.form.BUTTON_ID.value='0801_01_01'; this.form.submit()">カートへ</span>
+			<span class="button" onclick="document.inform.BUTTON_ID.value='0801_01_01'; document.inform.submit()">カートへ</span>
 	</form>
 	</div>
 	<jsp:include page="footer/footer.html" />
