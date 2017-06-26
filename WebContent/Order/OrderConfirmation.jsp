@@ -15,7 +15,7 @@
 <% } %>
 	<!-- 注文確認 -->
 	<!-- フォーム -->
-	<form action="./tsys" method="POST" name="inform">
+	<form action="/tourSystem/tsys" method="POST" name="inform">
 		<!-- ボタンID用フィールド -->
 		<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center">
@@ -80,7 +80,7 @@
 	<br>
 	<br>
 	<div align="center">
-			<span onclick="this.form.BUTTON_ID.value='0201_02_01';this.form.submit()"
+			<span onclick="document.inform.BUTTON_ID.value='0201_02_01';document.inform.submit()"
               class="button">注文確定</span>
 	</div>
 	<br>
@@ -88,7 +88,7 @@
 	<br>
 	<br>
 	</form>
-		<jsp:include page="footer/footer.html" />
+	<jsp:include page="footer/footer.html" />
 
 </body>
 
