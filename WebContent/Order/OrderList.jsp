@@ -22,7 +22,7 @@
 				<tr>
 					<td class="padding">
 						<a href="./tsys?BUTTON_ID=L0802_01_01&orderNo="${requestScope.orderNoList[status.index]}">
-						<input type="hidden" name="index" value="${status.index}" onclick=""/>
+						<c:out value="${requestScope.orderNoList[status.index]}" />
 						</a>
 					</td>
 					<td class="padding">
