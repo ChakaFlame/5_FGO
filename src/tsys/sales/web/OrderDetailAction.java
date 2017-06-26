@@ -13,18 +13,23 @@ import tsys.sales.logic.OrderListLogic;
 
 public class OrderDetailAction {
 	public String execute(HttpServletRequest req) throws SQLException {
-		String page=null;
+
+		String page = null;
 		HttpSession session = req.getSession();
-		OrderListLogic orderListLogic=new OrderListLogic();
+		OrderListLogic orderListLogic = new OrderListLogic();
+
+		String orderNostr = (String) req.getParameter("orderNo");
+		int orderNoInt = Integer.parseInt(orderNostr);
 
 		session.setAttribute("orderNo", req.getParameter("orderNo"));
-		ArrayList<OrderDetail> orderDetailList = OrderDetailLogic.orderDetail((int) session.getAttribute("orderNo"));
+
+		ArrayList<OrderDetail> orderDetailList = OrderDetailLogic.orderDetail(orderNoInt);
 		session.setAttribute("orderDetail", orderDetailList);
 
 
-		int orderNoInt = (int) session.getAttribute("orderNo");
 		ArrayList<Order> orderList = orderListLogic.orderList(orderNoInt);
 		session.setAttribute("order", orderList);
+
 		return page;
 	}
 }

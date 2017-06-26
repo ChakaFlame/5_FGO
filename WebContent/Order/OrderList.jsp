@@ -21,7 +21,7 @@
 			<c:forEach var="order" items="${sessionScope.orderList}" varStatus="status">
 				<tr>
 					<td class="padding">
-						<a href="./tsys?BUTTON_ID=L0802_01_01&orderNo="${requestScope.orderNoList[status.index]}">
+						<a href="./tsys?BUTTON_ID=L0202_01_01&orderNo=${requestScope.orderNoList[status.index]}">
 						<c:out value="${requestScope.orderNoList[status.index]}" />
 						</a>
 					</td>
