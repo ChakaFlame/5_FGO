@@ -52,7 +52,7 @@ private Connection con;  //接続オブジェクト
 
     		// 検索結果がある場合、検索結果の数だけOrderListに格納する。
 
-    		if(res.next()) {
+    		while(res.next()) {
     			orderList.add( new Order(
     					res.getInt("orderNo"),
     					res.getString("orderDate"),
@@ -97,7 +97,7 @@ private Connection con;  //接続オブジェクト
     		res = stmt.executeQuery();
 
     		//検索結果がある場合、検索結果の数だけOrderDetailListに格納する。
-    		if(res.next()) {
+    		while (res.next()) {
     			orderDetailList.add( new OrderDetail(
     					res.getInt("orderNo"),
     					res.getString("itemCode"),
@@ -144,11 +144,7 @@ private Connection con;  //接続オブジェクト
     	ResultSet res = null;
     	PreparedStatement stmt1 = null;
     	PreparedStatement stmt2 = null;
-    	int insertCount;
-
-    	String sql = "INSERT INTO OrderMaster VALUES ('?','?','?','?')";
-    	PreparedStatement stmt = null;
-
+    	int insertCount = 0;
 
     	try {
     		stmt1 = con.prepareStatement(sql1);
@@ -189,7 +185,7 @@ private Connection con;  //接続オブジェクト
      public boolean insertOrderDetail(int orderNo,ArrayList<Item> cart) throws SQLException{
     	boolean insertFlag = false;
     	//OrderDetailテーブルに該当の受注情報を追加
-    	String sql = "INSERT INTO OrderDetail VALUES ('?','?','?','?')";
+    	String sql = "INSERT INTO OrderDetail VALUES (?,?,?,?,?)";
     	PreparedStatement stmt = null;
     	for (Item item : cart) {
     		try {
@@ -198,6 +194,7 @@ private Connection con;  //接続オブジェクト
     			stmt.setString(2, item.getHotel().getItemCode());
     			stmt.setString(3, item.getHotel().getHotelName());
     			stmt.setInt(4, item.getHotel().getBasicPrice());
+    			stmt.setInt(5, item.getReservNo());
     			stmt.executeUpdate();
     		} catch (SQLException e) {
     			return insertFlag;

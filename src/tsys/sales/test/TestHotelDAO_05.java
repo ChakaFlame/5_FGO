@@ -54,6 +54,12 @@ public class TestHotelDAO_05 {
 		Connection con = null;
 
 		try{
+			con = ConnectionManager.getConnection();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+
+		try{
 			HotelDAO hotelDAO = new HotelDAO(con);
 			String cityName = null;
 			cityName = hotelDAO.findCityName(cityCode);
@@ -82,12 +88,6 @@ public class TestHotelDAO_05 {
 
 	public static void test02(){
 		Connection con = null;
-
-		try{
-			con = ConnectionManager.getConnection();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
 
 		try{
 			HotelDAO hotelDAO = new HotelDAO(con);

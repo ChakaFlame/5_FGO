@@ -70,7 +70,7 @@ public class HotelDAO {
     public Hotel findHotel(Hotel hotel) throws SQLException{
 		String sql = "SELECT * FROM HotelMaster WHERE HotelCode = ?";
 		PreparedStatement stmt = null;
-
+		Hotel resHotel = null;
 		ResultSet res = null;
 
 		try {
@@ -87,6 +87,49 @@ public class HotelDAO {
 				hotel.setCityName(this.findCityName(hotel.getCityCode()));
 				hotel.setGrade(res.getString("grade"));
 				hotel.setBasicPrice(res.getInt("basicPrice"));
+				resHotel = hotel;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally{
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+    	return resHotel;
+    }
+
+    /**
+     * ホテルインスタンスに該当する詳細情報を追加し、ホテルインスタンスを返す。
+     */
+    public Hotel findHotel(String itemCode) throws SQLException{
+    	String sql = "SELECT * FROM Hotel WHERE ItemCode = ?";
+
+		PreparedStatement stmt = null;
+
+		ResultSet res = null;
+
+		Hotel hotel = null;
+
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, itemCode);
+			res =  stmt.executeQuery();
+
+			/**
+			 *  検索結果がある場合、戻り値に設定する。
+			 */
+			if(res.next()) {
+				hotel = new Hotel(
+					res.getString("itemCode"),
+					res.getString("hotelCode"),
+					res.getString("date"),
+					res.getInt("stock")
+				);
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();

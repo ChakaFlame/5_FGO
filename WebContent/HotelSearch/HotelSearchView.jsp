@@ -14,7 +14,7 @@
 </head>
 <body>
 <% if (session.getAttribute("memberCode") == null) { %>
-	<jsp:include page="header/header.html" />
+	<jsp:include page="header/header1.jsp" />
 <% } else {%>
 	<jsp:include page="header/header2.jsp" />
 <% } %>
@@ -24,15 +24,16 @@
 	%>
 
 
-	<div align="center">
+	<div align="center" style="padding-top: 1%;">
 		<h2>ホテル検索</h2>
 	</div>
 	<br>
 	<br>
 	<br>
-	<div align="center">
-		<form id="fm" method="post" action="/tourSystem/tsys">
-			<table>
+	<div align="center" >
+		<form name="inform" method="post" action="/tourSystem/tsys">
+		<input type="hidden" name="BUTTON_ID" value="">
+		<table>
 				<tr class="sample1">
 					<td class="padding">宿泊日を選ぶ</td>
 					<td class="padding">宿泊都市を選ぶ</td>
@@ -93,9 +94,7 @@
 					</select></td>
 				</tr>
 			</table>
-			<input type="hidden" name="BUTTON_ID" value=""> <input
-				type="submit" value="検索"
-				onclick="this.fm.BUTTON_ID.value='0802_01_01';">
+			<input type="button" value="検索" onclick="this.form.BUTTON_ID.value='0802_01_01';this.form.submit();">
 		</form>
 	</div>
 	<br>

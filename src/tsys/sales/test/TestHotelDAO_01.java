@@ -28,7 +28,7 @@ public class TestHotelDAO_01 {
 			if (hotel == null) {
 				System.out.println("戻り値：" + hotel);
 			}else{
-				System.out.println("ホテルコード：" +hotel.getHotelCode());
+				System.out.println("ホテルコード：" + hotel.getHotelCode());
 				System.out.println("ホテル名　　：" + hotel.getHotelName());
 				System.out.println("都市名　　　：" + hotel.getCityName());
 				System.out.println("グレード　　：" + hotel.getGrade());

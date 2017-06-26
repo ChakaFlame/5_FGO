@@ -10,9 +10,9 @@
 </head>
 
 <!-- <IFRAME src="Header.jsp" name="header" width="100%" height="110px"></IFRAME> -->
-<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<body>
 <% if (session.getAttribute("memberCode") == null) { %>
-	<jsp:include page="header/header.html" />
+	<jsp:include page="header/header1.jsp" />
 <% } else {%>
 	<jsp:include page="header/header2.jsp" />
 <% } %>
@@ -20,7 +20,7 @@
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
-			<input type="hidden" name="BUTTON_ID" value="">
+	<input type="hidden" name="BUTTON_ID" value="">
 
 	<section class="wrapper">
 		<span onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()">

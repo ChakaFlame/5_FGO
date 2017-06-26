@@ -38,7 +38,7 @@ public class TestHotelDAO_06 {
 		 * 存在しないホテルインスタンスを引数に指定し、
 		 * 戻り値としてnullが返される場合
 		 */
-		Hotel hotel2 = null;
+		Hotel hotel2 = new Hotel("TES000001","TSO001", "2017-01-01",15);
 		System.out.println("---------------PT002_06_002--------------");
 		test01(hotel2);
 
@@ -68,7 +68,7 @@ public class TestHotelDAO_06 {
 			if (res == null){
 				System.out.println("該当するデータがありません。");
 			} else {
-				System.out.println(res.getCityName());
+				System.out.println(res.getHotelName());
 			}
 
 		} catch (NullPointerException e) {

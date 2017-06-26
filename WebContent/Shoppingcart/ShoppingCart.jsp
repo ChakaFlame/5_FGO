@@ -9,16 +9,16 @@
 </head>
 <body>
 <% if (session.getAttribute("memberCode") == null) { %>
-	<jsp:include page="header/header.html" />
+	<jsp:include page="header/header1.jsp" />
 <% } else {%>
 	<jsp:include page="header/header2.jsp" />
 <% } %>
 	<!-- ショッピングカート -->
 	<!-- フォーム -->
-	<form action="/tourSystem/tsys" method="POST" name="inform">
+	<form action="./tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
-	<div align="center">
+	<div align="center" style="padding-top: 1%;">
 		<!-- 見出し -->
 		<h2>ショッピングカート</h2>
 	</div>
@@ -38,7 +38,7 @@
 		<tr>
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
-			<td><c:out value="${cart.hotel.basicPrice}" />円</td>
+			<td class = number><c:out value="${cart.hotel.basicPrice}" />円</td>
 			<td  align="right"><c:out value="${cart.reservNo}" /></td>
 			<td><c:out value="${cart.calcPrice()}" />円</td>
 		</tr>
@@ -67,6 +67,9 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
+	<br>
+	<br>
+	<br>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

@@ -2,6 +2,7 @@ package tsys.sales.logic;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import tsys.sales.common.SalesBusinessException;
@@ -24,7 +25,7 @@ public class ShoppingCartConfirmLogic {
 	 * @throws SalesBusinessException
 	 * @throws SalesSystemException
 	 */
-	public boolean orderConfirm(String payment,String memberCode,ArrayList<Item> cart) throws SalesBusinessException, SalesSystemException {
+	public int orderConfirm(String payment,String memberCode,ArrayList<Item> cart) throws SalesBusinessException, SalesSystemException {
 		Connection con = null;
 		boolean orderFlag = false;
 		int orderTotal = 0;
@@ -34,8 +35,9 @@ public class ShoppingCartConfirmLogic {
 			con = ConnectionManager.getConnection();
 
 			//orderDate（受注年月日）の取得
-			Date OrderDate = new Date();
-			String orderDate = convertDate2String(OrderDate);
+			Calendar cal = Calendar.getInstance();
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	        String orderDate = sdf.format(cal.getTime());
 
 			//orderTotal（合計金額）の計算
 			for (Item item : cart) {
@@ -43,75 +45,39 @@ public class ShoppingCartConfirmLogic {
 				orderTotal += Total;
 			}
 
+			//HotelDAOを生成し、メソッドを呼び出す。
+			HotelDAO hotelDAO = new HotelDAO(con);
 			//ホテルが存在するか確認を行う。
 			for (Item item : cart) {
-				try{
-					//HotelDAOを生成し、メソッドを呼び出す。
-					HotelDAO hotelDAO = new HotelDAO(con);
-					Hotel dopayment = hotelDAO.findHotelDetail(item.getHotel().getHotelCode());
+				Hotel dopayment = hotelDAO.findHotel(item.getHotel());
 
-					//検索結果がない場合、エラーを発生させる。
-					if(dopayment == null) {
-						throw new SalesBusinessException("エラーが発生しました。３");
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。４");
+				//検索結果がない場合、エラーを発生させる。
+				if(dopayment == null) {
+					throw new SalesBusinessException("エラーが発生しました。");
 				}
 			}
 
 			//OrderMasterテーブルの更新
-			try{
-				//OrderDAOを生成し、メソッドを呼び出す。
-				OrderDAO orderDAO = new OrderDAO(con);
-				con.setAutoCommit(false);
-				orderNo = orderDAO.insertOrder(orderDate,orderTotal,memberCode,payment);
-			} catch (SQLException e) {
-					con.rollback();
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。５");
-			} finally {
-				try {
-					if (con != null) {
-						con.close();
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。６");
-				}
-			}
+			//OrderDAOを生成し、メソッドを呼び出す。
+			OrderDAO orderDAO = new OrderDAO(con);
+			con.setAutoCommit(false);
+			orderNo = orderDAO.insertOrder(orderDate,orderTotal,memberCode,payment);
+
 			//OrderDetailテーブルの更新
 			//予約数のほうが在庫より多い場合はエラー画面へ遷移
-			try{
-				OrderDAO orderDAO = new OrderDAO(con);
-				for (Item item : cart) {
-					if(item.getReservNo() > item.getHotel().getStock()) {
-						throw new SalesSystemException("エラーが発生しました。７");
-					}
+			for (Item item : cart) {
+				if(item.getReservNo() > item.getHotel().getStock()) {
+					throw new SalesSystemException("エラーが発生しました。");
 				}
-				try {
-					orderFlag = orderDAO.insertOrderDetail(orderNo,cart);
-				} catch (SQLException e) {
-					con.rollback();
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。８");
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new SalesSystemException("エラーが発生しました。９");
-			} finally {
-				try {
-					if (con != null) {
-						con.close();
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。１０");
-				}
+			}
+			orderDAO.insertOrderDetail(orderNo,cart);
+			//Hotelテーブルの更新
+			for (Item item : cart) {
+				hotelDAO.updateStock(item.getHotel().getItemCode(), item.getReservNo());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SalesSystemException("エラーが発生しました。１１");
+			throw new SalesSystemException("エラーが発生しました。");
 		} finally {
 			try {
 				if (con != null) {
@@ -120,15 +86,9 @@ public class ShoppingCartConfirmLogic {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new SalesSystemException("エラーが発生しました。１２");
+				throw new SalesSystemException("エラーが発生しました。");
 			}
 		}
-		orderFlag = true;
-		return orderFlag;
-	}
-
-	private String convertDate2String(Date orderDate) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return orderNo;
 	}
 }

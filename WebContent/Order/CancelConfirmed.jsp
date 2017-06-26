@@ -6,14 +6,20 @@
 <meta charset="UTF-8">
 <title>注文取消確定</title>
 <link rel="stylesheet" type="text/css" href="Order.css">
-<!-- 注文取消確定 -->
-	<!-- フォーム -->
-	<form action="/tourSystem/tsys" method="POST" name="inform">
-		<!-- ボタンID用フィールド -->
-		<input type="hidden" name="BUTTON_ID" value="">
 
 </head>
 <body>
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header1.jsp" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
+<!-- 注文取消確定 -->
+	<!-- フォーム -->
+	<form action="/tourSystem/tsys" method="POST" name="inform">
+	<!-- ボタンID用フィールド -->
+	<input type="hidden" name="BUTTON_ID" value="">
+
 	<div align="center">
 		<h2>注文取消</h2>
 		<h3>以下の注文を取消しました。</h3>
@@ -72,5 +78,6 @@
               class="button">メニューへ</span>
 	</div>
 	</form>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>
