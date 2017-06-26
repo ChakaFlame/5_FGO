@@ -33,6 +33,8 @@ public class AccountConfirmationAction {
 			page = "Error/Error.jsp";
 		}
 
+		//session.invalidate();		//新規登録時のmemberオブジェクト受け渡し用セッションの破棄
+
 		return page;
 	}
 }
