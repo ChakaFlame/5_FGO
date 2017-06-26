@@ -13,6 +13,11 @@ public class HotelSearchAction {
 	public String execute(HttpServletRequest req) {
 		String page = "/HotelSearch/HotelSearchView.jsp"; // 入力画面を戻り値に設定
 		DateFormat format = new SimpleDateFormat("yyyy-M-d");
+		Calendar after6m = Calendar.getInstance(); // 今日を日付を取得
+		after6m.add(after6m.MONTH, 6); // 6ヶ月後を設定
+		Calendar nextday = Calendar.getInstance();
+		nextday.add(nextday.DAY_OF_MONTH, 1); // 翌日を設定する。
+
 
 		String hotelDateSr = "";
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
