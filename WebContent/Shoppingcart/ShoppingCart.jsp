@@ -15,7 +15,7 @@
 <% } %>
 	<!-- ショッピングカート -->
 	<!-- フォーム -->
-	<form action="/tourSystem/tsys" method="POST" name="inform">
+	<form action="./tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center" style="padding-top: 1%;">
@@ -67,6 +67,9 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
+	<br>
+	<br>
+	<br>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

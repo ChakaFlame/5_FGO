@@ -8,6 +8,11 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header1.jsp" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<!-- 注文確定 -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
@@ -79,6 +84,12 @@
 			<span onclick="document.inform.BUTTON_ID.value='M_01';document.inform.submit()"
               class="button">メニューへ</span>
 	</div>
+	<br><br>
 	</form>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>

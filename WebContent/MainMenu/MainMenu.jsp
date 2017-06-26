@@ -45,6 +45,7 @@
 	  		</div>
 		</div>
 	</section>
+	<section style="width:100%; height:5%;"></section>
 	</form>
 	<jsp:include page="footer/footer.html" />
 </body>
