@@ -21,7 +21,7 @@ public class ShoppingCartConfirmAction {
 	 */
 	public String execute(HttpServletRequest req) {
 		String page = "/Order/OrderConfirmation.jsp";
-
+		int orderNo = 0;
 
 		//セッションを繋ぐ
 		HttpSession session = req.getSession(false);
@@ -44,7 +44,8 @@ public class ShoppingCartConfirmAction {
 		try {
 			//ShoppingCartConfirmLogicを生成し、メソッドを呼び出す。
 			ShoppingCartConfirmLogic shoppingCartConfirmLogic = new ShoppingCartConfirmLogic();
-			if(!shoppingCartConfirmLogic.orderConfirm(payment, memberCode, cart)) {
+			orderNo = shoppingCartConfirmLogic.orderConfirm(payment, memberCode, cart);
+			if(orderNo == 0) {
 				req.setAttribute("message", "エラーが発生しました。２");
 				page = "/Error/Error.jsp";
 				return page;
@@ -70,6 +71,7 @@ public class ShoppingCartConfirmAction {
 
 
 		//必要な項目をリクエストに格納
+				req.setAttribute("orderNo", orderNo);
 				req.setAttribute("cart", cart);
 				req.setAttribute("payment", payment);
 				req.setAttribute("totalPrice", totalPrice);

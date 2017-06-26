@@ -25,7 +25,7 @@ public class ShoppingCartConfirmLogic {
 	 * @throws SalesBusinessException
 	 * @throws SalesSystemException
 	 */
-	public boolean orderConfirm(String payment,String memberCode,ArrayList<Item> cart) throws SalesBusinessException, SalesSystemException {
+	public int orderConfirm(String payment,String memberCode,ArrayList<Item> cart) throws SalesBusinessException, SalesSystemException {
 		Connection con = null;
 		boolean orderFlag = false;
 		int orderTotal = 0;
@@ -89,7 +89,6 @@ public class ShoppingCartConfirmLogic {
 				throw new SalesSystemException("エラーが発生しました。１２");
 			}
 		}
-		orderFlag = true;
-		return orderFlag;
+		return orderNo;
 	}
 }
