@@ -2,12 +2,9 @@ package tsys.sales.logic;
 
 import java.sql.Connection;
 
+
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import tsys.sales.common.SalesBusinessException;
@@ -31,27 +28,12 @@ public class HotelSearchLogic {
 
 			hotelList = hotelDao.searchHotel(cityCode, hotelDate);
 
-			Date current = new Date();
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(current);
-			cal.set(Calendar.MONTH, (cal.get(Calendar.MONTH)+6));
-			current = cal.getTime();
-
-			DateFormat format = new SimpleDateFormat("yyyy-M-d");
-
-			for(Hotel hotel : hotelList){
-				Date hotelDate1 = format.parse(hotel.getHotelDate());
-				if(hotelDate1.after(current)){
-					hotelList.remove(hotel);
-				}
-			}
-
 			// 結果一覧がない場合、エラーを発生させる。
 			if(hotelList.isEmpty()) {
 				throw new SalesBusinessException("結果なし。");
 			}
 
-		}catch(SQLException | ParseException e) {
+		}catch(SQLException e) {
 			e.printStackTrace();
 			throw new SalesSystemException("エラーが発生しました。");
 		}finally {
