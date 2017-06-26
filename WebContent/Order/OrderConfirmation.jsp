@@ -23,7 +23,6 @@
 	</div>
 	<br>
 	<br>
-	<br>
 	<div align="center">
 		<h4>購入商品情報</h4>
 		<table border="0">
@@ -78,10 +77,19 @@
 		</tr>
 	</table>
 	</div>
+	<br>
+	<br>
 	<div align="center">
 			<span onclick="this.form.BUTTON_ID.value='0201_02_01';this.form.submit()"
               class="button">注文確定</span>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 	</form>
+		<jsp:include page="footer/footer.html" />
+
 </body>
+
 </html>
