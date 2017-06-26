@@ -78,6 +78,10 @@
 		<input class="button" type="button"  value="確認" onclick="document.fm.BUTTON_ID.value='0901_01_01'; document.fm.submit()">
 	</form>
 	</div>
+	<div align="center" style="color:red; font-weight:bold;">
+    	<%-- エラーメッセージがある場合、出力 --%>
+    	<c:out value="${requestScope.message}" />
+	</div>
 </body>
 </html>
 </html>

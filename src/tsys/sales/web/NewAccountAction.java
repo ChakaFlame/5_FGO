@@ -25,7 +25,7 @@ public class NewAccountAction {
 				&& zipCode != null && prefecture != null && tel != null && address != null && mail != null
 				&& (name.equals("") || password.equals("")
 				|| zipCode.equals("") || prefecture.equals("") || tel.equals("") || address.equals("") || mail.equals("")) ){
-			req.setAttribute("messsage", "情報を入力してください");
+			req.setAttribute("message", "情報を入力してください");
 			return page;
 		}
 
@@ -34,6 +34,10 @@ public class NewAccountAction {
 
 			NewAccountLogic newAccountLogic = new NewAccountLogic();
 			caflag = newAccountLogic.checkAddress(mail);
+
+			//if(!caflag){
+				req.setAttribute("message", "既に登録済みのメールアドレスです。");
+			//}
 
 			if(caflag){									//メールアドレスの重複が無かった場合 登録情報をmemberに設定 caflag == false
 
