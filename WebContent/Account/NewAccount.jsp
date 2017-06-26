@@ -78,13 +78,10 @@
 		<input class="button" type="button"  value="確認" onclick="this.form.BUTTON_ID.value='0901_01_01'; this.form.submit()">
 	</form>
 	</div>
-<<<<<<< HEAD
 	<div align="center" style="color:red; font-weight:bold;">
     	<%-- エラーメッセージがある場合、出力 --%>
     	<c:out value="${requestScope.message}" />
 	</div>
-=======
 	<jsp:include page="footer/footer.html" />
->>>>>>> branch 'master' of https://github.com/moon-ahhyun/5_FGO.git
 </body>
 </html>

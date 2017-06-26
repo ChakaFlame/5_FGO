@@ -35,9 +35,9 @@ public class NewAccountAction {
 			NewAccountLogic newAccountLogic = new NewAccountLogic();
 			caflag = newAccountLogic.checkAddress(mail);
 
-			//if(!caflag){
+			if(!caflag){
 				req.setAttribute("message", "既に登録済みのメールアドレスです。");
-			//}
+			}
 
 			if(caflag){									//メールアドレスの重複が無かった場合 登録情報をmemberに設定 caflag == false
 
