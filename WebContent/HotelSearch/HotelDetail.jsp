@@ -22,7 +22,7 @@
 		<h2>ホテル商品詳細</h2>
 	</div>
 	<div align="center">
-	<form action="./tsys" method="POST" name="inform">
+	<form action="/tourSystem/tsys" method="POST" name="inform">
 	<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
 		<h2>

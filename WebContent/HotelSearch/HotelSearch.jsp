@@ -31,7 +31,7 @@
 	<br>
 	<br>
 	<div align="center">
-		<form name="inform" method="post" action="./tsys">
+		<form name="inform" method="post" action="/tourSystem/tsys">
 		<input type="hidden" name="BUTTON_ID" value="">
 			<table>
 				<tr class="sample1">
