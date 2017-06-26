@@ -20,20 +20,31 @@ public class OrderDetailAction {
 		OrderListLogic orderListLogic = new OrderListLogic();
 		OrderDetailLogic orderDetailLogic = new OrderDetailLogic();
 
-		session.setAttribute("orderNo", Integer.valueOf(req.getParameter("orderNo")));
+		req.setAttribute("orderNo", Integer.valueOf(req.getParameter("orderNo")));
+		String orderDate = req.getParameter("orderDate");
+
 
 		ArrayList<Order> orderList = orderListLogic.orderList(String.valueOf(session.getAttribute("memberCode")));
-		session.setAttribute("order", orderList);
+		req.setAttribute("order", orderList);
 
 		ArrayList<OrderDetail> orderDetailList = OrderDetailLogic
 				.orderDetail(Integer.valueOf(req.getParameter("orderNo")));
-		session.setAttribute("orderDetail", orderDetailList);
+		req.setAttribute("orderDetail", orderDetailList);
 
+		ArrayList<Hotel> hotelList = new ArrayList();
+		int totalprice=0;
 		for (OrderDetail orderDetail : orderDetailList) {
 			String itemCodeStr = orderDetail.getItemCode();
-			Hotel hotelList = orderDetailLogic.orderHotelDetail(itemCodeStr);
-			session.setAttribute("hotel", hotelList);
+			Hotel hotel = orderDetailLogic.orderHotelDetail(itemCodeStr);
+			hotel.setReservNo(orderDetail.getQuantity());
+			hotel.setHotelName(orderDetail.getName());
+			hotel.setPrice(orderDetail.getPrice());
+			hotelList.add(hotel);
+			totalprice+=orderDetail.getPrice()*orderDetail.getQuantity();
 		}
+		req.setAttribute("totalprice", totalprice);
+		req.setAttribute("hotelList", hotelList);
+		req.setAttribute("orderDate", orderDate);
 		return page;
 	}
 }

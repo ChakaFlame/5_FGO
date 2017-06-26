@@ -30,10 +30,10 @@
 			</tr>
 			<tr>
 				<td class="sample1">注文番号</td>
-				<td class="padding"><c:out value="${sessionScope.orderNo}" /></td>
+				<td class="padding"><c:out value="${requestScope.orderNo}" /></td>
 				<td class="sample1">注文日</td>
-				<%--<td class="padding"><c:out value="${sessionScope.order.orderDate}" /></td>
-				--%>
+				<td class="padding"><c:out value="${requestScope.orderDate}" /></td>
+
 			</tr>
 		</table>
 		<br>
@@ -49,25 +49,19 @@
 			int orderCount = 0;
 			int sum = 0;
 		%>
-		<c:forEach var="orderDetail" items="${sessionScope.orderDetail}">
+		<c:forEach var="hotel" items="${requestScope.hotelList}">
 			<tr>
-				<td><c:out value="${orderDetail.name}" /></td>
-				<td><c:out value="${sessionScope.hotel.hotelDate}" /></td>
-				<td class="number2"><c:out value="${orderDetail.price}" /></td>
-				<td class="number1"><c:out value="${orderDetail.quantity}" /></td>
-				<%
-					int subtotal = (int)session.getAttribute("orderDetail.price") * (int)session.getAttribute("orderDetail.quantity");
-					sum += subtotal;
-				%>
-				<td class="number2"><%= subtotal %></td>
+				<td><c:out value="${hotel.hotelName}" /></td>
+				<td><c:out value="${hotel.hotelDate}" /></td>
+				<td class="number2"><c:out value="${hotel.price}" /></td>
+				<td class="number1"><c:out value="${hotel.reservNo}" /></td>
+
 			</tr>
-			<%
-				orderCount += (int)session.getAttribute("orderDetail.quantity");
-			%>
+
 		</c:forEach>
 		<tr>
 			<td colspan="4" align="right">合計（<%= orderCount %>件）<td>
-			<td class="sample2"><%= sum %>円</td>
+			<td class="sample2"><c:out value="${requestScope.totalprice}" />円</td>
 		</tr>
 		</table>
 		<br>
