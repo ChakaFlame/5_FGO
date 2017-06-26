@@ -52,7 +52,7 @@ private Connection con;  //接続オブジェクト
 
     		// 検索結果がある場合、検索結果の数だけOrderListに格納する。
 
-    		if(res.next()) {
+    		while(res.next()) {
     			orderList.add( new Order(
     					res.getInt("orderNo"),
     					res.getString("orderDate"),
