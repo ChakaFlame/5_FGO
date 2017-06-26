@@ -38,7 +38,7 @@
 		<tr>
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
-			<td><c:out value="${cart.hotel.basicPrice}" />円</td>
+			<td class = number><c:out value="${cart.hotel.basicPrice}" />円</td>
 			<td  align="right"><c:out value="${cart.reservNo}" /></td>
 			<td><c:out value="${cart.calcPrice()}" />円</td>
 		</tr>
