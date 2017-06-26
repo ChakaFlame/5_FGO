@@ -97,7 +97,7 @@ private Connection con;  //接続オブジェクト
     		res = stmt.executeQuery();
 
     		//検索結果がある場合、検索結果の数だけOrderDetailListに格納する。
-    		if(res.next()) {
+    		while (res.next()) {
     			orderDetailList.add( new OrderDetail(
     					res.getInt("orderNo"),
     					res.getString("itemCode"),
