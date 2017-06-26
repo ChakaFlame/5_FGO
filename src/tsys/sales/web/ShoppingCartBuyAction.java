@@ -40,10 +40,16 @@ public class ShoppingCartBuyAction {
 			ShoppingCartBuyLogic shoppingCartBuyLogic = new ShoppingCartBuyLogic();
 			Member member = shoppingCartBuyLogic.findAddress((String)session.getAttribute("memberCode"));
 
+			//合計金額を取得
+			int totalPrice = (int)req.getAttribute("totalPrice");
+
 			//検索結果をリクエストスコープに格納
-			session.setAttribute("zipCode", member.getZipCode());
-			session.setAttribute("prefecture", member.getPrefecture());
-			session.setAttribute("address", member.getAddress());
+			req.setAttribute("zipCode", member.getZipCode());
+			req.setAttribute("prefecture", member.getPrefecture());
+			req.setAttribute("address", member.getAddress());
+
+			//合計金額をリクエストスコープに格納
+			req.setAttribute("totalPrice", totalPrice);
 
 			//結果画面を戻り値に設定する。
 			page = "/Order/OrderConfirmation.jsp";
