@@ -40,7 +40,19 @@
 	background-color: #5A5050;
 	border-radius: 5px;
 }
-
+.button1:hover{
+	width: 100px;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	padding: 8px 0 10px;
+	border: 1px solid #333;
+	color: #5A5050;
+	background-color: #fff;
+	border-radius: 5px;
+}
 .button2 {
 	width: 100px;
 	font-size: 15px;
@@ -52,6 +64,19 @@
 	border: 1px solid #333;
 	color: #5A5050;
 	background-color: #fff;
+	border-radius: 5px;
+}
+.button2:hover{
+	width: 100px;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	padding: 8px 0 10px;
+	border: 1px solid #333;
+	color: #fff;
+	background-color: #5A5050;
 	border-radius: 5px;
 }
 .padding {
