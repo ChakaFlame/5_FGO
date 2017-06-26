@@ -32,6 +32,16 @@ public class OrderDetail implements Serializable {
 		this.price = price;
 		this.quantity = quantity;
 	}
+
+	/**
+	 * @return totalPrice
+	 */
+	public int calcPrice(){
+		int subTotalPrice;
+		subTotalPrice=price*quantity;
+		return subTotalPrice;
+	}
+
 	/**
 	 * @return orderNo
 	 */

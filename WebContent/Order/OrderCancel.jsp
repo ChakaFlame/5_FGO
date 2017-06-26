@@ -45,30 +45,19 @@
 			<td class="padding">部屋数</td>
 			<td class="padding">小計</td>
 		</tr>
-		<%
-			int orderCount = 0;
-			int sum = 0;
-		%>
 		<c:forEach var="orderDetail" items="${sessionScope.orderDetail}">
 			<tr>
 				<td><c:out value="${orderDetail.name}" /></td>
 				<td><c:out value="${sessionScope.hotel.hotelDate}" /></td>
 				<td class="number2"><c:out value="${orderDetail.price}" /></td>
 				<td class="number1"><c:out value="${orderDetail.quantity}" /></td>
-				<%
-					int subtotal = (int)session.getAttribute("orderDetail.price") * (int)session.getAttribute("orderDetail.quantity");
-					sum += subtotal;
-				%>
-				<td class="number2"><%= subtotal %></td>
+				<td class="number2"><c:out value="${orderDetail.calcPrice()}" /></td>
 			</tr>
-			<%
-				orderCount += (int)session.getAttribute("orderDetail.quantity");
-			%>
 		</c:forEach>
 		<tr>
-			<td colspan="4" align="right">合計（<%= orderCount %>件）<td>
-			<td class="sample2"><%= sum %>円</td>
-		</tr>
+<!-- 			<td colspan="4" align="right">合計（<c:out value="${セッションから合計件数を取得する}" />件）<td>
+			<td class="sample2"><c:out value="${セッションから合計金額を取得する}" />円</td>
+ -->		</tr>
 		</table>
 		<br>
 			<span onclick="document.inform.BUTTON_ID.value='0202_01_01';document.inform.submit()"
