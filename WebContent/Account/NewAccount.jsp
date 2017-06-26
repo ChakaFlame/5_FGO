@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録</title>
-<link rel="stylesheet" type="text/css" href="Account.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/Account/Account.css">
 <script type="text/javascript">
 	// 検索ボタンが押された場合、未入力チェックを行う。
 	function PushSearchButton() {
@@ -32,45 +32,45 @@
 	<br>
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="fm">
-	<input type="hidden" name="BUTTON_ID" value="">
+		<input type="hidden" name="BUTTON_ID" value="">
 		<table>
 			<tr>
 				<td class="sample1">メンバー名</td>
-				<td><input type="text" name="membername" value = "${param.MemberName}" maxLength="40"></td>
+				<td><input type="text" name="Name" value = "${param.Name}" maxLength="40"></td>
 			</tr>
 			<tr>
 				<td class="sample1">パスワード</td>
-				<td><input type="password" name="password" value = "${param.Password}" maxLength="15"></td>
+				<td><input type="password" name="Password" value = "${param.Password}" maxLength="15"></td>
 			</tr>
 			<tr>
 				<td class="sample1">郵便番号</td>
-				<td><input type="text" name="zipcode" value = "${param.ZipCode}" maxLength="8"></td>
+				<td><input type="text" name="ZipCode" value = "${param.ZipCode}" maxLength="8"></td>
 			</tr>
 			<tr>
 				<td class="sample1">都道府県</td>
 				<td>
-					<select id="prefecture" name="都道府県">
-						<option value="1">北海道</option>
-						<option value="2">青森</option>
-						<option value="3">秋田</option>
-						<option value="4">岩手</option>
-						<option value="5">宮城</option>
-						<option value="6">山形</option>
-						<option value="7">福島</option>
+					<select id="prefecture" name="Prefecture">
+						<option value="北海道">北海道</option>
+						<option value="青森">青森</option>
+						<option value="秋田">秋田</option>
+						<option value="岩手">岩手</option>
+						<option value="宮城">宮城</option>
+						<option value="山形">山形</option>
+						<option value="福島">福島</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td class="sample1">住所</td>
-				<td><input type="text" name="address" value = "${param.Address}" maxLength="100"></td>
+				<td><input type="text" name="Address" value = "${param.Address}" maxLength="100"></td>
 			</tr>
 			<tr>
 				<td class="sample1">電話番号</td>
-				<td><input type="text" name="tel" value = "${param.Tel}" maxLength="13"></td>
+				<td><input type="text" name="Tel" value = "${param.Tel}" maxLength="13"></td>
 			</tr>
 			<tr>
 				<td class="sample1">メールアドレス</td>
-				<td><input type="text" name="mail" value = "${param.Mail}" maxLength="100"></td>
+				<td><input type="text" name="Mail" value = "${param.Mail}" maxLength="100"></td>
 			</tr>
 		</table>
 		<br>

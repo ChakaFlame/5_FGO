@@ -11,19 +11,20 @@ public class NewAccountAction {
 		String page = "/Account/NewAccount.jsp";						//入力画面を戻り値に
 		boolean caflag = false;										//メールアドレスの重複があったかのフラグ
 
-		String memberCode = req.getParameter("membercode");	//■自動採番について確認  大文字小文字の確認
-		String name = req.getParameter("name");
-		String password = req.getParameter("password");
-		String zipCode = req.getParameter("zipcode");
-		String prefecture = req.getParameter("prefecture");
-		String tel = req.getParameter("tel");
-		String mail = req.getParameter("mail");
+		//String memberCode = req.getParameter("membercode");	//■自動採番について確認  大文字小文字の確認
+		String name = req.getParameter("Name");
+		String password = req.getParameter("Password");
+		String zipCode = req.getParameter("ZipCode");
+		String prefecture = req.getParameter("Prefecture");
+		String address = req.getParameter("Address");
+		String tel = req.getParameter("Tel");
+		String mail = req.getParameter("Mail");
 
 		if(																						//項目全てがnull出なく空文字文字のとき
-				memberCode != null && name != null && password != null
-				&& zipCode != null && prefecture != null && tel != null && mail != null
-				&& (memberCode.equals("") || name.equals("") || password.equals("")
-				|| zipCode.equals("") || prefecture.equals("") || tel.equals("") || mail.equals("")) ){
+				name != null && password != null
+				&& zipCode != null && prefecture != null && tel != null && address != null && mail != null
+				&& (name.equals("") || password.equals("")
+				|| zipCode.equals("") || prefecture.equals("") || tel.equals("") || address.equals("") || mail.equals("")) ){
 			req.setAttribute("messsage", "情報を入力してください");
 			return page;
 		}
@@ -37,15 +38,18 @@ public class NewAccountAction {
 			if(caflag){									//メールアドレスの重複が無かった場合 登録情報をmemberに設定 caflag == false
 
 				Member member = new Member();			//情報の設定
-				member.setMemberCode(memberCode);
+				//member.setMemberCode(memberCode);
 				member.setName(name);
 				member.setPassword(password);
 				member.setZipCode(zipCode);
 				member.setPrefecture(prefecture);
 				member.setTel(tel);
+				member.setAddress(address);
 				member.setMail(mail);
 
-				req.setAttribute("member", member);
+				HttpSession session = req.getSession();//request→session
+				session.setAttribute("member", member);
+				//req.setAttribute("member", member);
 				page = "/Account/AccountConfirmation.jsp";
 			}
 
