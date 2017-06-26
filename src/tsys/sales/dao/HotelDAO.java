@@ -70,7 +70,7 @@ public class HotelDAO {
     public Hotel findHotel(Hotel hotel) throws SQLException{
 		String sql = "SELECT * FROM HotelMaster WHERE HotelCode = ?";
 		PreparedStatement stmt = null;
-
+		Hotel resHotel = null;
 		ResultSet res = null;
 
 		try {
@@ -87,6 +87,7 @@ public class HotelDAO {
 				hotel.setCityName(this.findCityName(hotel.getCityCode()));
 				hotel.setGrade(res.getString("grade"));
 				hotel.setBasicPrice(res.getInt("basicPrice"));
+				resHotel = hotel;
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -99,7 +100,7 @@ public class HotelDAO {
 				stmt.close();
 			}
 		}
-    	return hotel;
+    	return resHotel;
     }
 
     /**
