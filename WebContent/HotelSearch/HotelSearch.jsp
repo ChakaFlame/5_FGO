@@ -93,7 +93,7 @@
 					</select></td>
 				</tr>
 			</table>
-			<input type="button" value="検索" onclick="this.form.BUTTON_ID.value='0802_01_01';this.form.submit();">
+			<span class="button" onclick="document.inform.BUTTON_ID.value='0802_01_01';document.inform.submit();">検索</span>
 		</form>
 	</div>
 	<br>
@@ -101,7 +101,6 @@
 	<br>
 	<br>
 	<div id="table">
-		<br> <br> <br>
 			</div>
 	<jsp:include page="footer/footer.html" />
 </body>
