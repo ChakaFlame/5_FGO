@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
 				<td class="sample1">注文番号</td>
-				<td class="padding"><c:out value="${requestScope.orderNo}" /></td>
+				<td class="padding"><c:out value="${sessionScope.orderNo}" /></td>
 				<td class="sample1">注文日</td>
 				<td class="padding"><c:out value="${sessionScope.order.orderDate}" /></td>
 			</tr>

@@ -30,10 +30,11 @@ public class OrderDetailAction {
 		ArrayList<OrderDetail> orderDetailList = OrderDetailLogic.orderDetail(orderNoInt);
 		session.setAttribute("orderDetail", orderDetailList);
 
-
-		ArrayList<Hotel> hotelList = orderDetailLogic.orderHotelDetail((String)session.getAttribute("orderDetail.itemCode"));
-		session.setAttribute("order", orderList);
-
+		for (OrderDetail orderDetail : orderDetailList) {
+			String itemCodeStr = orderDetail.getItemCode();
+			Hotel hotelList = orderDetailLogic.orderHotelDetail(itemCodeStr);
+			session.setAttribute("hotel", hotelList);
+		}
 		return page;
 	}
 }

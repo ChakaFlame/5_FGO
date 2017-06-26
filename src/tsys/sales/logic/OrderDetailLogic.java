@@ -36,14 +36,14 @@ public class OrderDetailLogic {
 		return orderDetailList;
 	}
 
-	public ArrayList<Hotel> orderHotelDetail(String itemCode) {
-		ArrayList<Hotel> orderHotelDetailList = null;
+	public Hotel orderHotelDetail(String itemCode) {
+		Hotel orderHotelDetailList = null;
 		try {
 			con = ConnectionManager.getConnection();
-			HotelDAO hotelDao = new HotelDAO(con);
+			HotelDAO hotelDAO = new HotelDAO(con);
 
 
-			orderHotelDetailList = HotelDAO.findHotel(itemCode);
+			orderHotelDetailList = hotelDAO.findHotel(itemCode);
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
