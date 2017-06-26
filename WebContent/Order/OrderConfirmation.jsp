@@ -80,7 +80,7 @@
 	<br>
 	<br>
 	<div align="center">
-			<span onclick="this.form.BUTTON_ID.value='0201_02_01';this.form.submit()"
+			<span onclick="document.inform.BUTTON_ID.value='0201_02_01';document.inform.submit()"
               class="button">注文確定</span>
 	</div>
 	<br>
