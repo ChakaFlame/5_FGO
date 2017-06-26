@@ -55,5 +55,6 @@
 		<input class="button" type="button"  value="メニューへ" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">
 	</form>
 	</div>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>

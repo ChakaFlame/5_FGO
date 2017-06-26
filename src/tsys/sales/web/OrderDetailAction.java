@@ -20,14 +20,13 @@ public class OrderDetailAction {
 		OrderListLogic orderListLogic = new OrderListLogic();
 		OrderDetailLogic orderDetailLogic = new OrderDetailLogic();
 
-		String orderNostr = (String) req.getParameter("orderNo");
-		int orderNoInt = Integer.parseInt(orderNostr);
-		session.setAttribute("orderNo", req.getParameter("orderNo"));
+		session.setAttribute("orderNo", Integer.valueOf(req.getParameter("orderNo")));
 
-		ArrayList<Order> orderList = orderListLogic.orderList(orderNoInt);
+		ArrayList<Order> orderList = orderListLogic.orderList(String.valueOf(session.getAttribute("memberCode")));
 		session.setAttribute("order", orderList);
 
-		ArrayList<OrderDetail> orderDetailList = OrderDetailLogic.orderDetail(orderNoInt);
+		ArrayList<OrderDetail> orderDetailList = OrderDetailLogic
+				.orderDetail(Integer.valueOf(req.getParameter("orderNo")));
 		session.setAttribute("orderDetail", orderDetailList);
 
 		for (OrderDetail orderDetail : orderDetailList) {

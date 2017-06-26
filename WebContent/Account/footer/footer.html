@@ -18,7 +18,6 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
 /**
  * Footer Styles
  */
@@ -31,6 +30,15 @@ html {
   padding: 1rem;
   background-color: #5A5050;
 }
+.link{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
 </style>
 
 <title>Footer</title>
@@ -42,11 +50,11 @@ html {
 		<tr>
 			<td width="80%"></td>
 			<td width="10%" style="text-align: right" >
-				<a href="MainMenu/MainMenu.jsp" style="color:white">  HOMEへ
+				<a href="./MainMenu/MainMenu.jsp" style="text-decoration:none; color:white">  HOMEへ
 				<img src="img/home.png" alt="topへ" style="width: 15px; height: 15px;"></a>
 			</td>
 			<td width="10%" style="text-align: right; padding-right:3%">
-				<a href="" style="color:white">  TOPへ
+				<a class="link" onClick="document.documentElement.scrollTop = 0;" style="color:white">  TOPへ
 				<img src="img/top.png" alt="topへ" style="width: 15px; height: 15px;"></a>
 			</td>
 		</tr>

@@ -44,6 +44,11 @@ public class FrontController extends HttpServlet {
 				MenuAction menuAction = new MenuAction();
 				page = menuAction.execute(req);
 				break;
+			//新規登録
+			case "M_02":
+				ToAccountAction toAccountAction = new ToAccountAction();
+				page = toAccountAction.execute(req);
+				break;
 			//ヘッダ ログイン
 			case "M_03":
 				ToLoginAction toLoginAction = new ToLoginAction();
