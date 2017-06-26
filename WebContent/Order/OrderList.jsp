@@ -44,7 +44,9 @@
 			</c:forEach>
 		</table>
 	</div>
+	<div align="center" style="color:red;"><br><br><c:out value="${requestScope.message}"></c:out></div>
 	</form>
+	<br><br><br>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>
