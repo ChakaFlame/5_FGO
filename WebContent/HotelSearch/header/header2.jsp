@@ -11,7 +11,6 @@
 	<div style="webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
  		-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
 	 	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);">
-		<form id="h" method="get" action="/tourSystem/tsys">
 
 		<table style="width: 100%;  padding:2%; color:#5A5050;">
 		<tr>
@@ -19,20 +18,19 @@
 				<a href="MainMenu/MainMenu.jsp" style="text-decoration:none; color:#5A5050;">FLM tours</a>
 			</td>
 			<td align="center" style="width: 10%; ">
-				<img src="img/cart.png" alt="カート画面へ" style="width: 30px; height: 30px;" onclick="h.BUTTON_ID.value='M_05';h.submit()">
+				<img src="img/cart.png" alt="カート画面へ" style="width: 30px; height: 30px;" onclick="document.inform.BUTTON_ID.value='M_05';document.inform.submit();">
 			</td>
 			<td align="right"style="width: 10%; font-size:20px;" >
-				<input class="button2" type="submit" value="<c:out value="${sessionScope.memberName}" /> 様"
-				onclick="h.BUTTON_ID.value='M_04';h.submit()">
+				<input class="button2" type="button" value="<c:out value="${sessionScope.memberName}" /> 様"
+				onclick="document.inform.BUTTON_ID.value='M_04';document.inform.submit();">
 			</td>
 
 			<td class="padding" style="width: 10%; font-size:20px;">
-				<input class="button1" type="submit" value="ログアウト"
-				onclick="h.BUTTON_ID.value='M_06'; h.submit()">
+				<input type="submit" class="button1" value="ログアウト"
+				onclick="document.inform.BUTTON_ID.value='M_06';document.inform.submit();">
 			</td>
 		</tr>
 		</table>
-			</form>
 
 	</div>
 </body>
