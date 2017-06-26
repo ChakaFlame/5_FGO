@@ -20,7 +20,7 @@
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
-			<input type="hidden" name="BUTTON_ID" value="">
+	<input type="hidden" name="BUTTON_ID" value="">
 
 	<section class="wrapper">
 		<span onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()">

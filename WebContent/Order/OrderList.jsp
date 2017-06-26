@@ -7,9 +7,19 @@
 <title>注文一覧</title>
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
-	<div align="center">
+
+<body>
+	<form name="inform" method="post" action="./tsys">
+	<input type="hidden" name="BUTTON_ID" value="">
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header1.jsp" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
+	<div align="center" style="padding-top: 1%;">
 		<h2><c:out value="${sessionScope.memberName}" /> 様の<br>
 		注文一覧</h2>
+
 		<table border="0">
 			<tr>
 
@@ -34,5 +44,7 @@
 			</c:forEach>
 		</table>
 	</div>
+	</form>
+	<jsp:include page="footer/footer.html" />
 </body>
 </html>

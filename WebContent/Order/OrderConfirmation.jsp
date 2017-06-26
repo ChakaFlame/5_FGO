@@ -8,15 +8,19 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header1.jsp" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<!-- 注文確認 -->
 	<!-- フォーム -->
-	<form action="/tourSystem/tsys" method="POST" name="inform">
+	<form action="./tsys" method="POST" name="inform">
 		<!-- ボタンID用フィールド -->
 		<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center">
 		<h2>注文確認</h2>
 	</div>
-	<br>
 	<br>
 	<br>
 	<div align="center">
@@ -73,10 +77,19 @@
 		</tr>
 	</table>
 	</div>
+	<br>
+	<br>
 	<div align="center">
-			<span onclick="document.inform.BUTTON_ID.value='0201_02_01';document.inform.submit()"
+			<span onclick="this.form.BUTTON_ID.value='0201_02_01';this.form.submit()"
               class="button">注文確定</span>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 	</form>
+		<jsp:include page="footer/footer.html" />
+
 </body>
+
 </html>

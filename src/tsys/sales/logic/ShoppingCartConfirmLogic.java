@@ -45,71 +45,35 @@ public class ShoppingCartConfirmLogic {
 				orderTotal += Total;
 			}
 
+			//HotelDAOを生成し、メソッドを呼び出す。
+			HotelDAO hotelDAO = new HotelDAO(con);
 			//ホテルが存在するか確認を行う。
 			for (Item item : cart) {
-				try{
-					//HotelDAOを生成し、メソッドを呼び出す。
-					HotelDAO hotelDAO = new HotelDAO(con);
-					Hotel dopayment = hotelDAO.findHotelDetail(item.getHotel().getHotelCode());
+				Hotel dopayment = hotelDAO.findHotel(item.getHotel());
 
-					//検索結果がない場合、エラーを発生させる。
-					if(dopayment == null) {
-						throw new SalesBusinessException("エラーが発生しました。３");
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。４");
+				//検索結果がない場合、エラーを発生させる。
+				if(dopayment == null) {
+					throw new SalesBusinessException("エラーが発生しました。３");
 				}
 			}
 
 			//OrderMasterテーブルの更新
-			try{
-				//OrderDAOを生成し、メソッドを呼び出す。
-				OrderDAO orderDAO = new OrderDAO(con);
-				con.setAutoCommit(false);
-				orderNo = orderDAO.insertOrder(orderDate,orderTotal,memberCode,payment);
-			} catch (SQLException e) {
-					con.rollback();
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。５");
-			} finally {
-				try {
-					if (con != null) {
-						con.close();
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。６");
-				}
-			}
+			//OrderDAOを生成し、メソッドを呼び出す。
+			OrderDAO orderDAO = new OrderDAO(con);
+			con.setAutoCommit(false);
+			orderNo = orderDAO.insertOrder(orderDate,orderTotal,memberCode,payment);
+
 			//OrderDetailテーブルの更新
 			//予約数のほうが在庫より多い場合はエラー画面へ遷移
-			try{
-				OrderDAO orderDAO = new OrderDAO(con);
-				for (Item item : cart) {
-					if(item.getReservNo() > item.getHotel().getStock()) {
-						throw new SalesSystemException("エラーが発生しました。７");
-					}
+			for (Item item : cart) {
+				if(item.getReservNo() > item.getHotel().getStock()) {
+					throw new SalesSystemException("エラーが発生しました。７");
 				}
-				try {
-					orderFlag = orderDAO.insertOrderDetail(orderNo,cart);
-				} catch (SQLException e) {
-					con.rollback();
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。８");
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new SalesSystemException("エラーが発生しました。９");
-			} finally {
-				try {
-					if (con != null) {
-						con.close();
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new SalesSystemException("エラーが発生しました。１０");
-				}
+			}
+			orderDAO.insertOrderDetail(orderNo,cart);
+			//Hotelテーブルの更新
+			for (Item item : cart) {
+				hotelDAO.updateStock(item.getHotel().getItemCode(), item.getReservNo());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
