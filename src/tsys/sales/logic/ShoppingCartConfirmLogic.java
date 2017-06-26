@@ -53,7 +53,7 @@ public class ShoppingCartConfirmLogic {
 
 				//検索結果がない場合、エラーを発生させる。
 				if(dopayment == null) {
-					throw new SalesBusinessException("エラーが発生しました。３");
+					throw new SalesBusinessException("エラーが発生しました。");
 				}
 			}
 
@@ -67,7 +67,7 @@ public class ShoppingCartConfirmLogic {
 			//予約数のほうが在庫より多い場合はエラー画面へ遷移
 			for (Item item : cart) {
 				if(item.getReservNo() > item.getHotel().getStock()) {
-					throw new SalesSystemException("エラーが発生しました。７");
+					throw new SalesSystemException("エラーが発生しました。");
 				}
 			}
 			orderDAO.insertOrderDetail(orderNo,cart);
@@ -77,7 +77,7 @@ public class ShoppingCartConfirmLogic {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SalesSystemException("エラーが発生しました。１１");
+			throw new SalesSystemException("エラーが発生しました。");
 		} finally {
 			try {
 				if (con != null) {
@@ -86,7 +86,7 @@ public class ShoppingCartConfirmLogic {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new SalesSystemException("エラーが発生しました。１２");
+				throw new SalesSystemException("エラーが発生しました。");
 			}
 		}
 		return orderNo;

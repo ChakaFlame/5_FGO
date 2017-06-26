@@ -26,7 +26,7 @@ public class ShoppingCartConfirmAction {
 		//セッションを繋ぐ
 		HttpSession session = req.getSession(false);
 		if (session == null) {
-			req.setAttribute("message", "エラーが発生しました。１");
+			req.setAttribute("message", "エラーが発生しました。");
 			page = "/Error/Error.jsp";
 			return page;
 		}
@@ -46,7 +46,7 @@ public class ShoppingCartConfirmAction {
 			ShoppingCartConfirmLogic shoppingCartConfirmLogic = new ShoppingCartConfirmLogic();
 			orderNo = shoppingCartConfirmLogic.orderConfirm(payment, memberCode, cart);
 			if(orderNo == 0) {
-				req.setAttribute("message", "エラーが発生しました。２");
+				req.setAttribute("message", "エラーが発生しました。");
 				page = "/Error/Error.jsp";
 				return page;
 			} else {
