@@ -45,7 +45,7 @@
 		<tr>
 			<td colspan="3" align="right">合計<td>
 			<td class="sample2">
-				<c:out value="${requestScope.totalPrice}" />円
+				<c:out value="${sessionScope.totalPrice}" />円
 			</td>
 		</tr>
 		</table>
@@ -63,9 +63,9 @@
 		<tr>
 			<td class="sample1">送付先</td>
 			<td class="padding">
-				〒<c:out value="${requestScope.zipCode}" />　　
-				<c:out value="${requestScope.prefecture}" />
-				<c:out value="${requestScope.address}" />
+				〒<c:out value="${sessionScope.zipCode}" />　　
+				<c:out value="${sessionScope.prefecture}" />
+				<c:out value="${sessionScope.address}" />
 			</td>
 		</tr>
 		<tr>

@@ -10,7 +10,7 @@ import tsys.sales.entity.Item;
 
 public class ShoppingCartAddAction {
 	public String execute(HttpServletRequest req){
-		String page = "/HotelSearch.jsp";		// ホテル検索画面を戻り値に
+		String page = "/HotelSearch/HotelSearch.jsp";		// ホテル検索画面を戻り値に
 		ArrayList<Item> cart;
 		int totalPrice = 0;
 
@@ -54,7 +54,7 @@ public class ShoppingCartAddAction {
 
 		// カートをsessionに格納
 		session.setAttribute("cart", cart);
-		req.setAttribute("totalPrice", totalPrice);
+		session.setAttribute("totalPrice", totalPrice);
 		page = "/Shoppingcart/ShoppingCart.jsp";
 
 		return page;
