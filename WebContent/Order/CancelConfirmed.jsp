@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>注文取消確定</title>
-<link rel="stylesheet" type="text/css" href="/tourSystem/OrderOrder.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 
 </head>
 <body>
@@ -34,15 +34,14 @@
 			</tr>
 			<tr>
 				<td class="sample1">注文番号</td>
-				<td class="padding"><c:out value="${requestScope.order.orderNo}"/></td>
+				<td class="padding"><c:out value="${requestScope.orderNo}"/></td>
 				<td class="sample1">注文日</td>
-				<td class="padding"><c:out value="${requestScope.order.orderDate}"/></td>
+				<td class="padding"><c:out value="${requestScope.orderDate}"/></td>
 			</tr>
 		</table>
 		<br>
 		<table border="0">
 				<tr class="sample1">
-				<td class="padding">ホテルコード</td>
 				<td class="padding">ホテル名</td>
 				<td class="padding">宿泊日</td>
 				<td class="padding">宿泊料金</td>
@@ -59,7 +58,7 @@
 					</tr>
 				</c:forEach>
 			<tr>
-				<td colspan="4" align="right">合計（<c:out
+				<td colspan="3" align="right">合計（<c:out
 							value="${requestScope.count}" />件）<td>
 				<td class="sample2"><c:out value="${requestScope.totalprice}" />円</td>
 			</tr>
