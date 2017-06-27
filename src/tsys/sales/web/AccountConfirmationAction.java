@@ -21,7 +21,7 @@ public class AccountConfirmationAction {
 			Member member_IM = accountConfirmationLogic.memberConfirmed(member);
 			req.setAttribute("member", member_IM);									//sessionで持ってきたmemberをreqに退避
 			page = "/Account/AccountConfirmed.jsp";
-			session.invalidate();													//メンバー登録用member受け渡しセッション破棄
+			session.removeAttribute("member");													//メンバー登録用member受け渡しセッション破棄
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());

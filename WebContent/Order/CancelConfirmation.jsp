@@ -79,7 +79,7 @@
 			</table>
 			<br> <span
 				onclick="document.inform.BUTTON_ID.value='0202_03_01';document.inform.submit()"
-				class="button">この注文を取り消します</span>
+				class="button">注文取消</span>
 		</div>
 	</form>
 	</div>
