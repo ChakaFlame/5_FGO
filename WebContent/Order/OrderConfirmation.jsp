@@ -21,7 +21,6 @@
 		<h4>購入商品情報</h4>
 		<table border="0">
 		<tr class="sample1">
-			<td class="padding">ホテルコード</td>
 			<td class="padding">ホテル名</td>
 			<td class="padding">宿泊日</td>
 			<td class="padding">宿泊料金</td>
@@ -58,9 +57,9 @@
 		<tr>
 			<td class="sample1">送付先</td>
 			<td class="padding">
-				〒<c:out value="${sessionScope.member.zipCode}" />　　
-				<c:out value="${sessionScope.member.prefecture}" />
-				<c:out value="${sessionScope.member.address}" />
+				〒<c:out value="${sessionScope.zipCode}" />　　
+				<c:out value="${sessionScope.prefecture}" />
+				<c:out value="${sessionScope.address}" />
 			</td>
 		</tr>
 		<tr>
