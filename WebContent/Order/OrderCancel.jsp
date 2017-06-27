@@ -58,14 +58,18 @@
 					int sum = 0;
 				%>
 				<c:forEach var="hotel" items="${requestScope.hotelList}">
-					<td><c:out value="${hotel.hotelName}" /></td>
-					<td><c:out value="${hotel.hotelDate}" /></td>
-					<td class="number2"><c:out value="${hotel.price}" /></td>
-					<td class="number1"><c:out value="${hotel.reservNo}" /></td>
-			</c:forEach>
+					<tr>
+						<td><c:out value="${hotel.hotelName}" /></td>
+						<td><c:out value="${hotel.hotelDate}" /></td>
+						<td class="number"><c:out value="${hotel.price}" />円</td>
+						<td class="number"><c:out value="${hotel.reservNo}" /></td>
+						<td class="number"><c:out value="${hotel.price*hotel.reservNo}"/>円</td>
+					</tr>
+				</c:forEach>
 				<tr>
 
-					<td colspan="4" align="right">合計（<%=orderCount%>件）
+					<td colspan="3" align="right">合計(<c:out
+							value="${requestScope.count}" />件）
 					<td>
 					<td class="sample2"><c:out value="${requestScope.totalprice}" />円</td>
 				</tr>

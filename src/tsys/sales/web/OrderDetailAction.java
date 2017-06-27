@@ -33,15 +33,20 @@ public class OrderDetailAction {
 
 		ArrayList<Hotel> hotelList = new ArrayList();
 		int totalprice=0;
+		int count=0;
+		Hotel hotel = null;
 		for (OrderDetail orderDetail : orderDetailList) {
 			String itemCodeStr = orderDetail.getItemCode();
-			Hotel hotel = orderDetailLogic.orderHotelDetail(itemCodeStr);
+			hotel = orderDetailLogic.orderHotelDetail(itemCodeStr);
 			hotel.setReservNo(orderDetail.getQuantity());
 			hotel.setHotelName(orderDetail.getName());
 			hotel.setPrice(orderDetail.getPrice());
 			hotelList.add(hotel);
 			totalprice+=orderDetail.getPrice()*orderDetail.getQuantity();
+			count++;
 		}
+		req.getAttribute(String.valueOf(hotel.getPrice()));
+		req.setAttribute("count",count);
 		req.setAttribute("totalprice", totalprice);
 		req.setAttribute("hotelList", hotelList);
 		req.setAttribute("orderDate", orderDate);

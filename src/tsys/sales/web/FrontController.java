@@ -130,6 +130,11 @@ public class FrontController extends HttpServlet {
 					AccountConfirmationAction accountConfirmationAction = new AccountConfirmationAction();
 					page = accountConfirmationAction.execute(req);
 					break;
+			//注文取消確認　確認ボタン
+			case "0202_01_01":
+					ToOrderCancelAction toOrderCancelAction = new ToOrderCancelAction();
+					page = toOrderCancelAction.execute(req);
+					break;
 
 		}
 
