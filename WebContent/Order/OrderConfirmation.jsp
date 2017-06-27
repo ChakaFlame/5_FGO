@@ -61,7 +61,7 @@
 		</tr>
 		<tr>
 			<td class="sample1">メンバー名</td>
-			<td class="padding"><c:out value="${sessionScope.name}" /></td>
+			<td class="padding"><c:out value="${sessionScope.memberName}" /></td>
 		</tr>
 		<tr>
 			<td class="sample1">送付先</td>
@@ -81,7 +81,7 @@
 	</table>
 	</div>
 	<div align="center">
-			<span onclick="document.inform.BUTTON_ID.value='0201_01_01';document.inform.submit()"
+			<span onclick="document.inform.BUTTON_ID.value='0201_02_01';document.inform.submit()"
               class="button">注文確定</span>
 	</div>
 	</form>
