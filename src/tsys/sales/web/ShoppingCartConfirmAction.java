@@ -81,6 +81,11 @@ public class ShoppingCartConfirmAction {
 
 		//セッションに保存したカート情報（他決済に必要な情報）の削除
 		session.removeAttribute("cart");
+		session.removeAttribute("payment");
+		session.removeAttribute("totalPrice");
+		session.removeAttribute("zipCode");
+		session.removeAttribute("prefecture");
+		session.removeAttribute("address");
 
 		return page;
 	}

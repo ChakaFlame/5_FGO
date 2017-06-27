@@ -44,7 +44,6 @@
 			</td>
 		</tr>
 	</table>
-	</div>
 	<br>
 		<h4>メンバー情報</h4>
 		<table border="0">
@@ -72,8 +71,6 @@
 				</select>
 		</tr>
 	</table>
-	</div>
-	<div align="center">
 			<span onclick="document.inform.BUTTON_ID.value='0201_02_01';document.inform.submit()"
               class="button">注文確定</span>
 	</div>
