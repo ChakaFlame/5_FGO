@@ -8,13 +8,13 @@ import javax.servlet.http.*;
 
 public class LoginAction {
 	public String execute(HttpServletRequest req){
-		String page = "/MainMenu/MainMenu.jsp";							//入力画面を戻り値に
+		String page = "/Login/Login.jsp";							//入力画面を戻り値に
 		//boolean loginflag = false;							//ログインできるかのフラグ
 		String memberCode = req.getParameter("membercode");
 		String password = req.getParameter("password");
 
 		if(memberCode != null && password != null && (memberCode.equals("") || password.equals("")) ){
-			req.setAttribute("messsage", "メンバーコードとパスワードを入力してください");
+			req.setAttribute("message", "メンバーコードとパスワードを入力してください");
 			return page;
 		}
 
@@ -29,8 +29,9 @@ public class LoginAction {
 
 		} catch (SalesBusinessException e){
 			e.printStackTrace();
-			req.setAttribute("error", e.getMessage());
-			page = "/Error/Error.jsp";
+			req.setAttribute("message", "メンバーコードまたはパスワードが間違っています。");
+//			page = "/Error/Error.jsp";
+			page = "/Login/Login.jsp";
 		} catch (SalesSystemException e){
 			e.printStackTrace();
 			req.setAttribute("error", e.getMessage());
