@@ -13,10 +13,9 @@ public class HotelSearchAction {
 	public String execute(HttpServletRequest req) {
 		String page = "/HotelSearch/HotelSearchView.jsp"; // 入力画面を戻り値に設定
 		DateFormat format = new SimpleDateFormat("yyyy-M-d");
-		Calendar after6m = Calendar.getInstance(); // 今日を日付を取得
+		Calendar after6m = Calendar.getInstance(); // インスタンスを取得
 		after6m.add(Calendar.MONTH, 6); // 6ヶ月後を設定
-		Calendar nextday = Calendar.getInstance();
-		nextday.add(Calendar.DAY_OF_MONTH, 1); // 翌日を設定する。
+		Calendar today = Calendar.getInstance(); // 今日の日付を取得
 
 		String hotelDateSr = "";
 		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
@@ -26,7 +25,10 @@ public class HotelSearchAction {
 		int day = Integer.parseInt(req.getParameter("date"));
 		Calendar date = new GregorianCalendar();
 		date.set(year, month, day);
-        System.out.println(format.format(date.getTime()));
+
+		// 日付を画面で表示させるためrequestに格納
+		req.setAttribute("date", hotelDateSr);
+
 
 		if (hotelDateSr == null || hotelDateSr.equals("")) {
 			req.setAttribute("message","宿泊日を選択してください");
@@ -39,8 +41,8 @@ public class HotelSearchAction {
 			e1.printStackTrace();
 		}
 
-		if(nextday.before(date) && after6m.after(date)){
-			req.setAttribute("message","購入可能");
+		if(today.before(date) && after6m.after(date)){
+//			req.setAttribute("message","購入可能");
 		}else{
 			req.setAttribute("message","購入できない宿泊日を選択しています。");
 			return page;

@@ -97,7 +97,6 @@
 		</form>
 	</div>
 	<br>
-	<c:out value="${reqestScope.message}"/>
 	<br>
 	<br>
 	<div id="table">
