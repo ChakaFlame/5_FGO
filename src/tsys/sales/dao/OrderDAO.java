@@ -7,7 +7,6 @@ package tsys.sales.dao;
 
 import java.sql.Connection;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -144,15 +143,12 @@ private Connection con;  //接続オブジェクト
     	ResultSet res = null;
     	PreparedStatement stmt1 = null;
     	PreparedStatement stmt2 = null;
-    	int insertCount = 0;
-
     	try {
     		stmt1 = con.prepareStatement(sql1);
     		stmt1.setString(1,orderDate);
     		stmt1.setInt(2, orderTotal);
     		stmt1.setString(3, memberCode);
     		stmt1.setString(4, payment);
-    		insertCount = stmt1.executeUpdate();
     		stmt2 = con.prepareStatement(sql2);
     		res =  stmt2.executeQuery();
     		if(res.next()){
