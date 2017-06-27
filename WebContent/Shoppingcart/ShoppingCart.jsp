@@ -67,9 +67,6 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
-	<br>
-	<br>
-	<br>
-	<jsp:include page="footer/footer.html" />
-</body>
+</body>	<jsp:include page="footer/footer.html" />
+
 </html>
