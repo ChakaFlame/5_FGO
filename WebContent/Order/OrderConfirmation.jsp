@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>注文確認</title>
-<link rel="stylesheet" type="text/css" href="Order.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
 	<!-- 注文確認 -->
@@ -44,10 +44,7 @@
 		<tr>
 			<td colspan="4" align="right">合計<td>
 			<td class="sample2">
-				<c:forEach var="hotel" items="${sessionScope.cart}">
-				${totalPrice += hotel.price}$
-				</c:forEach>
-				<c:out value="${totalPrice}" />円
+				<c:out value="${sessionScope.totalPrice}" />円
 			</td>
 		</tr>
 	</table>
