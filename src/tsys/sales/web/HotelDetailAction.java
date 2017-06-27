@@ -19,8 +19,8 @@ public class HotelDetailAction {
 			HotelDetailLogic hotelDetailLogic = new HotelDetailLogic();
 			Hotel hotel = hotelDetailLogic.getDetail(hotelCode);
 
-			session.setAttribute("Hotel", hotel);
-//			req.setAttribute("Hotel", hotel);
+//			session.setAttribute("Hotel", hotel);
+			req.setAttribute("Hotel", hotel);
 			page = "/HotelSearch/HotelDetail.jsp";								//ホテル商品詳細へ
 		} catch (SalesBusinessException e){
 			e.printStackTrace();

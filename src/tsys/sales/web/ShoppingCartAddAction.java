@@ -28,6 +28,9 @@ public class ShoppingCartAddAction {
 		Hotel hotel = (Hotel) session.getAttribute("Hotel");
 		int reservNo = Integer.parseInt(req.getParameter("reservNo"));
 
+		// sessionのホテル情報を削除
+		session.removeAttribute("Hotel");
+
 		if(hotel == null){
 			req.setAttribute("error", "ホテルが見つかりません。");
 			return page;
