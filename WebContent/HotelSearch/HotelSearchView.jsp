@@ -99,6 +99,11 @@
 	</div>
 	<br>
 	<br>
+	<div align="center">
+		<c:out value="${requestScope.date}" />
+		<br>
+		<c:out value="${requestScope.message}"/>
+	</div>
 	<br>
 	<div id="table">
 		<br> <br> <br>

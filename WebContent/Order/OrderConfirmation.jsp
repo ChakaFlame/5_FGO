@@ -26,6 +26,7 @@
 		<!-- ボタンID用フィールド -->
 		<input type="hidden" name="BUTTON_ID" value="">
 
+
 		<div align="center">
 			<h2>注文取消</h2>
 			<table border="0">

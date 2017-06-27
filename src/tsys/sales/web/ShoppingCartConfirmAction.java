@@ -33,10 +33,10 @@ public class ShoppingCartConfirmAction {
 		//セッションから必要事項をゲット
 		String memberCode = (String)session.getAttribute("memberCode");
 		ArrayList<Item> cart = (ArrayList<Item>)session.getAttribute("cart");
-		int totalPrice = (int)req.getAttribute("totalPrice");
-		String zipCode = (String)req.getAttribute("zipCode");
-		String prefecture = (String)req.getAttribute("prefecture");
-		String address = (String)req.getAttribute("address");
+		int totalPrice = (int)session.getAttribute("totalPrice");
+		String zipCode = (String)session.getAttribute("zipCode");
+		String prefecture = (String)session.getAttribute("prefecture");
+		String address = (String)session.getAttribute("address");
 
 		//クライアントの入力値を取得する。
 		String payment = req.getParameter("PAYMENT");
