@@ -28,6 +28,9 @@
 
 		<div align="center">
 			<h2>注文取消</h2>
+				<div align ="center" style="color: red;">
+					<c:out value="${requestScope.message}"/>
+				</div>
 			<table border="0">
 				<tr>
 					<td class="sample1">メンバーコード</td>

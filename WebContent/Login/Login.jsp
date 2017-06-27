@@ -11,7 +11,7 @@
 	function PushSearchButton() {
 		var memberCode = document.inform.password.value;
 		if (memberCode == "") {
-			alert("パスワードを入力してください。");
+			req.setAttribute("message", "パスワードを入力してください");
 			return false;
 		}
 		return true;
@@ -40,8 +40,13 @@
 			<br>
 			<input class="button" type="button"  value="ログイン" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">
 			<br>
-			<a href="#" onclick="document.fm.BUTTON_ID.value='L0101_01_01'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a><!-- 未実装 -->
+			<a href="#" onclick="document.fm.BUTTON_ID.value='M_02'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a><!-- 未実装 -->
 		</form>
+	</div>
+	<div align="center" style="color:red; font-weight:bold;">
+    	<%-- エラーメッセージがある場合、出力 --%>
+    	<br>
+    	<c:out value="${requestScope.message}" />
 	</div>
 </body>
 </html>
