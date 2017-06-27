@@ -21,8 +21,7 @@
 		<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center">
 		<h2>注文確認</h2>
-	<br>
-	<br>
+		<h3>こちらの注文でよろしいでしょうか？</h3>
 	<br>
 		<h4>購入商品情報</h4>
 		<table border="0">

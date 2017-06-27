@@ -81,8 +81,6 @@
 		</tr>
 	</table>
 	</div>
-	<br>
-	<br>
 	<div align="center">
 			<span onclick="document.inform.BUTTON_ID.value='M_01';document.inform.submit()"
               class="button">メニューへ</span>

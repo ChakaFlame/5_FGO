@@ -30,6 +30,7 @@
 
 		<div align="center">
 			<h2>注文取消確認</h2>
+			<h3>こちらの注文を取消します。よろしいでしょうか？</h3>
 			<table border="0">
 				<tr>
 					<td class="sample1">メンバーコード</td>
@@ -70,7 +71,7 @@
 				</c:forEach>
 				<tr>
 
-					<td colspan="3" align="right">合計(<c:out
+					<td colspan="3" align="right">合計（<c:out
 							value="${sessionScope.count}" />件）
 					<td>
 					<td class="sample2"><c:out value="${sessionScope.totalprice}" />円</td>
