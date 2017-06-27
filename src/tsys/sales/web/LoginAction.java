@@ -15,6 +15,7 @@ public class LoginAction {
 
 		if(memberCode != null && password != null && (memberCode.equals("") || password.equals("")) ){
 			req.setAttribute("message", "メンバーコードとパスワードを入力してください");
+			page = "/Login/Login.jsp";
 			return page;
 		}
 
