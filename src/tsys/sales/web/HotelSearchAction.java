@@ -17,8 +17,8 @@ public class HotelSearchAction {
 		after6m.add(Calendar.MONTH, 6); // 6ヶ月後を設定
 		Calendar today = Calendar.getInstance(); // 今日の日付を取得
 
-		String hotelDateSr = "";
-		hotelDateSr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
+		String hotelDateStr = "";
+		hotelDateStr = req.getParameter("year") + "-" + req.getParameter("month") + "-" + req.getParameter("date");
 
 		int year = Integer.parseInt(req.getParameter("year"));
 		int month = Integer.parseInt(req.getParameter("month"))-1;
@@ -27,16 +27,17 @@ public class HotelSearchAction {
 		date.set(year, month, day);
 
 		// 日付を画面で表示させるためrequestに格納
-		req.setAttribute("date", hotelDateSr);
+		req.setAttribute("date", hotelDateStr);
 
 
-		if (hotelDateSr == null || hotelDateSr.equals("")) {
+		if (hotelDateStr == null || hotelDateStr.equals("")) {
 			req.setAttribute("message","宿泊日を選択してください");
 			return page;
 		}
 		Date hotelDate=null;
 		try {
-			hotelDate = format.parse(hotelDateSr);
+			// hotelDateStr
+			hotelDate = format.parse(hotelDateStr);
 		} catch (ParseException e1) { // TODO 自動生成 parse使う際にtrycatch必要らしいので追加
 			e1.printStackTrace();
 		}
