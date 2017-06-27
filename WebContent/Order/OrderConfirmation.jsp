@@ -74,8 +74,8 @@
 		<tr>
 			<td class="sample1">決済方法<td>
 				<select name="PAYMENT">
-					<option value="代金引換">代金引換</option>
-					<option value="コンビに決済">コンビニ決済</option>
+					<option value="01">代金引換</option>
+					<option value="02">コンビニ決済</option>
 				</select>
 		</tr>
 	</table>
