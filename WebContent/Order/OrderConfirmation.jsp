@@ -15,14 +15,10 @@
 		<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center">
 		<h2>注文確認</h2>
-	</div>
 	<br>
 	<br>
 	<br>
-	<div align="left">
 		<h4>購入商品情報</h4>
-	</div>
-	<div align="center">
 		<table border="0">
 		<tr class="sample1">
 			<td class="padding">ホテルコード</td>
@@ -50,10 +46,7 @@
 	</table>
 	</div>
 	<br>
-	<div align="left">
 		<h4>メンバー情報</h4>
-	</div>
-	<div align="left">
 		<table border="0">
 		<tr>
 			<td class="sample1">メンバーコード</td>
