@@ -219,12 +219,11 @@ private Connection con;  //接続オブジェクト
       * （Order,OrderDetail）から削除する。
       * 成功すればtrue,失敗であればfalseが返す。
       */
-    public boolean deleteOrder(int OrderNo) throws SQLException{
+    public boolean deleteOrder(int OrderNo, ArrayList<OrderDetail>orderDetailList) throws SQLException{
     	boolean deleteFlag = false;
     	//OrderMasterテーブルから該当の受注情報を削除
     	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
     	PreparedStatement stmt = null;
-    	con.setAutoCommit(false);
     	try {
     		stmt = con.prepareStatement(sql);
     		stmt.setInt(1, OrderNo);
@@ -236,9 +235,11 @@ private Connection con;  //接続オブジェクト
     	sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
     	stmt = null;
     	try {
-    		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, OrderNo);
-    		stmt.executeUpdate();
+    		for (OrderDetail orderDetail : orderDetailList) {
+    			stmt = con.prepareStatement(sql);
+    			stmt.setInt(1, OrderNo);
+    			stmt.executeUpdate();
+    		}
     	} catch (SQLException e) {
     		return deleteFlag;
     	} finally {
@@ -246,7 +247,6 @@ private Connection con;  //接続オブジェクト
     			stmt.close();
     		}
     	}
-    	con.commit();
     	deleteFlag = true;
     	return deleteFlag;
     }
