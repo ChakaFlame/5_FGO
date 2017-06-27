@@ -33,14 +33,14 @@
 				</tr>
 				<tr>
 					<td class="sample1">パスワード</td>
-					<td><input type="password" name="password" value = "${param.Password}" maxLength=15"></td>
+					<td><input type="password" name="password" value = "${param.Password}" maxLength="15"></td>
 				</tr>
 			</table>
 			<br>
 			<br>
 			<input class="button" type="button"  value="ログイン" onclick="document.fm.BUTTON_ID.value='0101_01_01'; document.fm.submit()">
 			<br>
-			<a href="#" onclick="document.fm.BUTTON_ID.value='M_02'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a><!-- 未実装 -->
+			<a href="#" onclick="document.fm.BUTTON_ID.value='M_02'; document.fm.submit()">アカウントをお持ちでない方はコチラ</a>
 		</form>
 	</div>
 	<div align="center" style="color:red; font-weight:bold;">
