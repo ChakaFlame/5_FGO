@@ -42,7 +42,7 @@
 		</c:forEach>
 		<tr>
 			<td colspan="3" align="right">合計<td>
-			<td class="sample2">
+			<td class="total">
 				<c:out value="${sessionScope.totalPrice}" />円
 			</td>
 		</tr>
