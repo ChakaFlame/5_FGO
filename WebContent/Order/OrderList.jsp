@@ -41,7 +41,7 @@
 						<c:out value="${order.orderDate}" />
 					</td>
 					<td class="number">
-						<c:out value="${order.orderTotal}" /></td>
+						<c:out value="${order.orderTotal}" />円</td>
 				</tr>
 			</c:forEach>
 		</table>

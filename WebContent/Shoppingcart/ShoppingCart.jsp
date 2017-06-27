@@ -22,9 +22,6 @@
 		<!-- 見出し -->
 		<h2>ショッピングカート</h2>
 	</div>
-	<br>
-	<br>
-	<br>
 	<div align="center">
 		<table border="0">
 		<tr class="sample1">
@@ -38,7 +35,7 @@
 		<tr>
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
-			<td class = number><c:out value="${cart.hotel.basicPrice}" />円</td>
+			<td class = "number"><c:out value="${cart.hotel.basicPrice}" />円</td>
 			<td  align="right"><c:out value="${cart.reservNo}" /></td>
 			<td><c:out value="${cart.calcPrice()}" />円</td>
 		</tr>
@@ -51,9 +48,7 @@
 		</tr>
 		</table>
 		<br>
-		<br>
-		<br>
-		<br>
+
 		<table>
 		<tr>
 			<td onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()" class="button">買物を続ける</td>
