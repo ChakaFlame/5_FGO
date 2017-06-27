@@ -8,13 +8,14 @@ import javax.servlet.http.*;
 
 public class LoginAction {
 	public String execute(HttpServletRequest req){
-		String page = "/Login/Login.jsp";							//入力画面を戻り値に
+		String page = "/MainMenu/MainMenu.jsp";							//入力画面を戻り値に
 		//boolean loginflag = false;							//ログインできるかのフラグ
 		String memberCode = req.getParameter("membercode");
 		String password = req.getParameter("password");
 
 		if(memberCode != null && password != null && (memberCode.equals("") || password.equals("")) ){
 			req.setAttribute("message", "メンバーコードとパスワードを入力してください");
+			page = "/Login/Login.jsp";
 			return page;
 		}
 
