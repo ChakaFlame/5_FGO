@@ -31,7 +31,7 @@
 	<br>
 	<br>
 	<!-- フォーム -->
-	<form action="./tsys" method="POST" name="inform">
+	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<input type="hidden" name="BUTTON_ID" value="">
 		<table>
 			<tr>
@@ -75,7 +75,7 @@
 		</table>
 		<br>
 		<br>
-		<input class="button" type="button"  value="確認" onclick="this.form.BUTTON_ID.value='0901_01_01'; this.form.submit()">
+		<input class="button" type="submit"  value="確認" onclick="document.fm.BUTTON_ID.value='0901_01_01';">
 	</form>
 	</div>
 	<div align="center" style="color:red; font-weight:bold;">

@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 
 public class NewAccountAction {
 	public String execute(HttpServletRequest req){
-		String page = "//tourSystem/Account/NewAccount.jsp";						//入力画面を戻り値に
+		String page = "/Account/NewAccount.jsp";						//入力画面を戻り値に
 		boolean caflag = false;										//メールアドレスの重複があったかのフラグ
 
 		//String memberCode = req.getParameter("membercode");	//■自動採番について確認  大文字小文字の確認
