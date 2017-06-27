@@ -10,27 +10,29 @@
 </head>
 
 <!-- <IFRAME src="Header.jsp" name="header" width="100%" height="110px"></IFRAME> -->
-<body>
+
+<body class="background" topmargin="0" leftmargin ="0" rightmargin="0" marginwidth="0" marginheight="0">
+<section class="header12">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
 	<jsp:include page="header/header2.jsp" />
 <% } %>
+</section>
 	<!-- メニュー -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
 			<!-- ボタンID用フィールド -->
 	<input type="hidden" name="BUTTON_ID" value="">
-
 	<section class="wrapper">
-		<span onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()">
 		<div class="card" style="background-color: #fece3e;">
+			<span onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()">
 		  	<div class="header">
 	  			<img alt="globe" src="img/hotel.png" style="padding-top:40px; width:90px">
 				<h3>ホテル</h3>
 	  		</div>
+	  		</span>
 		</div>
-		</span>
 
 		<div class="card" style="background-color: #ffa517;">
 	  		<div class="header">
@@ -43,6 +45,9 @@
 	  			<img alt="globe" src="img/globe.png" style="padding-top:40px; width:90px">
 	    		<h3>ツアー</h3>
 	  		</div>
+		</div>
+		<div>
+		<br>
 		</div>
 	</section>
 	</form>

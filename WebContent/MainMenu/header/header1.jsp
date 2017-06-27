@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Header</title>
 </head>
-<body topmargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<section class="header12">
 	<div style="webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
  		-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
 	 	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);">
-		<table style="width: 100%;  padding:1%; color:#5A5050;">
+		<table style="width: 100%;  padding:1.5%; color:#5A5050;">
 		<tr>
 			<td class="element" style="width: 70%; font-family: 'Verdana'; font-size:30px;">
 				<a style="text-decoration:none; color:#5A5050;">FLM tours</a>
@@ -28,5 +28,5 @@
 		</tr>
 		</table>
 		</div>
-</body>
+</section>
 </html>
