@@ -14,7 +14,7 @@ import tsys.sales.entity.Hotel;
 
 public class ToOrderCancelAction {
 	public String execute(HttpServletRequest req) {
-		String page = "/Order/OrderConfirmation.jsp"; // 入力画面を戻り値に設定
+		String page = "/Order/CancelConfirmation.jsp"; // 入力画面を戻り値に設定
 
 		Calendar oneWeek = Calendar.getInstance(); // 今日の日付を取得
 		/*
