@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>注文取消確定</title>
-<link rel="stylesheet" type="text/css" href="Order.css">
+<link rel="stylesheet" type="text/css" href="/tourSystem/OrderOrder.css">
 
 </head>
 <body>
