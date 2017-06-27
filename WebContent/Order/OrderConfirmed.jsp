@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -90,7 +91,7 @@
 	</form>
 	<br>
 	<br>
-
+</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

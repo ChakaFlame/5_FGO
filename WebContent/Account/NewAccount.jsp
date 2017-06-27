@@ -26,6 +26,7 @@
 </script>
 </head>
 <body>
+<div class="main-container">
 	<div align="center">
 	<h2>メンバー登録</h2>
 	<br>
@@ -81,6 +82,7 @@
 	<div align="center" style="color:red; font-weight:bold;">
     	<%-- エラーメッセージがある場合、出力 --%>
     	<c:out value="${requestScope.message}" />
+	</div>
 	</div>
 	<jsp:include page="footer/footer.html" />
 </body>

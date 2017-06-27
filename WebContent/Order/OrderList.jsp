@@ -9,6 +9,7 @@
 </head>
 
 <body>
+	<div class="main-container">
 	<form name="inform" method="post" action="./tsys">
 	<input type="hidden" name="BUTTON_ID" value="">
 <% if (session.getAttribute("memberCode") == null) { %>
@@ -48,7 +49,7 @@
 	</div>
 	<div align="center" style="color:red;"><br><br><c:out value="${requestScope.message}"></c:out></div>
 	</form>
-	<br><br><br>
+	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

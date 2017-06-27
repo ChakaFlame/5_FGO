@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -79,6 +80,7 @@
 		<br> <br>
 			<span class="button" onclick="document.inform.BUTTON_ID.value='0801_01_01'; document.inform.submit()">カートへ</span>
 	</form>
+	</div>
 	</div>
 	<jsp:include page="footer/footer.html" />
 </body>

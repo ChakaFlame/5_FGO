@@ -1,5 +1,30 @@
 @CHARSET "UTF-8";
-
+* {
+ box-sizing: border-box;
+}
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+html,
+body {
+ height: 100%;
+ position:relative;
+ margin: 0 0 0 0; /* or just use:  margin-top: 50px;*/
+}
+.main-container {
+ min-height: 96%; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom:4%; /* height of your footer */
+}
+.footer {
+ bottom: 0;
+ height:4%;
+ width: 100%;
+ background-color: #5A5050;
+}
 .sample1 {
 	color: black;
 	background-color: #fece3e;

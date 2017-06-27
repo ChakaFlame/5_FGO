@@ -8,6 +8,8 @@
 <link rel="stylesheet" type="text/css" href="Order.css">
 </head>
 <body>
+<div class="main-container">
+
 	<!-- 注文確認 -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
@@ -89,5 +91,7 @@
               class="button">注文確定</span>
 	</div>
 	</form>
+	</div>
+		<jsp:include page="footer/footer.html" />
 </body>
 </html>

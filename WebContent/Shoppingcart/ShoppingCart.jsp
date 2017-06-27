@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/tourSystem/Shoppingcart/cart.css">
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -67,6 +68,8 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
-</body>	<jsp:include page="footer/footer.html" />
+	</div>
+	<jsp:include page="footer/footer.html" />
+</body>
 
 </html>
