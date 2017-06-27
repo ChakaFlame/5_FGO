@@ -46,9 +46,6 @@
 	    		<h3>ツアー</h3>
 	  		</div>
 		</div>
-		<div>
-		<br>
-		</div>
 	</section>
 	</form>
 	<jsp:include page="footer/footer.html" />
