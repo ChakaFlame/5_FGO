@@ -221,19 +221,9 @@ private Connection con;  //接続オブジェクト
       */
     public boolean deleteOrder(int OrderNo, ArrayList<OrderDetail>orderDetailList) throws SQLException{
     	boolean deleteFlag = false;
-    	//OrderMasterテーブルから該当の受注情報を削除
-    	String sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
-    	PreparedStatement stmt = null;
-    	try {
-    		stmt = con.prepareStatement(sql);
-    		stmt.setInt(1, OrderNo);
-    		stmt.executeUpdate();
-    	} catch (SQLException e) {
-    		return deleteFlag;
-    	}
     	//OrderDetailテーブルから該当の受注情報を削除
-    	sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
-    	stmt = null;
+    	String sql = "DELETE FROM OrderDetail WHERE OrderNo = ?";
+    	PreparedStatement stmt = null;
     	try {
     		for (OrderDetail orderDetail : orderDetailList) {
     			stmt = con.prepareStatement(sql);
@@ -246,6 +236,16 @@ private Connection con;  //接続オブジェクト
     		if (stmt != null) {
     			stmt.close();
     		}
+    	}
+    	//OrderMasterテーブルから該当の受注情報を削除
+    	sql = "DELETE FROM OrderMaster WHERE OrderNo = ?";
+    	stmt = null;
+    	try {
+    		stmt = con.prepareStatement(sql);
+    		stmt.setInt(1, OrderNo);
+    		stmt.executeUpdate();
+    	} catch (SQLException e) {
+    		return deleteFlag;
     	}
     	deleteFlag = true;
     	return deleteFlag;

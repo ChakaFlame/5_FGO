@@ -36,7 +36,7 @@ public class OrderCancelAction {
 		String orderDate = (String)session.getAttribute("orderDate");
 		ArrayList<Hotel> hotelList = (ArrayList<Hotel>)session.getAttribute("hotelList");
 		int count = (int)session.getAttribute("count");
-		int totalPrice = (int)session.getAttribute("totalPrice");
+		int totalPrice = (int)session.getAttribute("totalprice");
 
 		try {
 			// OrderCancelLogicを生成し、メソッドを呼び出す。
@@ -59,14 +59,14 @@ public class OrderCancelAction {
 		req.setAttribute("orderDate", orderDate);
 		req.setAttribute("hotelList", hotelList);
 		req.setAttribute("count", count);
-		req.setAttribute("totalPrice", totalPrice);
+		req.setAttribute("totalprice", totalPrice);
 
 		//セッションを切る
 		session.removeAttribute("orderNo");
 		session.removeAttribute("orderDetail");
 		session.removeAttribute("orderDate");
 		session.removeAttribute("count");
-		session.removeAttribute("totalPrice");
+		session.removeAttribute("totalprice");
 		session.removeAttribute("hotelList");
 		session.removeAttribute("orderList");
 
