@@ -37,19 +37,19 @@ public class OrderDetailLogic {
 	}
 
 	public Hotel orderHotelDetail(String itemCode) {
-		Hotel orderHotelDetailList = null;
+		Hotel orderHotelDetail = null;
 		try {
 			con = ConnectionManager.getConnection();
 			HotelDAO hotelDAO = new HotelDAO(con);
 
 
-			orderHotelDetailList = hotelDAO.findHotel(itemCode);
+			orderHotelDetail = hotelDAO.findHotelDetail(itemCode);
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
-		return orderHotelDetailList;
+		return orderHotelDetail;
 	}
 }

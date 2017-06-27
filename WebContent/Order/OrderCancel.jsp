@@ -37,9 +37,9 @@
 				</tr>
 				<tr>
 					<td class="sample1">注文番号</td>
-					<td class="padding"><c:out value="${requestScope.orderNo}" /></td>
+					<td class="padding"><c:out value="${sessionScope.orderNo}" /></td>
 					<td class="sample1">注文日</td>
-					<td class="padding"><c:out value="${requestScope.orderDate}" /></td>
+					<td class="padding"><c:out value="${sessionScope.orderDate}" /></td>
 
 				</tr>
 			</table>
@@ -57,7 +57,7 @@
 					int orderCount = 0;
 					int sum = 0;
 				%>
-				<c:forEach var="hotel" items="${requestScope.hotelList}">
+				<c:forEach var="hotel" items="${sessionScope.hotelList}">
 					<tr>
 						<td><c:out value="${hotel.hotelName}" /></td>
 						<td><c:out value="${hotel.hotelDate}" /></td>
@@ -69,9 +69,9 @@
 				<tr>
 
 					<td colspan="3" align="right">合計(<c:out
-							value="${requestScope.count}" />件）
+							value="${sessionScope.count}" />件）
 					<td>
-					<td class="sample2"><c:out value="${requestScope.totalprice}" />円</td>
+					<td class="sample2"><c:out value="${sessionScope.totalprice}" />円</td>
 				</tr>
 
 			</table>
