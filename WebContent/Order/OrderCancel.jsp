@@ -53,10 +53,7 @@
 					<td class="padding">小計</td>
 				</tr>
 
-				<%
-					int orderCount = 0;
-					int sum = 0;
-				%>
+
 				<c:forEach var="hotel" items="${sessionScope.hotelList}">
 					<tr>
 						<td><c:out value="${hotel.hotelName}" /></td>

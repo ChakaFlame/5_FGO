@@ -136,7 +136,7 @@ public class FrontController extends HttpServlet {
 
 		// 注文取消 確定ボタン
 		case "0202_03_01":
-			 OrderCancelAction orderCancelAction= new OrderCancelAction();
+			OrderCancelAction orderCancelAction = new OrderCancelAction();
 			page = orderCancelAction.execute(req);
 			break;
 		}
