@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Account/Account.css">
 </head>
 <body>
+<div class="main-container">
 	<div align="center">
 	<h2>メンバー登録確定</h2>
 	<h3>以下の内容で登録完了しました。</h3>
@@ -52,6 +53,7 @@
 		<input class="button" type="button"  value="ログイン" onclick="document.fm.BUTTON_ID.value='M_03'; document.fm.submit()">
 		<input class="button" type="button"  value="メニューへ" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">
 	</form>
+	</div>
 	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
