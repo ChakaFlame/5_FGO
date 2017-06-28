@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
 	/** データベース接続URL */
-	private static final String URL = "jdbc:mysql://localhost:3306/tourDB";
+	private static final String URL = "jdbc:mysql://localhost:3306/tourdb";
 	/** ユーザー名 */
 	private static final String USER = "mysql";
 	/** パスワード */

@@ -102,7 +102,7 @@
 			<c:out value="${requestScope.message}"/>
 		</div>
 		<br>
-		<c:out value="${requestScope.date}" />
+		<c:out value="${requestScope.date}" />の検索結果
 	</div>
 	<div id="table">
 		<br>

@@ -10,7 +10,7 @@ import tsys.sales.entity.Item;
 
 public class ShoppingCartAddAction {
 	public String execute(HttpServletRequest req){
-		String page = "/HotelSearch/HotelSearch.jsp";		// ホテル検索画面を戻り値に
+		String page = "/HotelSearch/HotelDetail.jsp";		// ホテル検索画面を戻り値に
 		ArrayList<Item> cart;
 		int totalPrice = 0;
 
@@ -35,8 +35,8 @@ public class ShoppingCartAddAction {
 			req.setAttribute("error", "ホテルが見つかりません。");
 			return page;
 		}
-		if(reservNo <= 0){
-			req.setAttribute("error", "予約室数が異常です。");
+		if(reservNo > hotel.getStock()){
+			req.setAttribute("error", "予約数が空室を超えています。");
 			return page;
 		}
 
