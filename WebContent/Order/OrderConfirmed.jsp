@@ -69,13 +69,10 @@
 		</tr>
 		<tr>
 			<td class="sample1">送付先</td>
-<<<<<<< HEAD
 			<td class="table1">
 				〒<c:out value="${requestScope.zipCode}" />　　
-=======
 			<td class="padding">
 				〒<c:out value="${requestScope.zipCode}" />
->>>>>>> branch 'master' of https://github.com/moon-ahhyun/5_FGO.git
 				<c:out value="${requestScope.prefecture}" />
 				<c:out value="${requestScope.address}" />
 			</td></tr>
