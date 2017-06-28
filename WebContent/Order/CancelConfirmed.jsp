@@ -30,25 +30,25 @@
 		<table border="0">
 			<tr>
 				<td class="sample1">メンバーコード</td>
-				<td class="padding"><c:out value="${sessionScope.memberCode}"/></td>
+				<td class="table1"><c:out value="${sessionScope.memberCode}"/></td>
 				<td class="sample1">メンバー名</td>
-				<td class="padding"><c:out value="${sessionScope.memberName}"/></d>
+				<td class="table1"><c:out value="${sessionScope.memberName}"/></d>
 			</tr>
 			<tr>
 				<td class="sample1">注文番号</td>
-				<td class="padding"><c:out value="${requestScope.orderNo}"/></td>
+				<td class="table1"><c:out value="${requestScope.orderNo}"/></td>
 				<td class="sample1">注文日</td>
-				<td class="padding"><c:out value="${requestScope.orderDate}"/></td>
+				<td class="table1"><c:out value="${requestScope.orderDate}"/></td>
 			</tr>
 		</table>
 		<br>
 		<table border="0">
 				<tr class="sample1">
-				<td class="padding">ホテル名</td>
-				<td class="padding">宿泊日</td>
-				<td class="padding">宿泊料金</td>
-				<td class="padding">部屋数</td>
-				<td class="padding">小計</td>
+				<td class="table1">ホテル名</td>
+				<td class="table1">宿泊日</td>
+				<td class="table1">宿泊料金</td>
+				<td class="table1">部屋数</td>
+				<td class="table1">小計</td>
 			</tr>
 			<c:forEach var="hotel" items="${requestScope.hotelList}">
 					<tr>

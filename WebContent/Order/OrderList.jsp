@@ -31,14 +31,14 @@
 
 			<c:forEach var="order" items="${requestScope.orderList}" varStatus="status">
 				<tr>
-					<td class="padding">
+					<td class="table1">
 
 						<a href="./tsys?BUTTON_ID=L0202_01_01&orderNo=${requestScope.orderNoList[status.index]}&orderDate=${order.orderDate}">
 
 						<c:out value="${requestScope.orderNoList[status.index]}" />
 						</a>
 					</td>
-					<td class="padding">
+					<td class="table1">
 						<c:out value="${order.orderDate}" />
 					</td>
 					<td class="number">
