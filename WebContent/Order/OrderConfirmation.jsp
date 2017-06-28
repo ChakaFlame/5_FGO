@@ -26,11 +26,11 @@
 		<h4>購入商品情報</h4>
 		<table border="0">
 		<tr class="sample1">
-			<td class="padding">ホテル名</td>
-			<td class="padding">宿泊日</td>
-			<td class="padding">宿泊料金</td>
-			<td class="padding">部屋数</td>
-			<td class="padding">小計</td>
+			<td class="table1">ホテル名</td>
+			<td class="table1">宿泊日</td>
+			<td class="table1">宿泊料金</td>
+			<td class="table1">部屋数</td>
+			<td class="table1">小計</td>
 		</tr>
 		<c:forEach var="cart" items="${sessionScope.cart}">
 		<tr>
@@ -53,15 +53,15 @@
 		<table border="0">
 		<tr>
 			<td class="sample1">メンバーコード</td>
-			<td class="padding"><c:out value="${sessionScope.memberCode}" /></td>
+			<td class="table1"><c:out value="${sessionScope.memberCode}" /></td>
 		</tr>
 		<tr>
 			<td class="sample1">メンバー名</td>
-			<td class="padding"><c:out value="${sessionScope.memberName}" /></td>
+			<td class="table1"><c:out value="${sessionScope.memberName}" /></td>
 		</tr>
 		<tr>
 			<td class="sample1">送付先</td>
-			<td class="padding">
+			<td class="table1">
 				〒<c:out value="${sessionScope.zipCode}" />　　
 				<c:out value="${sessionScope.prefecture}" />
 				<c:out value="${sessionScope.address}" />

@@ -32,11 +32,11 @@
 		<input type="hidden" name="BUTTON_ID" value="">
 			<table>
 				<tr class="sample1">
-					<td class="padding">宿泊日を選ぶ</td>
-					<td class="padding">宿泊都市を選ぶ</td>
+					<td class="table1">宿泊日を選ぶ</td>
+					<td class="table1">宿泊都市を選ぶ</td>
 				</tr>
 				<tr>
-					<td class="padding"><select id="year" name="year">
+					<td class="table1"><select id="year" name="year">
 							<option value="2017">2017</option>
 							<option value="2018">2018</option>
 					</select> 年 <select id="month" name="month">
@@ -80,7 +80,7 @@
 							<option value="30">30</option>
 							<option value="31">31</option>
 					</select> 日</td>
-					<td class="padding"><select id="city" name="city">
+					<td class="table1"><select id="city" name="city">
 							<option value="01">札幌</option>
 							<option value="02">旭川</option>
 							<option value="03">函館</option>
