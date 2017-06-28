@@ -135,6 +135,7 @@ private Connection con;  //接続オブジェクト
     public int insertOrder(String orderDate,int orderTotal,String memberCode,String payment)
     			throws SQLException{
     	int orderNo = 0;
+
 //    	boolean insertFlag = false;
     	//OrderMasterテーブルに該当の受注情報を追加
 
@@ -149,6 +150,7 @@ private Connection con;  //接続オブジェクト
     		stmt1.setInt(2, orderTotal);
     		stmt1.setString(3, memberCode);
     		stmt1.setString(4, payment);
+    		stmt1.executeUpdate();
     		stmt2 = con.prepareStatement(sql2);
     		res =  stmt2.executeQuery();
     		if(res.next()){
