@@ -9,6 +9,8 @@
 
 </head>
 <body>
+<div class="main-container">
+
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -69,6 +71,7 @@
               class="button">メニューへ</span>
 	</div>
 	</form>
+	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

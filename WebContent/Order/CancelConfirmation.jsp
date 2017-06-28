@@ -9,6 +9,7 @@
 	href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<div class="main-container">
 	<%
 		if (session.getAttribute("memberCode") == null) {
 	%>
@@ -82,6 +83,7 @@
 				class="button">注文取消</span>
 		</div>
 	</form>
+	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

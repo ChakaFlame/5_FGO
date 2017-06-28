@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/tourSystem/Shoppingcart/cart.css">
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -42,7 +43,7 @@
 		</c:forEach>
 		<tr>
 			<td colspan="3" align="right">合計<td>
-			<td class="sample2">
+			<td class="total">
 				<c:out value="${sessionScope.totalPrice}" />円
 			</td>
 		</tr>
@@ -62,6 +63,8 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
-</body>	<jsp:include page="footer/footer.html" />
+	</div>
+	<jsp:include page="footer/footer.html" />
+</body>
 
 </html>

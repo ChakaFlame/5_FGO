@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -26,7 +27,7 @@
 	<!-- ボタンID用フィールド -->
 			<input type="hidden" name="BUTTON_ID" value="">
 		<h2>
-			<c:out value="${requestScope.Hotel.hotelName}" />
+			<c:out value="${sessionScope.Hotel.hotelName}" />
 		</h2>
 		<br> <br>
 		<table>
@@ -76,9 +77,13 @@
 				</select></td>
 			</tr>
 		</table>
-		<br> <br>
+		<br> <!-- エラーメッセージ -->
+	<div align ="center" style="color: red;">
+		<c:out value="${requestScope.error}" />
+	</div>
 			<span class="button" onclick="document.inform.BUTTON_ID.value='0801_01_01'; document.inform.submit()">カートへ</span>
 	</form>
+	</div>
 	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
