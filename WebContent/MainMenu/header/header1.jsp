@@ -13,7 +13,7 @@
 		<table style="width: 100%;  padding:1.5%; color:#5A5050;">
 		<tr>
 			<td class="element" style="width: 70%; font-family: 'Verdana'; font-size:30px;">
-				<a style="text-decoration:none; color:#5A5050;">FLM tours</a>
+				<a href="./MainMenu.jsp" style="text-decoration:none; color:#5A5050;">FLM tours</a>
 			</td>
 			<td align="center" style="width: 10%; ">
 				<img src="img/cart.png" alt="カート画面へ" style="width: 30px; height: 30px;" onclick="document.inform.BUTTON_ID.value='M_05';document.inform.submit()">
