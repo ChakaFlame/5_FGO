@@ -26,6 +26,7 @@
 </script>
 </head>
 <body>
+<div class="main-container">
 	<div align="center">
 	<h2>メンバー登録</h2>
 	<br>
@@ -43,7 +44,7 @@
 				<td><input type="password" name="Password" value = "${param.Password}" maxLength="15"></td>
 			</tr>
 			<tr>
-				<td class="sample1">郵便番号</td>
+				<td class="sample1">郵便番号<br>(例：111-1111)</td>
 				<td><input type="text" name="ZipCode" value = "${param.ZipCode}" maxLength="8"></td>
 			</tr>
 			<tr>
@@ -104,15 +105,15 @@
 			</tr>
 			<tr>
 				<td class="sample1">住所</td>
-				<td><input type="text" name="Address" value = "${param.Address}" maxLength="100"></td>
+				<td><input type="text" size="50" name="Address" value = "${param.Address}" maxLength="100"></td>
 			</tr>
 			<tr>
-				<td class="sample1">電話番号</td>
+				<td class="sample1">電話番号<br>(例：090-1111-1111)</td>
 				<td><input type="text" name="Tel" value = "${param.Tel}" maxLength="13"></td>
 			</tr>
 			<tr>
 				<td class="sample1">メールアドレス</td>
-				<td><input type="text" name="Mail" value = "${param.Mail}" maxLength="100"></td>
+				<td><input type="text" size="50" name="Mail" value = "${param.Mail}" maxLength="100"></td>
 			</tr>
 		</table>
 		<br>
@@ -123,6 +124,7 @@
 	<div align="center" style="color:red; font-weight:bold;">
     	<%-- エラーメッセージがある場合、出力 --%>
     	<c:out value="${requestScope.message}" />
+	</div>
 	</div>
 	<jsp:include page="footer/footer.html" />
 </body>

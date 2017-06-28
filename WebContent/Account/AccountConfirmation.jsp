@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Account/Account.css">
 </head>
 <body>
+<div class="main-container">
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<!-- ボタンID用フィールド -->
@@ -53,6 +54,7 @@
 		<input class="button" type="button"  value="登録" onclick="document.fm.BUTTON_ID.value='0901_03_01'; document.fm.submit()">
 		</div>
 	</form>
+	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

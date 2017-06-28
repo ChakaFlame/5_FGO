@@ -9,6 +9,7 @@
 </head>
 
 <body>
+	<div class="main-container">
 	<form name="inform" method="post" action="./tsys">
 	<input type="hidden" name="BUTTON_ID" value="">
 <% if (session.getAttribute("memberCode") == null) { %>
@@ -41,14 +42,14 @@
 						<c:out value="${order.orderDate}" />
 					</td>
 					<td class="number">
-						<c:out value="${order.orderTotal}" /></td>
+						<c:out value="${order.orderTotal}" />円</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<div align="center" style="color:red;"><br><br><c:out value="${requestScope.message}"></c:out></div>
 	</form>
-	<br><br><br>
+	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

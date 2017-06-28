@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -79,8 +80,10 @@
 			<td class="padding"><c:out value="${requestScope.payment}" /></td>
 		</tr>
 	</table>
+
 	<br>
 	<br>
+
 			<span onclick="document.inform.BUTTON_ID.value='M_01';document.inform.submit()"
               class="button">メニューへ</span>
 	</div>
@@ -88,7 +91,7 @@
 	</form>
 	<br>
 	<br>
-
+</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>

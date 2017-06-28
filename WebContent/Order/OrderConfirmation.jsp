@@ -8,6 +8,12 @@
 <link rel="stylesheet" type="text/css" href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<div class="main-container">
+<% if (session.getAttribute("memberCode") == null) { %>
+	<jsp:include page="header/header1.jsp" />
+<% } else {%>
+	<jsp:include page="header/header2.jsp" />
+<% } %>
 	<!-- 注文確認 -->
 	<!-- フォーム -->
 	<form action="/tourSystem/tsys" method="POST" name="inform">
@@ -15,8 +21,7 @@
 		<input type="hidden" name="BUTTON_ID" value="">
 	<div align="center">
 		<h2>注文確認</h2>
-	<br>
-	<br>
+		<h3>こちらの注文でよろしいでしょうか？</h3>
 	<br>
 		<h4>購入商品情報</h4>
 		<table border="0">
@@ -37,7 +42,7 @@
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="4" align="right">合計<td>
+			<td colspan="3" align="right">合計<td>
 			<td class="sample2">
 				<c:out value="${sessionScope.totalPrice}" />円
 			</td>
@@ -74,5 +79,7 @@
               class="button">注文確定</span>
 	</div>
 	</form>
+	</div>
+		<jsp:include page="footer/footer.html" />
 </body>
 </html>

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/tourSystem/Shoppingcart/cart.css">
 </head>
 <body>
+<div class="main-container">
 <% if (session.getAttribute("memberCode") == null) { %>
 	<jsp:include page="header/header1.jsp" />
 <% } else {%>
@@ -22,9 +23,6 @@
 		<!-- 見出し -->
 		<h2>ショッピングカート</h2>
 	</div>
-	<br>
-	<br>
-	<br>
 	<div align="center">
 		<table border="0">
 		<tr class="sample1">
@@ -38,22 +36,20 @@
 		<tr>
 			<td><c:out value="${cart.hotel.hotelName}" /></td>
 			<td><c:out value="${cart.hotel.hotelDate}" /></td>
-			<td class = number><c:out value="${cart.hotel.basicPrice}" />円</td>
+			<td class = "number"><c:out value="${cart.hotel.basicPrice}" />円</td>
 			<td  align="right"><c:out value="${cart.reservNo}" /></td>
 			<td><c:out value="${cart.calcPrice()}" />円</td>
 		</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="3" align="right">合計<td>
-			<td class="sample2">
+			<td class="total">
 				<c:out value="${sessionScope.totalPrice}" />円
 			</td>
 		</tr>
 		</table>
 		<br>
-		<br>
-		<br>
-		<br>
+
 		<table>
 		<tr>
 			<td onclick="document.inform.BUTTON_ID.value='0100_01_01';document.inform.submit()" class="button">買物を続ける</td>
@@ -67,6 +63,8 @@
 		<c:out value="${requestScope.message}" />
 	</div>
 	</form>
-</body>	<jsp:include page="footer/footer.html" />
+	</div>
+	<jsp:include page="footer/footer.html" />
+</body>
 
 </html>

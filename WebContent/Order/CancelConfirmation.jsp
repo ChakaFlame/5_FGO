@@ -9,6 +9,7 @@
 	href="/tourSystem/Order/Order.css">
 </head>
 <body>
+<div class="main-container">
 	<%
 		if (session.getAttribute("memberCode") == null) {
 	%>
@@ -29,6 +30,7 @@
 
 		<div align="center">
 			<h2>注文取消確認</h2>
+			<h3>こちらの注文を取消します。よろしいでしょうか？</h3>
 			<table border="0">
 				<tr>
 					<td class="sample1">メンバーコード</td>
@@ -69,7 +71,7 @@
 				</c:forEach>
 				<tr>
 
-					<td colspan="3" align="right">合計(<c:out
+					<td colspan="3" align="right">合計（<c:out
 							value="${sessionScope.count}" />件）
 					<td>
 					<td class="sample2"><c:out value="${sessionScope.totalprice}" />円</td>
@@ -78,9 +80,10 @@
 			</table>
 			<br> <span
 				onclick="document.inform.BUTTON_ID.value='0202_03_01';document.inform.submit()"
-				class="button">この注文を取り消します</span>
+				class="button">注文取消</span>
 		</div>
 	</form>
+	</div>
 	<jsp:include page="footer/footer.html" />
 </body>
 </html>
