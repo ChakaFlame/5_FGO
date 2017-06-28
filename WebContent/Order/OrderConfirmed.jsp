@@ -79,10 +79,8 @@
 			<td class="padding"><c:out value="${requestScope.payment}" /></td>
 		</tr>
 	</table>
-	</div>
 	<br>
 	<br>
-	<div align="center">
 			<span onclick="document.inform.BUTTON_ID.value='M_01';document.inform.submit()"
               class="button">メニューへ</span>
 	</div>
