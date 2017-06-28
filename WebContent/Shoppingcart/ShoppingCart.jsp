@@ -26,11 +26,11 @@
 	<div align="center">
 		<table border="0">
 		<tr class="sample1">
-			<td class="padding">ホテル名</td>
-			<td class="padding">宿泊日</td>
-			<td class="padding">宿泊料金</td>
-			<td class="padding">部屋数</td>
-			<td class="padding">小計</td>
+			<td class="table1">ホテル名</td>
+			<td class="table1">宿泊日</td>
+			<td class="table1">宿泊料金</td>
+			<td class="table1">部屋数</td>
+			<td class="table1">小計</td>
 		</tr>
 		<c:forEach var="cart" items="${sessionScope.cart}">
 		<tr>
