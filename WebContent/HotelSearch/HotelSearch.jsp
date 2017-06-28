@@ -27,6 +27,7 @@
 	<div align="center" style="padding-top: 1%;" id="main">
 		<h2>ホテル検索</h2>
 	</div>
+	<br>
 	<div align="center">
 		<form name="inform" method="post" action="/tourSystem/tsys">
 		<input type="hidden" name="BUTTON_ID" value="">
@@ -94,8 +95,9 @@
 		</form>
 	</div>
 	</div>
-
+	<br>
+	<div id="table">
+	</div>
 	<jsp:include page="footer/footer.html" />
-
 </body>
 </html>

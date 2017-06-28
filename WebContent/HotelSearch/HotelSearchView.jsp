@@ -30,8 +30,6 @@
 		<h2>ホテル検索</h2>
 	</div>
 	<br>
-	<br>
-	<br>
 	<div align="center" >
 		<form name="inform" method="post" action="/tourSystem/tsys">
 		<input type="hidden" name="BUTTON_ID" value="">
@@ -99,9 +97,6 @@
 			<span class="button" onclick="document.inform.BUTTON_ID.value='0802_01_01';document.inform.submit();">検索</span>
 		</form>
 	</div>
-	<br>
-	<br>
-	<br>
 	<div align="center">
 		<div style="color: red;">
 			<c:out value="${requestScope.message}"/>
@@ -110,7 +105,7 @@
 		<c:out value="${requestScope.date}" />
 	</div>
 	<div id="table">
-		<br> <br> <br>
+		<br>
 		<div align="center">
 			<table>
 				<tr class="sample1">

@@ -16,7 +16,6 @@
 	<form action="/tourSystem/tsys" method="POST" name="fm">
 		<input type="hidden" name="BUTTON_ID" value="">
 		<br>
-		<br>
 		<table>
 			<tr>
 				<td class="sample1">メンバーコード</td>
@@ -51,8 +50,7 @@
 				<td><c:out value="${requestScope.member.mail}" /></td>
 			</tr>
 		</table>
-		<br>
-		<br>
+		<input class="button" type="button"  value="ログイン" onclick="document.fm.BUTTON_ID.value='M_03'; document.fm.submit()">
 		<input class="button" type="button"  value="メニューへ" onclick="document.fm.BUTTON_ID.value='M_01'; document.fm.submit()">
 	</form>
 	</div>

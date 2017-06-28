@@ -29,8 +29,8 @@ body {
 	color:#333;
     background-color:#fece3e;
 }
-.sample2 {
-	color:#dc143c;
+.total {
+	font-weight:bold;
 	text-align:center;
 }
 .header {
